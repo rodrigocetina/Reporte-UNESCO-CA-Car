@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introducción | Regulación de Plataformas Digitales</title>
+  <meta name="description" content="La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe — Introducción">
+  <style>
+:root {
+  --primary: #003875; --primary-light: #005ea6; --accent: #e8c900;
+  --bg: #f5f7fa; --sidebar-bg: #002255; --sidebar-width: 280px;
+  --text: #222; --muted: #666; --border: #d0d7e3; --white: #fff;
+  --max-content: 860px;
+  --font: 'Georgia', 'Times New Roman', serif;
+  --font-ui: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); display: flex; min-height: 100vh; }
+.sidebar { width: var(--sidebar-width); min-width: var(--sidebar-width); background: var(--sidebar-bg); color: #cdd6f4; display: flex; flex-direction: column; position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 100; }
+.sidebar-header { background: #001840; padding: 20px 18px 16px; border-bottom: 3px solid var(--accent); }
+.sidebar-header .report-title { font-family: var(--font-ui); font-size: 13px; font-weight: 700; color: var(--white); line-height: 1.4; letter-spacing: 0.02em; }
+.sidebar-header .report-subtitle { font-family: var(--font-ui); font-size: 11px; color: #aabbd4; margin-top: 5px; line-height: 1.3; }
+.sidebar-header .logos { display: flex; align-items: center; gap: 8px; margin-top: 10px; }
+.logo-badge { background: var(--accent); color: #001840; font-family: var(--font-ui); font-size: 9px; font-weight: 800; padding: 2px 6px; border-radius: 3px; letter-spacing: 0.05em; text-transform: uppercase; }
+.sidebar-nav { padding: 10px 0 20px; }
+.sidebar-nav .nav-section-label { font-family: var(--font-ui); font-size: 10px; font-weight: 700; color: #7b9dc8; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px 18px 4px; }
+.sidebar-nav a { display: flex; align-items: flex-start; gap: 10px; padding: 8px 18px; color: #c0d0e8; text-decoration: none; font-family: var(--font-ui); font-size: 12.5px; line-height: 1.4; transition: background 0.15s, color 0.15s; border-left: 3px solid transparent; }
+.sidebar-nav a:hover { background: rgba(255,255,255,0.07); color: var(--white); border-left-color: var(--accent); }
+.sidebar-nav a.active { background: rgba(255,255,255,0.1); color: var(--white); font-weight: 600; border-left-color: var(--accent); }
+.nav-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+.main { margin-left: var(--sidebar-width); flex: 1; display: flex; flex-direction: column; min-height: 100vh; }
+.topbar { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 40px; height: 52px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+.breadcrumb { font-family: var(--font-ui); font-size: 13px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+.breadcrumb a { color: var(--primary-light); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #bbb; }
+.topbar-actions { display: flex; gap: 12px; }
+.btn-nav { font-family: var(--font-ui); font-size: 12px; font-weight: 600; color: var(--primary); text-decoration: none; padding: 5px 14px; border: 1.5px solid var(--primary); border-radius: 4px; transition: background 0.15s, color 0.15s; display: flex; align-items: center; gap: 5px; }
+.btn-nav:hover { background: var(--primary); color: var(--white); }
+.btn-nav.disabled { opacity: 0.35; pointer-events: none; }
+.content-wrap { max-width: var(--max-content); width: 100%; margin: 0 auto; padding: 48px 40px 80px; flex: 1; }
+.section-banner { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: var(--white); border-radius: 8px; padding: 32px 40px; margin-bottom: 40px; position: relative; overflow: hidden; }
+.section-banner::after { content: ''; position: absolute; bottom: -20px; right: -20px; width: 140px; height: 140px; background: rgba(255,255,255,0.06); border-radius: 50%; }
+.section-banner .section-tag { font-family: var(--font-ui); font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+.section-banner h1 { font-family: var(--font-ui); font-size: 26px; font-weight: 700; line-height: 1.3; color: var(--white); margin: 0; }
+.content-body h1 { font-family: var(--font-ui); font-size: 20px; font-weight: 700; color: var(--primary); margin: 40px 0 14px; padding-bottom: 8px; border-bottom: 2px solid var(--accent); line-height: 1.4; }
+.content-body h2 { font-family: var(--font-ui); font-size: 16px; font-weight: 700; color: var(--primary); margin: 30px 0 10px; line-height: 1.4; }
+.content-body h3 { font-family: var(--font-ui); font-size: 14px; font-weight: 700; color: var(--primary-light); margin: 22px 0 8px; line-height: 1.4; }
+.content-body p { font-size: 15.5px; line-height: 1.8; color: #2a2a2a; margin-bottom: 16px; text-align: justify; hyphens: auto; }
+.content-body .footnotes { margin-top: 36px; padding-top: 20px; border-top: 1px solid var(--border); }
+.content-body .footnote { font-size: 12px; color: #666; line-height: 1.6; margin-bottom: 8px; text-align: left; }
+.footer { background: #001840; color: #7a92b0; font-family: var(--font-ui); font-size: 12px; text-align: center; padding: 20px 40px; line-height: 1.6; margin-top: auto; }
+.footer .divider { margin: 0 8px; color: #3a5070; }
+.mobile-toggle { display: none; position: fixed; bottom: 20px; right: 20px; z-index: 200; background: var(--primary); color: var(--white); border: none; border-radius: 50%; width: 48px; height: 48px; font-size: 20px; cursor: pointer; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+  .sidebar.open { transform: translateX(0); }
+  .main { margin-left: 0; }
+  .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+  .content-wrap { padding: 32px 20px 60px; }
+  .topbar { padding: 0 20px; }
+  .section-banner { padding: 24px 24px; }
+  .section-banner h1 { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="report-title">La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe</div>
+    <div class="report-subtitle">Del diagnóstico a la hoja de ruta para la acción · 2026</div>
+    <div class="logos">
+      <span class="logo-badge">UNESCO</span>
+      <span class="logo-badge" style="background:#003399;color:#fff;">UE</span>
+      <span class="logo-badge" style="background:#555;color:#fff;">I4T</span>
+    </div>
+  </div>
+  <div class="sidebar-nav">
+    <a href="index.html" style="font-weight:700; border-top:1px solid rgba(255,255,255,0.07); padding-top:14px;"><span class="nav-icon">🏠</span> Inicio</a>
+    <div class="nav-section-label">Portada y Estructura</div>
+    <a href="cover.html"><span class="nav-icon">📄</span>Portada</a>
+    <a href="indice.html"><span class="nav-icon">📋</span>Índice</a>
+    <div class="nav-section-label">Visión General</div>
+    <a href="resumen.html"><span class="nav-icon">📝</span>Resumen Ejecutivo</a>
+    <a href="introduccion.html" class="active"><span class="nav-icon">📖</span>Introducción</a>
+    <a href="contexto-regional.html"><span class="nav-icon">🌎</span>Contexto Regional</a>
+    <div class="nav-section-label">Análisis por País</div>
+    <a href="costa-rica.html"><span class="nav-icon">🇨🇷</span>Costa Rica</a>
+    <a href="el-salvador.html"><span class="nav-icon">🇸🇻</span>El Salvador</a>
+    <a href="guatemala.html"><span class="nav-icon">🇬🇹</span>Guatemala</a>
+    <a href="honduras.html"><span class="nav-icon">🇭🇳</span>Honduras</a>
+    <a href="mexico.html"><span class="nav-icon">🇲🇽</span>México</a>
+    <a href="panama.html"><span class="nav-icon">🇵🇦</span>Panamá</a>
+    <a href="republica-dominicana.html"><span class="nav-icon">🇩🇴</span>República Dominicana</a>
+    <div class="nav-section-label">Perspectiva Regional</div>
+    <a href="alineamiento-regional.html"><span class="nav-icon">🔗</span>Alineamiento Regional UNESCO</a>
+    <a href="talleres.html"><span class="nav-icon">🎓</span>Los Talleres en América Latina</a>
+    <div class="nav-section-label">Cierre</div>
+    <a href="conclusiones.html"><span class="nav-icon">✅</span>Conclusiones y Recomendaciones</a>
+    <a href="bibliografia.html"><span class="nav-icon">📚</span>Bibliografía</a>
+  </div>
+</nav>
+
+<div class="main">
+  <div class="topbar">
+    <div class="breadcrumb">
+      <a href="index.html">Inicio</a>
+      <span class="sep">/</span>
+      <span>Introducción</span>
+    </div>
+    <div class="topbar-actions">
+      <a href="resumen.html" class="btn-nav">← Resumen Ejecutivo</a>
+      <a href="contexto-regional.html" class="btn-nav">Contexto Regional →</a>
+    </div>
+  </div>
+
+  <div class="content-wrap">
+    <div class="section-banner">
+      <div class="section-tag">UNESCO · I4T · UPF Barcelona</div>
+      <h1>📖 1. Introducción</h1>
+    </div>
+    <div class="content-body">
+      <p>El principal objetivo de este reporte es mapear y analizar el marco legal y regulatorio existente en varios países hispanohablantes de la región de Centroamérica y el Caribe, con énfasis en México, Guatemala, Honduras, El Salvador, Costa Rica, Panamá y la República Dominicana. El propósito es que, a través de una identificación de las regulaciones aplicables, se pueda evaluar el alineamiento de las políticas y normativas nacionales con los principios fundamentales y las recomendaciones contenidas en las Directrices para la Gobernanza de las Plataformas Digitales de la UNESCO, sirviendo de diagnóstico previo para abrir un diálogo en la región e identificar prioridades y el camino a seguir en el futuro.</p>
+      <p>En este contexto, el análisis se centra en la identificación de los marcos jurídicos que rigen el funcionamiento de las plataformas digitales, incluyendo las normativas en materia de protección de datos, derechos fundamentales, telecomunicaciones, transparencia, así como el abordaje de la desinformación en campañas electorales. También será de relevancia identificar los órganos, agencias o instituciones que tienen a cargo la supervisión y tutela de esos derechos, garantías y libertades.</p>
+      <p>El reporte no solo pretende mapear las normativas existentes, sino también valorar las posibles brechas y desafíos regulatorios que persisten en la región, así como las oportunidades de mejora para fomentar un ecosistema digital más inclusivo, ético y en consonancia con los estándares internacionales en materia de gobernanza de plataformas digitales. Todo esto, visibilizando las diferencias y los contextos propios de cada uno de los países de la región.</p>
+      <p>A nivel metodológico, se realizó un análisis del marco legal y regulatorio en fuentes jurídicas de tipo normativo para cada país en cuestión, recopilando también información relevante como el año de promulgación, los órganos emisores de esas regulaciones, el alcance y sus ámbitos de aplicación, entre otros. Esta revisión incluyó los textos constitucionales, legales y reglamentarios, así como otra normativa de inferior rango que han emitido dependencias institucionales en los países de la región y que se vincula o atañe a las plataformas digitales. Esta aproximación integral lo que buscaba era un panorama completo sobre el entramado normativo que regula la gobernanza digital en los distintos contextos nacionales.</p>
+      <p>Cuando fue necesario, también se recogen datos y se referencian informes que hacen valoraciones sobre cuestiones particularmente relevantes, como valoraciones sobre el estado de la libertad de expresión o la libertad de prensa en la región, y sobre los retos democráticos que los países afrontan.</p>
+      <p>El análisis se estructuró en torno a los principios fundamentales establecidos en las Directrices para la Gobernanza de las Plataformas Digitales de la UNESCO, los cuales son un marco de referencia para evaluar la coherencia y la alineación de las normativas nacionales con los estándares internacionales en materia de gobernanza de las plataformas digitales. Si bien no hay evidencia directa de que las Directrices UNESCO hayan incidido en cambios regulatorios recientes, particularmente porque en varios casos no los ha habido, el reporte parte de las Directrices para identificar aquellas áreas en las que las políticas y regulaciones existentes convergen con estos principios, así como aquellas en las que se presentan divergencias o brechas normativas, incluso tensiones; o, en su defecto, los ámbitos en los que aún no existe regulación.</p>
+      <p>A partir de ahí se ha realizado una evaluación país por país, para conocer qué tan alineado se encuentra, a priori, el ordenamiento jurídico de cada uno en relación con el contenido de las Directrices. También se ha mirado al grado de cumplimiento y eficacia sobre la tutela de estos aspectos por los órganos responsables. El enfoque está orientado a identificar patrones normativos, brechas regulatorias y áreas de oportunidad, lo que enriquece la evaluación comparativa y la formulación de recomendaciones.</p>
+      <p>En conjunto, con la revisión de los documentos normativos se busca contribuir a una comprensión profunda de los desafíos y oportunidades para la mejora de la gobernanza digital en la región, en línea con los principios promovidos por la UNESCO. Lo anterior, analizando las generalidades centroamericanas de este tema en su conjunto, pero visibilizando las particularidades nacionales en su especificidad.</p>
+      <p>Todo esto ha servido para que, los días 8 y 9 de diciembre de 2025, y con apoyo de la UNESCO, la I4T Knowledge Network, con el apoyo de la UPF Barcelona School of Management y una serie de investigadores y especialistas, se convocara a representantes de entes reguladores y electorales, así como a representantes de organizaciones de la sociedad civil, a una serie de talleres de capacitación, escucha activa, y creación a fin de presentarles lo recogido en este reporte, y complementarlo con una serie de actividades que permitieran validarlo, pero también que resultaran en un diagnóstico de la percepción de los retos regionales y nacionales en cuanto a la gobernanza de plataformas digitales que permitiera a su vez, extraer una serie de propuestas y prioridades sobre hacia dónde orientar estos esfuerzos en la región.</p>
+      <p>Dichos talleres tuvieron lugar en Santo Domingo, República Dominicana, bajo una modalidad híbrida (presencial y online). Este evento se enmarcó dentro del proyecto de la UNESCO titulado "Safeguarding Freedom of Expression and Access to Information through the implementation of the UNESCO Guidelines for the Governance of Digital Platforms", el cual cuenta con el financiamiento y respaldo de la Unión Europea, al igual que el presente reporte.</p>
+      <p>Entre los resultados de los mencionados talleres, que se incluyen en la parte final de este reporte, la Tabla Periódica de Regulación de Plataformas, creada por la I4T Knowledge Network, fue una herramienta esencial. La tabla es una herramienta visual que organiza los elementos clave de la gobernanza de las plataformas digitales, inspirada en la tabla periódica de los elementos químicos, y permite la exploración y entendimiento de las diferentes dimensiones de la regulación de plataformas digitales.</p>
+      <p>Las aportaciones se basaron en reflexiones sobre el marco institucional necesario, las autoridades que deben estar involucradas y sus competencias, el tipo de mecanismos legislativos existentes, o faltantes, los derechos humanos que se buscan proteger con las intervenciones y, en una segunda parte, los tipos de intervención —gobernanza de contenidos, gestión de riesgos y obligaciones de debida diligencia, e intervenciones tecnológicas y de diseño prosocial— que se pueden utilizar para la gobernanza y regulación de las plataformas digitales.</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <em>Proyecto UNESCO financiado por la Unión Europea: "Safeguarding Freedom of Expression and Access to Information through the implementation of the UNESCO Guidelines for the Governance of Digital Platforms"</em>
+    <br>
+    Autores: Rodrigo Cetina-Presuel, José Achoy y Priscilla Ruiz
+    <span class="divider">·</span>
+    I4T Global Knowledge Network · UPF Barcelona School of Management · 2026
+  </footer>
+</div>
+
+<button class="mobile-toggle" id="menuToggle" aria-label="Menú">☰</button>
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.getElementById('menuToggle');
+  toggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && e.target !== toggle) sidebar.classList.remove('open');
+  });
+</script>
+</body>
+</html>
