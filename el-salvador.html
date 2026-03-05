@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>El Salvador | Regulación de Plataformas Digitales</title>
+  <meta name="description" content="La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe — El Salvador">
+  <style>
+:root {
+  --primary: #003875;
+  --primary-light: #005ea6;
+  --accent: #e8c900;
+  --bg: #f5f7fa;
+  --sidebar-bg: #002255;
+  --sidebar-width: 280px;
+  --text: #222;
+  --muted: #666;
+  --border: #d0d7e3;
+  --white: #fff;
+  --max-content: 860px;
+  --font: 'Georgia', 'Times New Roman', serif;
+  --font-ui: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: #cdd6f4;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-header {
+  background: #001840;
+  padding: 20px 18px 16px;
+  border-bottom: 3px solid var(--accent);
+}
+
+.sidebar-header .report-title {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-header .report-subtitle {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: #aabbd4;
+  margin-top: 5px;
+  line-height: 1.3;
+}
+
+.sidebar-header .logos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.logo-badge {
+  background: var(--accent);
+  color: #001840;
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sidebar-nav {
+  padding: 10px 0 20px;
+}
+
+.sidebar-nav .nav-section-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: #7b9dc8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 14px 18px 4px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 18px;
+  color: #c0d0e8;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  line-height: 1.4;
+  transition: background 0.15s, color 0.15s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-nav a:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--white);
+  border-left-color: var(--accent);
+}
+
+.sidebar-nav a.active {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  font-weight: 600;
+  border-left-color: var(--accent);
+}
+
+.nav-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Main content ── */
+.main {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.breadcrumb {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb a { color: var(--primary-light); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #bbb; }
+
+.topbar-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-nav {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 5px 14px;
+  border: 1.5px solid var(--primary);
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-nav:hover { background: var(--primary); color: var(--white); }
+.btn-nav.disabled { opacity: 0.35; pointer-events: none; }
+
+/* ── Content area ── */
+.content-wrap {
+  max-width: var(--max-content);
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+  flex: 1;
+}
+
+.section-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 32px 40px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; right: -20px;
+  width: 140px; height: 140px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+
+.section-banner .section-tag {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.section-banner h1 {
+  font-family: var(--font-ui);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--white);
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+/* ── Typography ── */
+.content-body h1 {
+  font-family: var(--font-ui);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 40px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  line-height: 1.4;
+}
+
+.content-body h2 {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 30px 0 10px;
+  line-height: 1.4;
+}
+
+.content-body h3 {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-light);
+  margin: 22px 0 8px;
+  line-height: 1.4;
+}
+
+.content-body p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #2a2a2a;
+  margin-bottom: 16px;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.content-body .footnotes {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.content-body .footnote {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/* ── Index page specific ── */
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.index-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.index-card:hover {
+  box-shadow: 0 4px 16px rgba(0,56,117,0.12);
+  transform: translateY(-2px);
+  border-color: var(--primary-light);
+  text-decoration: none;
+}
+
+.card-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.card-content { flex: 1; }
+
+.card-content .card-number {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--primary);
+  padding: 2px 7px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.card-content .card-title {
+  font-family: var(--font-ui);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.card-content .card-desc {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* ── Footer ── */
+.footer {
+  background: #001840;
+  color: #7a92b0;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  text-align: center;
+  padding: 20px 40px;
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+.footer a { color: #aabbd4; text-decoration: none; }
+.footer .divider { margin: 0 8px; color: #3a5070; }
+
+/* ── Hamburger for mobile ── */
+.mobile-toggle {
+  display: none;
+  position: fixed;
+  bottom: 20px; right: 20px;
+  z-index: 200;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 48px; height: 48px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+  .sidebar.open { transform: translateX(0); }
+  .main { margin-left: 0; }
+  .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+  .content-wrap { padding: 32px 20px 60px; }
+  .topbar { padding: 0 20px; }
+  .section-banner { padding: 24px 24px; }
+  .section-banner h1 { font-size: 20px; }
+  .index-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="report-title">La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe</div>
+    <div class="report-subtitle">Del diagnóstico a la hoja de ruta para la acción · 2026</div>
+    <div class="logos">
+      <span class="logo-badge">UNESCO</span>
+      <span class="logo-badge" style="background:#003399;color:#fff;">UE</span>
+      <span class="logo-badge" style="background:#555;color:#fff;">I4T</span>
+    </div>
+  </div>
+  <div class="sidebar-nav">
+    <a href="index.html"  style="font-weight:700; border-top:1px solid rgba(255,255,255,0.07); padding-top:14px;">
+      <span class="nav-icon">🏠</span> Inicio
+    </a>
+    <div class="nav-section-label">Portada y Estructura</div>
+<a href="cover.html" class=""><span class="nav-icon">📄</span>Portada</a>
+<a href="indice.html" class=""><span class="nav-icon">📋</span>Índice</a>
+<div class="nav-section-label">Visión General</div>
+<a href="resumen-intro.html" class=""><span class="nav-icon">📝</span>Resumen Ejecutivo e Introducción</a>
+<a href="contexto-regional.html" class=""><span class="nav-icon">🌎</span>Contexto Regional</a>
+<div class="nav-section-label">Análisis por País</div>
+<a href="costa-rica.html" class=""><span class="nav-icon">🇨🇷</span>Costa Rica</a>
+<a href="el-salvador.html" class="active"><span class="nav-icon">🇸🇻</span>El Salvador</a>
+<a href="guatemala.html" class=""><span class="nav-icon">🇬🇹</span>Guatemala</a>
+<a href="honduras.html" class=""><span class="nav-icon">🇭🇳</span>Honduras</a>
+<a href="mexico.html" class=""><span class="nav-icon">🇲🇽</span>México</a>
+<a href="panama.html" class=""><span class="nav-icon">🇵🇦</span>Panamá</a>
+<a href="republica-dominicana.html" class=""><span class="nav-icon">🇩🇴</span>República Dominicana</a>
+<div class="nav-section-label">Perspectiva Regional</div>
+<a href="alineamiento-regional.html" class=""><span class="nav-icon">🔗</span>Alineamiento Regional UNESCO</a>
+<a href="talleres.html" class=""><span class="nav-icon">🎓</span>Los Talleres en América Latina</a>
+<div class="nav-section-label">Cierre</div>
+<a href="conclusiones.html" class=""><span class="nav-icon">✅</span>Conclusiones y Recomendaciones</a>
+<a href="bibliografia.html" class=""><span class="nav-icon">📚</span>Bibliografía</a>
+  </div>
+</nav>
+
+<!-- Main -->
+<div class="main">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="breadcrumb">
+      <a href="index.html">Inicio</a>
+      <span class="sep">/</span>
+      <span>El Salvador</span>
+    </div>
+    <div class="topbar-actions">
+      <a href="costa-rica.html" class="btn-nav">← Costa Rica</a>
+      <a href="guatemala.html" class="btn-nav">Guatemala →</a>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content-wrap">
+    <div class="section-banner">
+      <div class="section-tag">UNESCO · I4T · UPF Barcelona</div>
+      <h1>🇸🇻 El Salvador</h1>
+    </div>
+    <div class="content-body">
+      <h1>4. Análisis por País: El Salvador</h1>
+<h2>4.1 Sistema Político y Legal</h2>
+<p>El marco regulatorio y político de El Salvador se fundamenta en su Constitución de la República de 198339, que, en su artículo 1, reconoce de manera expresa a la persona humana como el origen y el fin supremo de toda la actividad del Estado, el cual está organizado para la consecución de la justicia, la seguridad jurídica y el bien común. El artículo 85 de la Constitución define al país como un Estado soberano y establece taxativamente su forma de gobierno como republicana, democrática y representativa. El sistema político salvadoreño es pluralista y ha evolucionado jurídicamente hacia una mayor apertura democrática; mediante normativas como las Disposiciones para la Postulación de Candidaturas No Partidarias (Decreto 555),40 que reconoció el derecho ciudadano a postularse a cargos legislativos de manera independiente, potenciando la libertad en el ejercicio del sufragio libre, directo, igualitario y secreto consagrado en el artículo 78 de la Constitución. A nivel constitucional, el ejercicio del poder público está delegado en tres órganos fundamentales que operan bajo un estricto principio de indelegabilidad y mutua colaboración: el Órgano Legislativo, ejercido por una Asamblea Legislativa unicameral con la potestad de decretar leyes y elegir a funcionarios de segundo grado; el Órgano Ejecutivo, encabezado por la Presidencia de la República; y el Órgano Judicial, cuya máxima jerarquía corresponde a la Corte Suprema de Justicia. Dentro de esta última, la Sala de lo Constitucional juega un rol medular como máximo y definitivo intérprete de la Carta Magna, dirimiendo controversias y tutelando derechos fundamentales a través de procesos de inconstitucionalidad, amparo y habeas corpus (incluyendo el Habeas Data para la protección de la información personal). En el ámbito político-electoral, la máxima autoridad administrativa y jurisdiccional es el Tribunal Supremo Electoral (TSE), encargado de convocar, organizar, dirigir y supervisar todos los comicios, operando como el árbitro definitivo en disputas de esta índole y en la fiscalización de los partidos políticos. En la actualidad, el sistema electoral salvadoreño atraviesa una fase de profunda transformación tecnológica y demográfica impulsada por la reciente Ley Especial para el Ejercicio del Sufragio en el Extranjero (Decreto 541 de 2022),41 la cual integró a la vasta diáspora salvadoreña al proceso democrático mediante la habilitación pionera del voto electrónico remoto por internet y el voto electrónico presencial. Más allá de los tres poderes tradicionales, el diseño institucional del Estado salvadoreño contempla un Ministerio Público compuesto por la Fiscalía General de la República, la Procuraduría General de la República y la Procuraduría para la Defensa de los Derechos Humanos (PDDH). Esta última entidad detenta el mandato constitucional de velar por el respeto irrestricto de las garantías fundamentales de la ciudadanía frente a posibles abusos u omisiones del poder público, operando como una contraloría moral e institucional.</p>
+<div class="footnotes">
+<p class="footnote">39El Salvador. (1983, 15 de diciembre). Constitución de la República de El Salvador. Diario Oficial N.º 234. https://www.asamblea.gob.sv/node/8291</p>
+<p class="footnote">40Asamblea Legislativa de la República de El Salvador. (2010, 4 de noviembre). Decreto N.º 555. Disposiciones para la Postulación de Candidaturas No Partidarias en las Elecciones Legislativas. Diario Oficial N.º 222, Tomo N.º 389. https://www.asamblea.gob.sv/node/628</p>
+<p class="footnote">41Asamblea Legislativa de la República de El Salvador. (2022, 18 de octubre). Ley Especial para el Ejercicio del Sufragio en el Extranjero. Diario Oficial N.º 197, Tomo N.º 437. https://www.asamblea.gob.sv/node/12437 for the Governance of Digital Platforms’</p>
+</div>
+<h2>4.2 Libertad de Expresión y Derechos Humanos</h2>
+<p>Los derechos civiles y políticos encuentran su base primaria en el artículo 6 de la Constitución, el cual garantiza de forma categórica que toda persona puede expresar y difundir libremente sus pensamientos por cualquier medio, sin sujeción a censura previa. Esta libertad, sin embargo, encuentra sus límites constitucionales legítimos cuando su ejercicio subvierta el orden público o lesione la moral, el honor o la vida privada de terceros, bienes jurídicos que están expresamente protegidos en el artículo 2. Por su parte, el artículo 24 consagra la inviolabilidad de la correspondencia postal y el secreto inquebrantable de las telecomunicaciones, estableciendo que su intervención solo puede ejecutarse de manera excepcional y estrictamente mediante una resolución judicial motivada. Además, el artículo 18 reconoce el derecho de petición ciudadana ante cualquier autoridad constituida. A pesar de la robustez de estas garantías formales, el ejercicio pleno y seguro de la libertad de expresión enfrenta sus desafíos más graves y sistemáticos desde la firma de los Acuerdos de Paz. En 2024, la organización Reporteros Sin Fronteras situó a El Salvador en la alarmante posición 133 de un total de 180 países.42 Este profundo deterioro se ha visto agravado por la vigencia ininterrumpida de un Régimen de Excepción, instaurado desde marzo de 2022, el cual suspende de facto garantías constitucionales vitales (incluyendo la inviolabilidad de las telecomunicaciones y el derecho a la defensa), generando un entorno de alta vulnerabilidad ciudadana. En este clima de excepcionalidad, se aprobaron reformas penales —catalogadas por el gremio periodístico como una &quot;Ley Bozal&quot;— que impusieron severas penas de prisión de hasta quince años para quienes reproduzcan o transmitan mensajes originados por grupos de pandillas a través de medios de comunicación o plataformas digitales.43 Esto generó un efecto inhibitorio inmediato, forzando a los medios a la autocensura, si bien esta práctica fue despenalizada en 2023.44 La seguridad digital y la privacidad se han convertido en motivos de gravísima preocupación. Múltiples investigaciones internacionales han documentado el uso encubierto de software de espionaje militar (como Pegasus) para intervenir los dispositivos de periodistas de investigación, activistas y opositores.45 A esta vigilancia técnica se suma la proliferación de campañas de desinformación online, evidenciándose la operación sistemática de ejércitos de cuentas falsas y granjas de trolls en el país.46</p>
+<div class="footnotes">
+<p class="footnote">42Reporteros sin Fronteras. (s.f.). El Salvador. Recuperado el 25 de febrero de 2026, de https://rsf.org/es/pais/el-salvador</p>
+<p class="footnote">43Committee to Protect Journalists. (2022, 8 de abril). Nueva ley adoptada en El Salvador sanciona con penas de hasta 15 años de prisión a los periodistas que den cobertura informativa a las pandillas. https://cpj.org/es/2022/04/nueva-ley-adoptada-en-el-salvador-sanciona-con-penas-de-hasta-15-anos-de- prision-a-los-periodistas-que-den-cobertura-informativa-a-las-pandillas/</p>
+<p class="footnote">44Asamblea Legislativa de El Salvador. (2023, 2 de noviembre). Diputados despenalizan difusión de mensajes generados por pandillas. https://www.asamblea.gob.sv/node/12992</p>
+<p class="footnote">45Amnistía Internacional. (2022, 13 de enero). El Salvador: Amnistía Internacional verifica el uso del programa espía Pegasus para la vigilancia de periodistas. https://www.amnesty.org/es/latest/news/2022/01/el-salvador- pegasus-spyware-surveillance-journalists/</p>
+<p class="footnote">46Human Rights Watch. (2024). El Salvador. En Informe mundial 2024. Recuperado el 25 de febrero de 2026, de https://www.hrw.org/es/world-report/2024/country-chapters/el-salvador for the Governance of Digital Platforms’</p>
+</div>
+<h2>4.3 Entorno Digital</h2>
+<p>El Salvador muestra un crecimiento continuo en sus indicadores de conectividad a nivel macroeconómico. No obstante, subyace una brecha digital de carácter estructural que margina crónicamente a las zonas rurales y estratos de menores ingresos. La conectividad móvil a través de teléfonos se ha consolidado como el principal medio de acceso a internet para la mayoría de la población, en un contexto donde el acceso fijo sigue siendo minoritario. Según informes recientes sobre el ecosistema digital del país, existen alrededor de 11 millones de conexiones móviles en un país de algo más de 6 millones de habitantes,47 lo que se traduce en niveles de penetración de alrededor del 170% debido al uso extendido de múltiples tarjetas Sim por persona.48 Al mismo tiempo, las suscripciones a internet de banda ancha fija apenas superan unas centenas de miles, confirmando que el teléfono móvil es el único canal de conexión a internet para amplios sectores sociales.49 El Salvador ha construido una narrativa de vanguardia financiera y tecnológica a partir de la adopción de Bitcoin50 como moneda de curso legal y el lanzamiento de una billetera digital estatal llamada ChivoWallet.51 Sin embargo, la realidad es más matizada, si bien las velocidades de descarga móvil y fija han mejorado en los últimos años, el Salvador sigue mostrando rezagos respecto a otros países de la región con una brecha persistente entre la penetración de la banda ancha y la de línea móviles, 52lo que sugiere que el impulso de las criptomonedas no ha ido acompañado de inversiones en infraestructura de red. El mercado de las telecomunicaciones salvadoreño presenta una estructura altamente concentrada con dos grandes operadores transnacionales, Tigo y Claro, ocupando posiciones dominantes en telefonía móvil y en acceso a internet para los consumidores.53 Las estadísticas sectoriales muestran que estos dos proveedores concentran la mayor parte de las líneas móviles y de las suscripciones de banda ancha, mientras el resto del mercado se reparte entre otros actores de menor tamaño54. El modelo comercial está basado principalmente en el prepago, con alrededor de un 90% de líneas móviles ofrecidas bajo esta modalidad, siendo la recarga el mecanismo predominante para el acceso y consumo de datos. En febrero de 2024, el gobierno salvadoreño otorgó a la empresa de internet por satélite, Starlink, una concesión de 10 años para las frecuencias de internet satelital, lo que permite a la empresa ofrecer este servicio comercialmente.55 En este contexto, los operadores han desplegado de forma recurrente ofertas de datos móviles en un esquema de zero-rating o a coste diferenciado que incluyen acceso a aplicaciones, especialmente</p>
+<div class="footnotes">
+<p class="footnote">47International Trade Administration. (2024). El Salvador - Information and communications technology. U.S. Department of Commerce. https://www.trade.gov/country-commercial-guides/el-salvador-information-and- communications-technology</p>
+<p class="footnote">48Kemp, S. (2025, 8 de noviembre). Digital 2026: El Salvador. DataReportal – Global Digital Insights. https://datareportal.com/reports/digital-2026-el-salvador</p>
+<p class="footnote">49International Telecommunication Union. (2023, agosto). Digital development dashboard BETA: El Salvador. https://www.digitaldevelopment.org/wp-content/uploads/2023/08/ddd_SLV-1.pdf</p>
+<p class="footnote">50Consejo Nacional de Inclusión y Educación Financiera. (s.f.). Bitcoin en El Salvador. Recuperado el 25 de febrero de 2026, de https://inclusionfinanciera.gob.sv/bitcoin-en-el-salvador/</p>
+<p class="footnote">51Chivo Wallet. (s.f.). Inicio. Recuperado el 25 de febrero de 2026, de https://www.chivowallet.com/</p>
+<p class="footnote">52International Telecommunication Union. (2023, agosto). Digital development dashboard BETA: El Salvador. https://www.digitaldevelopment.org/wp-content/uploads/2023/08/ddd_SLV-1.pdf</p>
+<p class="footnote">53International Trade Administration. (2024). El Salvador - Information and communications technology. U.S. Department of Commerce. https://www.trade.gov/country-commercial-guides/el-salvador-information-and- communications-technology</p>
+<p class="footnote">54Internet Society. (2026). Country report for El Salvador. Internet Society Pulse. Recuperado el 25 de febrero de 2026, de https://pulse.internetsociety.org/en/reports/SV/</p>
+<p class="footnote">55Thomson Reuters. (2024, 28 de febrero). El Salvador grants Musk&#x27;s Starlink unit concession for satellite internet. COOL FM. https://wqxc.com/2024/02/28/el-salvador-grants-musks-starlink-unit-concession-for- satellite-internet/ for the Governance of Digital Platforms’ de Meta (Facebook o WhatsApp), 56dirigidas principalmente a usuarios de prepago. Esto permite usar estas plataformas sin que el tráfico compute contra el cupo de datos generales, con el reto de internet accesible de forma más onerosa. Estas prácticas han sido señaladas como vulneradoras de facto de los principios de neutralidad de la red, y que limitan la capacidad de las personas para acceder al internet abierto y para poder contrastar información a través de fuentes diversas.57</p>
+</div>
+<h2>4.4 Plataformas digitales disponibles en el país</h2>
+<p>En 2025, El Salvador registraba aproximadamente 3.90 millones de usuarios activos en redes sociales, lo que equivale a más del 61% de la población total y a más del 87% de la población mayor de 18 años. Estas cifras muestran una consolidación del entorno digital respecto a los datos de 2023, cuando se reportaban 4 millones de usuarios activos, conformados demográficamente por un 51.9% de mujeres y un 48.1% de hombres.58 En cuanto al alcance de las plataformas, el ecosistema de Meta y las plataformas de video concentran la mayor parte de las audiencias. Para 2025, Facebook reporta alrededor de 4.05 millones de usuarios potenciales para pautas publicitarias, lo que representa un incremento frente a los 3.6 millones de alcance reportados en 2023. Por su parte, Instagram cuenta con cerca de 1.8 millones de usuarios y Messenger mantiene una presencia significativa en la comunicación diaria. En el formato audiovisual, YouTube alcanza a 3.58 millones de salvadoreños, manteniendo cifras estables frente a años anteriores, mientras que TikTok registra un crecimiento exponencial y una alta penetración, especialmente en los segmentos demográficos más jóvenes.59 La concentración del consumo informativo en unas pocas plataformas estructura los hábitos digitales de la población en un contexto en donde el acceso a internet es primordialmente a través del móvil. Las redes sociales operan no solo como espacios de entretenimiento o interacción personal, sino que moldean la forma en que los salvadoreños acceden a las noticias y se integran al debate sobre política. Adicionalmente, estas aplicaciones son fundamentales para la actividad económica del país, sirviendo como canales principales para la difusión de campañas publicitarias, el comercio informal y la realización de transacciones en línea.60</p>
+<h2>4.5 Contexto legislativo y regulatorio en El Salvador</h2>
+<h3>4.5.1 Marco constitucional</h3>
+<p>El artículo 6 de la Constitución de El Salvador consagra el derecho inalienable de toda persona a expresar y difundir libremente sus pensamientos. Esta disposición, al proteger la emisión del pensamiento &quot;por cualquier medio&quot; y prohibir expresamente la censura previa, aplica principio de</p>
+<div class="footnotes">
+<p class="footnote">56Galpaya, H. (2017, 23 de febrero). Zero-rating in emerging economies (Global Commission on Internet Governance Paper Series No. 47). Centre for International Governance Innovation. https://www.cigionline.org/static/documents/documents/GCIG%20no.47_2.pdf</p>
+<p class="footnote">57Massé, E., Björksten, &amp; Chima, R. J. S. (2016, 4 de junio). Zero rating: A global threat to the open internet. Access Now. https://www.accessnow.org/zero-rating-global-threat-open-internet/</p>
+<p class="footnote">58Márquez, D. (2025, 10 de junio). DataReportal y el uso de internet y redes sociales en El Salvador 2025. iLifebelt. https://ilifebelt.com/datareportal-y-el-uso-de-internet-y-redes-sociales-en-el-salvador-2025/2025/06/</p>
+<p class="footnote">59Pulso. (2025, 16 de junio). Uso de internet y redes sociales en El Salvador 2025. Pulso Capital. https://pulsocapital.com/uso-de-internet-redes-sociales-el-salvador-2025/</p>
+<p class="footnote">60Calderón, S. (2024, 15 de octubre). Más 50% de los salvadoreños pasa más de tres horas diarias en redes sociales. Diario El Mundo. https://diario.elmundo.sv/economia/mas-50-de-los-salvadorenos-pasa-mas-de- tres-horas-diarias-en-redes-sociales for the Governance of Digital Platforms’ neutralidad tecnológica que ampara de manera automática las expresiones vertidas en internet, plataformas digitales y redes sociales. No obstante, el propio texto fundamental reconoce que este derecho no es absoluto. De forma ponderada, los artículos 2 y 24 fungen como los límites constitucionales necesarios frente a posibles abusos o intervenciones desproporcionadas. El artículo 2 protege el derecho al honor, la intimidad personal y familiar, y la propia imagen, sirviendo de protección contra conductas lesivas como la difamación o el ciberacoso. Por su parte, el artículo 24 blinda la privacidad ciudadana al garantizar la estricta inviolabilidad de la correspondencia y prohibir la interferencia de las telecomunicaciones. Esta norma establece un cerco garantista, determinando que cualquier interceptación de comunicaciones electrónicas o telemáticas solo podrá realizarse de manera excepcional, temporal y bajo una resolución judicial debidamente motivada, orientada exclusivamente a la investigación de delitos graves. Ante la ausencia de una ley general de protección de datos en el país, la jurisprudencia consolidada de la Sala de lo Constitucional de la Corte Suprema de Justicia ha asumido un rol tutelar protagónico. Este máximo tribunal ha interpretado de manera expansiva y garantista las normas protectoras del artículo 2 para reconocer y operativizar el derecho a la autodeterminación informativa mediante la figura del Habeas Data. A través de este mecanismo de amparo jurisdiccional, se ha otorgado a la ciudadanía salvadoreña la potestad constitucional de controlar su información personal y sensible cuando esta se encuentre almacenada, perfilada o procesada en bases de datos, independientemente de si son administradas por instituciones públicas o por corporaciones privadas y grandes plataformas tecnológicas. Finalmente, este conjunto de derechos civiles y de privacidad se complementa con los mandatos constitucionales relativos al orden económico y el bienestar social (artículos 101 y 102). Estas disposiciones obligan al Estado a promover el desarrollo económico y tecnológico, así como a defender activamente los intereses de los consumidores. Esta base constitucional la que ha legitimado la creación de normativas secundarias aplicables al entorno en línea —como las leyes de comercio electrónico y protección al consumidor— para combatir la publicidad engañosa y regular las cláusulas abusivas en los &quot;Términos y Condiciones&quot; de las plataformas. Así, el marco constitucional salvadoreño no solo protege al usuario en su dimensión comunicativa, sino que impone al Estado el deber de generar las condiciones de seguridad jurídica necesarias para una convivencia digital equitativa. Dicho todo esto, existen preocupaciones acerca de que en El Salvador se ha configurado un entorno digital restrictivo. Como se dijo antes, las campañas de estigmatización impulsadas por granjas de trolls pueden desacreditar el trabajo de la prensa independiente y de las organizaciones de la sociedad civil, pero también pueden generar un efecto paralizante entre la ciudadanía, que cada vez más opta por la autocensura en las plataformas por temor a represalias legales, detenciones bajo el régimen de excepción o linchamientos virtuales. El propio contexto de infraestructura digital, basado principalmente en el acceso móvil de prepago y bajo esquemas de zero rating tampoco ayuda a la situación, pues ofrece dudas sobre la efectiva garantía del derecho a la información. De este modo, el ecosistema de internet salvadoreño, que constitucionalmente debería funcionar como una extensión plural y segura de la esfera pública, sufre de una asimetría de poder que le hace particularmente vulnerable a la intimidación digital en detrimento de la libertad de expresión.</p>
+</div>
+<h3>4.5.2 Legislación sobre Telecomunicaciones y Medios</h3>
+<p>El marco normativo que rige la infraestructura de conectividad y las comunicaciones en El Salvador tiene como pilar la Ley de Telecomunicaciones (Decreto Legislativo 142 de 1997).61 Esta legislación</p>
+<div class="footnotes">
+<p class="footnote">61Asamblea Legislativa de la República de El Salvador. (1997, 22 de mayo). Decreto N.º 142. Ley de Telecomunicaciones. Diario Oficial N.º 108, Tomo N.º 335. https://www.asamblea.gob.sv/node/634 for the Governance of Digital Platforms’ delega en la Superintendencia General de Electricidad y Telecomunicaciones (SIGET) la autoridad técnica e institucional para la administración, regulación y otorgamiento de concesiones del espectro radioeléctrico, considerado un recurso del Estado. Esta ley, de finales del siglo pasado, prioriza la regulación técnica, la gestión de frecuencias y la promoción de la competencia en el mercado bajo la supervisión administrativa de la SIGET. Carece de disposiciones que regulen y garanticen la neutralidad de la red, la gestión transparente del tráfico de datos o el régimen de responsabilidad de los intermediarios y plataformas digitales. Un elemento de control histórico que destaca por su impacto político es el artículo 127 de esta ley, el cual obliga inexcusablemente a todos los concesionarios de frecuencias radioeléctricas a transmitir &quot;cadenas nacionales&quot; simultáneas cuando sean convocadas por la Presidencia de la República, bajo pena de multas severas en caso de desacato, lo que perpetúa y legaliza el control monopólico del Órgano Ejecutivo sobre el espectro masivo de información en situaciones coyunturales. Más allá de la gestión de frecuencias para la radio y televisión tradicional, esta ley sentó las bases para la apertura a la libre competencia en los servicios de transmisión de datos, regulando la interconexión de redes y el acceso a recursos esenciales. En la era digital, el rol regulador de la SIGET es relevante, ya que sus normativas operativas y técnicas sobre la infraestructura de telecomunicaciones impactan de manera directa en la calidad, cobertura y accesibilidad de los servicios de internet para la población salvadoreña. En materia de legislación sobre telecomunicaciones, medios de comunicación y prensa, el país se rige primordialmente por la Ley de Telecomunicaciones, promulgada mediante el Decreto Legislativo 142 de 1997. En el ámbito del escrutinio ciudadano y la relación entre el Estado y la sociedad, la Ley de Acceso a la Información Pública (Decreto Legislativo 534 de 2011)62 reconoce formalmente que el derecho a la libertad de expresión comprende la facultad inalienable de buscar, recibir y difundir información sin consideración de fronteras y por cualquier medio, incluyendo expresamente la vía electrónica. Para materializar este mandato, la normativa instaura el principio de &quot;máxima publicidad&quot;, obligando a todas las instituciones estatales y municipalidades a publicar proactivamente información de oficio a través de sitios web y portales de transparencia. El Instituto de Acceso a la Información Pública (IAIP), es el órgano garante del derecho ciudadano a saber. Este instituto operativiza los mandatos mediante el mencionado Decreto 534 de 2011, siguiendo la premisa la transparencia es una condición básica para la participación ciudadana. El IAIP está encargado de garantizar que toda persona pueda buscar, recibir y difundir información derivada de la gestión gubernamental, velando por la rendición de cuentas y la protección de los datos personales confidenciales en poder de la administración pública. Sin embargo, como se dijo, a pesar de la robustez dogmática de sus garantías, El Decreto Legislativo N° 333 (que declara el Régimen de Excepción en El Salvador)63 suspende los artículos 7 y 24 de la Constitución salvadoreña. Esto afecta gravemente el ejercicio periodístico y la libertad de expresión al suspender la inviolabilidad de la correspondencia y de las telecomunicaciones (Art. 24), así como la libertad de asociación (Art. 7). Al permitir que el Estado intercepte y examine comunicaciones privadas sin necesidad de una orden judicial previa y motivada, se destruye la confidencialidad de las comunicaciones y se vulnera el secreto profesional, impidiendo a los periodistas proteger la identidad de sus fuentes. Esta vigilancia irrestricta, combinada con la suspensión del derecho a la defensa técnica y la ampliación de la detención administrativa a 15 días (Arts. 12 y 13), coloca a los comunicadores y voces críticas en una situación de indefensión que genera además un clima de vulnerabilidad ciudadana en el espacio cívico tanto físico como digital. En este contexto de excepcionalidad, la imposición de reformas penales como la &quot;Ley Bozal&quot;, que amenazaban con hasta quince años de prisión a quienes reprodujeran mensajes de pandillas en plataformas digitales o medios tradicionales, detonó un profundo efecto inhibitorio y forzó una autocensura generalizada en</p>
+<p class="footnote">62Asamblea Legislativa de la República de El Salvador. (2011, 8 de abril). Decreto N.º 534. Ley de Acceso a la Información Pública. Diario Oficial N.º 70, Tomo N.º 391. https://www.asamblea.gob.sv/node/624</p>
+<p class="footnote">63Asamblea Legislativa de la República de El Salvador. (2022, 27 de marzo). Decreto N.º 333. Régimen de Excepción. Diario Oficial N.º 59, Tomo N.º 434. https://www.asamblea.gob.sv/node/12105 for the Governance of Digital Platforms’ el ecosistema informativo; una coacción estructural cuyos efectos paralizantes persisten pese a que la difusión de dichos mensajes fue despenalizada en 2023. En el ámbito digital, la suspensión del artículo 24 legitima de facto la vigilancia estatal masiva y arbitraria sobre el ciberespacio. Al eliminar el blindaje constitucional de las telecomunicaciones, el gobierno queda habilitado para intervenir correos electrónicos, aplicaciones de mensajería instantánea, tráfico de datos y perfiles de redes sociales sin supervisión de un juez. Esto resulta en un impacto severamente negativo en la libertad de expresión online, ya que instaura un entorno de hipervigilancia donde los ciudadanos asumen que su huella digital y sus opiniones políticas en internet están siendo monitoreadas constantemente.</p>
+</div>
+<h3>4.5.3 Regulación específica sobre plataformas y/o regulación de</h3>
+<p>contenidos El Salvador no posee un código digital único, exhaustivo, ni una ley moderna que clasifique y regule a las plataformas de redes sociales como intermediarios de información. Ante esta ausencia, el marco normativo vigente y aplicable opera con distintos instrumentos legales. En la esfera del derecho civil y mercantil, la regulación se aborda tangencialmente a través de normativas como la Ley de Firma Electrónica (Decreto Legislativo 133)64 y la Ley de Comercio Electrónico (Decreto Legislativo 463).65 Estas herramientas proporcionan la arquitectura necesaria para validar jurídicamente las transacciones, los contratos en línea y los mensajes de datos, permitiendo el desarrollo comercial e interacciones seguras en el entorno digital. En el ámbito punitivo, el control de las amenazas en la red recae en la Ley Especial contra los Delitos Informáticos y Conexos, aprobada mediante el Decreto Legislativo 260 en 2016.66 Esta normativa constituye la herramienta principal del Estado para tipificar y sancionar conductas ilícitas como el fraude informático, el acceso ilícito a sistemas, el sabotaje y la obtención o transferencia de información confidencial. Para equilibrar la asimetría entre las empresas tecnológicas y los ciudadanos, el Estado se apoya de manera supletoria en la Ley de Protección al Consumidor.67 Esta norma resulta aplicable a los entornos virtuales pues prohíbe la publicidad engañosa y regula de manera estricta los contratos de adhesión, figura jurídica bajo la cual operan los &quot;Términos y Condiciones&quot; de las plataformas digitales. Mediante esta ley, se declaran nulas aquellas cláusulas abusivas que pretendan eximir de responsabilidad a los proveedores de servicios o que impongan renuncias arbitrarias de derechos a los usuarios, brindando una capa básica de defensa legal frente a los abusos corporativos. El ordenamiento jurídico salvadoreño no prevé un esquema de exención de responsabilidad para las plataformas respecto de los contenidos subidos o compartidos por sus usuarios. Al no existir una delimitación precisa sobre la responsabilidad civil o penal de los proveedores de servicios de internet frente a las publicaciones ilícitas o lesivas de terceros, la moderación de contenidos opera en un vacío legal. Tampoco existen políticas de transparencia o mecanismos de apelación y debido proceso por parte de las plataformas tecnológicas.</p>
+<div class="footnotes">
+<p class="footnote">64Asamblea Legislativa de la República de El Salvador. (2015, 22 de octubre). Decreto N.º 133. Ley de Firma Electrónica. Diario Oficial N.º 201, Tomo N.º 409. https://www.asamblea.gob.sv/node/623</p>
+<p class="footnote">65Asamblea Legislativa de la República de El Salvador. (2020, 22 de octubre). Decreto N.º 463. Ley de Comercio Electrónico. Diario Oficial N.º 215, Tomo N.º 429. https://www.asamblea.gob.sv/node/10852</p>
+<p class="footnote">66Asamblea Legislativa de la República de El Salvador. (2016, 4 de febrero). Decreto N.º 260. Ley Especial contra los Delitos Informáticos y Conexos. Diario Oficial N.º 29, Tomo N.º 410. https://www.asamblea.gob.sv/node/621</p>
+<p class="footnote">67Asamblea Legislativa de la República de El Salvador. (2005, 31 de agosto). Decreto N.º 772. Ley de Protección al Consumidor. Diario Oficial N.º 166, Tomo N.º 368. https://www.asamblea.gob.sv/node/630 for the Governance of Digital Platforms’ Sin embargo, cualquier análisis sobre la gobernanza de las plataformas y la creación de contenidos digitales en El Salvador tiene que situarse en el contexto del actual, y ya mencionado, Régimen de Excepción, que ha alterado drásticamente las reglas del ecosistema digital al suspender garantías constitucionales en particular el secreto de las telecomunicaciones (Art. 24 de la Constitución) y que continúa extendiéndose en el tiempo68. El Régimen de Excepción, en tanto que ya perdura en el tiempo, legaliza de facto la vigilancia estatal irrestricta, permitiendo a las autoridades intervenir comunicaciones electrónicas, interceptar mensajería privada y rastrear el tráfico de datos en redes sociales sin necesidad de una orden o control judicial previo. Esta anulación de la privacidad digital, combinada con la inexistencia de una Ley General de Protección de Datos Personales, coloca a los usuarios de plataformas en una situación de indefensión absoluta frente al aparato estatal. El resultado directo de este régimen de excepcionalidad es la autocensura ante el miedo fundado a que las opiniones políticas, las interacciones en redes sociales o los contenidos compartidos puedan ser utilizados para justificar detenciones administrativas arbitrarias (amparadas en la misma suspensión de derechos). Esta situación impone serias barreras gubernamentales para que internet pueda ser un espacio libre y de debate democrático en el país.</p>
+</div>
+<h3>4.5.4 Legislación sobre protección de datos y privacidad</h3>
+<p>La legislación salvadoreña en materia de protección de datos y privacidad ciudadana enfrenta un vacío estructural en el Salvador. A la fecha, el país carece de una ley de protección de datos personales vinculante para el sector privado, así como de una autoridad nacional técnica y especializada dedicada exclusivamente a esta materia. Ante esta ausencia legal, el control y resguardo de la información ciudadana opera de manera altamente fragmentada. La protección, como en otros países que no cuentan con legislación específica, se ampara fundamentalmente en la jurisprudencia constitucional del Habeas Data. Por su parte, en la esfera de la administración gubernamental, la ya citada Ley de Acceso a la Información Pública (Decreto Legislativo 534) asume la tutela de los &quot;datos personales confidenciales&quot;, pero su alcance es estrictamente limitado, ya que el Instituto de Acceso a la Información Pública (IAIP) únicamente tiene competencia y capacidad de sanción sobre la información que obra en poder de las dependencias e instituciones del Estado. Para intentar suplir la falta de regulación sobre el tratamiento masivo de datos por parte de actores corporativos y plataformas tecnológicas, el Estado debe recurrir a herramientas sectoriales. En este sentido, la ya mencionada Ley de Protección al Consumidor funciona como un freno legal frente a la mercantilización de la privacidad. Esta normativa busca sancionar la cesión abusiva y la comercialización no autorizada de datos personales comerciales, crediticios o de consumo por parte de las empresas. Aunque brinda a los usuarios una herramienta de defensa básica frente a la explotación de su información en el mercado de bienes y servicios, resulta una medida insuficiente para abordar la complejidad del perfilamiento algorítmico y la recolección masiva de metadatos propios del ecosistema digital moderno.</p>
+<div class="footnotes">
+<p class="footnote">68Comisión Interamericana de Derechos Humanos. (14 de agosto de 2025). El Salvador: CIDH reitera preocupación por la prolongación excesiva y aplicación indebida del régimen de excepción. Organización de los Estados Americanos. https://www.oas.org/es/cidh/jsForm/?File=/es/cidh/prensa/comunicados/2025/162.asp for the Governance of Digital Platforms’ Finalmente, en el sensible plano de la privacidad investigativa y la vigilancia, el país se rige por la Ley Especial para la Intervención de las Telecomunicaciones (Decreto Legislativo 285).69 Esta norma operativiza la excepción constitucional al permitir la interceptación de comunicaciones electrónicas y telemáticas para la persecución de delitos graves, centralizando los protocolos técnicos de escuchas bajo la estricta subordinación a un mandato emitido por un juez especializado. Sin embargo, a pesar de un diseño legal que a priori parece garantista, la práctica operativa demuestra una realidad diametralmente opuesta. Las organizaciones internacionales han advertido reiteradamente sobre la falta de controles técnicos independientes suficientes para auditar el uso de sistemas de interceptación de comunicaciones70, lo que ha derivado en graves y reiteradas vulneraciones a la intimidad. Los reportes documentados internacionalmente sobre el uso de software de espionaje tecnológico contra actores políticos, defensores de derechos humanos y periodistas evidencian la preocupante fragilidad de las salvaguardas estatales y el riesgo inminente de que estas herramientas se utilicen con fines de persecución política.71</p>
+</div>
+<h3>4.5.5 Regulación específica de protección de colectivos vulnerables</h3>
+<p>La protección de poblaciones vulnerables en el ecosistema digital salvadoreño se estructura a través de un enfoque que combina mandatos preventivos y persecución penal. En la esfera de la prevención, la Ley Crecer Juntos para la Protección Integral de la Primera Infancia, Niñez y Adolescencia72 incorpora directrices modernas orientadas a resguardar a los menores frente al acceso y la exposición a contenidos en línea de naturaleza violenta, sexual o nociva para su desarrollo. De manera complementaria y reactiva, la tutela legal estricta recae en la Ley Especial contra los Delitos Informáticos y Conexos (Decreto Legislativo 260 de 2016).73 Esta normativa dedica un capítulo específico a los delitos cibernéticos contra niñas, niños, adolescentes y personas con discapacidad (artículos 24 al 27), castigando con penas de prisión conductas como la distribución y posesión de pornografía infantil, o el chantaje sexual mediante el uso de tecnologías de la información, y la utilización de menores para la producción o difusión de material explícito a través de cualquier dispositivo digital. Por otro lado, en el ámbito de la lucha contra la violencia de género en entornos virtuales, diversas reformas penales introducidas por la Asamblea Legislativa han logrado tipificar de manera autónoma agresiones digitales contemporáneas. Esto ha permitido penalizar conductas como la difusión no consentida de material visual íntimo (&quot;pornovenganza&quot;), el chantaje sexual electrónico y el ciberacoso. Sin embargo, a pesar de la existencia de este catálogo sancionador, la aplicación de la justicia enfrenta obstáculos. Las limitaciones en materia de investigación forense digital, las barreras técnicas para identificar a agresores que operan bajo el anonimato en plataformas transnacionales y los retos en la agilidad de la persecución judicial, merman significativamente la efectividad de estas leyes.</p>
+<div class="footnotes">
+<p class="footnote">69Asamblea Legislativa de la República de El Salvador. (2010, 4 de marzo). Decreto N.º 285. Ley Especial para la Intervención de las Telecomunicaciones. Diario Oficial N.º 45, Tomo N.º 386. https://www.asamblea.gob.sv/node/633</p>
+<p class="footnote">70ONU. (2021, July 19). Los gobiernos no pueden usar tecnologías de espionaje a los ciudadanos que violan los derechos humanos. Naciones Unidas. https://news.un.org/es/story/2021/07/1494542</p>
+<p class="footnote">71Amnistía Internacional. (13 de enero de 2022). El Salvador: Amnistía Internacional verifica el uso del programa espía Pegasus para la vigilancia de periodistas. https://www.amnesty.org/es/latest/news/2022/01/el-salvador- pegasus-spyware-surveillance-journalists/</p>
+<p class="footnote">72Asamblea Legislativa de la República de El Salvador. (2022, 22 de junio). Decreto N.º 431. Ley Crecer Juntos para la Protección Integral de la Primera Infancia, Niñez y Adolescencia. Diario Oficial N.º 118, Tomo N.º 435. https://www.asamblea.gob.sv/node/12217</p>
+<p class="footnote">73Asamblea Legislativa de la República de El Salvador. (2016, 4 de febrero). Decreto N.º 260. Ley Especial contra los Delitos Informáticos y Conexos. Diario Oficial N.º 29, Tomo N.º 410. https://www.asamblea.gob.sv/node/621 for the Governance of Digital Platforms’</p>
+</div>
+<h3>4.5.6 Regulación Electoral Digital</h3>
+<p>En el ámbito de la regulación electoral, las normas rectoras para las campañas, el financiamiento y la propaganda en El Salvador se encuentran contenidas principalmente en el Código Electoral74 y la Ley de Partidos Políticos.75 Históricamente, este marco normativo fue diseñado para fiscalizar procesos analógicos y pautas en medios de comunicación masiva tradicionales (televisión, radio y prensa escrita). Sin embargo, frente a la migración del debate político hacia el ecosistema virtual, este cuerpo normativo ahora acusa un retraso estructural. El Salvador carece de regulaciones específicas que tipifiquen delitos cibernético-electorales modernos o que obliguen a las corporaciones tecnológicas a reportar de manera transparente la procedencia de la pauta política. Esta omisión legislativa deja al Tribunal Supremo Electoral (TSE) desprovisto de facultades sancionatorias y herramientas operativas para fiscalizar la financiación opaca, tanto nacional como extranjera, de publicidad microsegmentada en redes sociales durante los períodos electorales. Esta falta de modernización jurídica agrava la vulnerabilidad del proceso democrático frente a tácticas de manipulación algorítmica. Al no existir un encuadre legal que dote al TSE de &quot;dientes&quot; para intervenir en el entorno digital, el país queda expuesto a fenómenos cibernéticos que son determinantes en las democracias actuales. Bajo el esquema actual, resulta sumamente difícil investigar o frenar el despliegue de granjas de bots, el uso sistemático de cuentas inauténticas o las operaciones de desinformación coordinada orientadas a coaccionar candidatos, polarizar al electorado o suprimir la intención de voto. Paradójicamente, mientras la regulación del discurso político online permanece estancada, la infraestructura de votación experimentó cambios importantes. Con la aprobación de la Ley Especial para el Ejercicio del Sufragio en el Extranjero (Decreto Legislativo 541 de 2022), se instauró la modalidad del voto electrónico remoto por internet (además de la modalidad electrónica presencial) para la vasta diáspora salvadoreña. Este salto tecnológico facilita la participación de cientos de miles de salvadoreños en el exterior, si bien introdujo retos logísticos y de ciberseguridad sin precedentes. Su implementación obligó al Estado a depender de tecnologías sofisticadas de validación biométrica facial, algoritmos de encriptación de datos y proveedores internacionales de software, marcando la integración de la tecnología digital en la materialización de la democracia salvadoreña.</p>
+<h2>4.6 Alineamiento con las Directrices UNESCO: El Salvador</h2>
+<p>El análisis del marco normativo e institucional de El Salvador, contrastado con las Directrices de la UNESCO para la gobernanza de plataformas digitales, revela una falta de alineamiento estructural y práctica. Si bien la Constitución de la República establece un diseño dogmático garantista —al proteger la libertad de expresión con neutralidad tecnológica (Art. 6) y consagrar la inviolabilidad de las comunicaciones (Art. 24)—, la realidad operativa del país se aleja drásticamente del enfoque basado en derechos humanos, transparencia y debida diligencia que promueve el sistema internacional. En la práctica, el ecosistema digital salvadoreño opera bajo vacíos legales críticos y un entorno político que prioriza el control punitivo sobre la gobernanza multistakeholder. En materia de libertad de expresión y protección del espacio cívico, el marco salvadoreño choca frontalmente con el &quot;alto umbral&quot; exigido por la UNESCO (donde las restricciones deben ser excepcionales, legales, necesarias y proporcionales). Este principio se encuentra gravemente</p>
+<div class="footnotes">
+<p class="footnote">74Asamblea Legislativa de la República de El Salvador. (2013, 3 de julio). Decreto N.º 413. Código Electoral. Diario Oficial N.º 122, Tomo N.º 400. https://www.asamblea.gob.sv/node/629</p>
+<p class="footnote">75Asamblea Legislativa de la República de El Salvador. (2013, 31 de enero). Decreto N.º 307. Ley de Partidos Políticos. Diario Oficial N.º 32, Tomo N.º 398. https://www.asamblea.gob.sv/node/631 for the Governance of Digital Platforms’ vulnerado por la imposición de un Régimen de Excepción ininterrumpido desde marzo de 2022, el cual suspende de facto la inviolabilidad de las telecomunicaciones y legaliza una vigilancia estatal irrestricta. A esto se suma el uso documentado de software de espionaje militar (como Pegasus) contra la prensa, y la promoción de reformas penales como la denominada &quot;Ley Bozal&quot; que, aunque posteriormente despenalizada, instauró un clima de persecución. Esta combinación, junto con la operación sistemática de granjas de trolls para estigmatizar voces críticas, genera un profundo efecto inhibitorio y fomenta la autocensura, destruyendo el entorno de debate público seguro que la UNESCO busca proteger. Respecto a la gobernanza específica de las plataformas digitales, El Salvador carece de un régimen de &quot;puerto seguro&quot; o de responsabilidad condicionada para los intermediarios de internet. Al no existir una ley moderna que defina el rol de estas corporaciones tecnológicas, no hay incentivos ni obligaciones legales para que las redes sociales establezcan políticas transparentes de moderación de contenidos, evalúen sus riesgos sistémicos o brinden mecanismos de debido proceso a los usuarios. Para suplir esta carencia, el Estado recurre a herramientas punitivas, como la Ley Especial contra los Delitos Informáticos, o aplica supletoriamente la Ley de Protección al Consumidor frente a &quot;Términos y Condiciones&quot; abusivos, omitiendo la necesidad de un sistema integral de corregulación digital. La protección de datos y la privacidad representan otro punto crítico de desalineación. El Salvador sufre de un vacío estructural profundo al no contar con una Ley General de Protección de Datos Personales aplicable al sector privado, ni con una autoridad nacional independiente en la materia. La protección recae de forma fragmentada en el Instituto de Acceso a la Información Pública (solo para datos estatales) o en la jurisprudencia, dejando a la ciudadanía inerme frente a la recolección masiva y el perfilamiento algorítmico comercial. Además, las prácticas del mercado de telecomunicaciones, fuertemente ancladas en planes de prepago con esquemas de zero-rating (acceso sin consumo de datos a ciertas redes como Facebook o WhatsApp), vulneran el principio de neutralidad de la red, encerrando a los usuarios en burbujas informativas que limitan su acceso a la web abierta y facilitan la propagación de desinformación. Finalmente, en el ámbito de la integridad democrática, el país presenta una asimetría. Por un lado, dio un salto tecnológico de vanguardia al habilitar el voto electrónico remoto por internet para su diáspora mediante la Ley Especial para el Ejercicio del Sufragio en el Extranjero (2022). Por otro lado, sufre de un retraso legislativo para fiscalizar el proselitismo digital. El Tribunal Supremo Electoral (TSE) carece de facultades y sustento legal para auditar la financiación opaca de publicidad microsegmentada, investigar el uso de bots o frenar operaciones coordinadas de desinformación orientadas a la supresión del voto. En conjunto, El Salvador enfrenta el desafío de transitar desde un modelo de vigilancia y desregulación corporativa hacia un marco integral de gobernanza digital que exija rendición de cuentas a las plataformas y restaure las garantías constitucionales del ecosistema informativo. for the Governance of Digital Platforms’</p>
+</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <em>Proyecto UNESCO financiado por la Unión Europea: "Safeguarding Freedom of Expression and Access to Information through the implementation of the UNESCO Guidelines for the Governance of Digital Platforms"</em>
+    <br>
+    Autores: Rodrigo Cetina-Presuel, José Achoy y Priscilla Ruiz
+    <span class="divider">·</span>
+    I4T Global Knowledge Network · UPF Barcelona School of Management · 2026
+  </footer>
+</div>
+
+<!-- Mobile toggle -->
+<button class="mobile-toggle" id="menuToggle" aria-label="Menú">☰</button>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.getElementById('menuToggle');
+  toggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && e.target !== toggle) sidebar.classList.remove('open');
+  });
+</script>
+
+</body>
+</html>

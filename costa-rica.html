@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Costa Rica | Regulación de Plataformas Digitales</title>
+  <meta name="description" content="La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe — Costa Rica">
+  <style>
+:root {
+  --primary: #003875;
+  --primary-light: #005ea6;
+  --accent: #e8c900;
+  --bg: #f5f7fa;
+  --sidebar-bg: #002255;
+  --sidebar-width: 280px;
+  --text: #222;
+  --muted: #666;
+  --border: #d0d7e3;
+  --white: #fff;
+  --max-content: 860px;
+  --font: 'Georgia', 'Times New Roman', serif;
+  --font-ui: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: #cdd6f4;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-header {
+  background: #001840;
+  padding: 20px 18px 16px;
+  border-bottom: 3px solid var(--accent);
+}
+
+.sidebar-header .report-title {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-header .report-subtitle {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: #aabbd4;
+  margin-top: 5px;
+  line-height: 1.3;
+}
+
+.sidebar-header .logos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.logo-badge {
+  background: var(--accent);
+  color: #001840;
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sidebar-nav {
+  padding: 10px 0 20px;
+}
+
+.sidebar-nav .nav-section-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: #7b9dc8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 14px 18px 4px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 18px;
+  color: #c0d0e8;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  line-height: 1.4;
+  transition: background 0.15s, color 0.15s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-nav a:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--white);
+  border-left-color: var(--accent);
+}
+
+.sidebar-nav a.active {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  font-weight: 600;
+  border-left-color: var(--accent);
+}
+
+.nav-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Main content ── */
+.main {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.breadcrumb {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb a { color: var(--primary-light); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #bbb; }
+
+.topbar-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-nav {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 5px 14px;
+  border: 1.5px solid var(--primary);
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-nav:hover { background: var(--primary); color: var(--white); }
+.btn-nav.disabled { opacity: 0.35; pointer-events: none; }
+
+/* ── Content area ── */
+.content-wrap {
+  max-width: var(--max-content);
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+  flex: 1;
+}
+
+.section-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 32px 40px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; right: -20px;
+  width: 140px; height: 140px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+
+.section-banner .section-tag {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.section-banner h1 {
+  font-family: var(--font-ui);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--white);
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+/* ── Typography ── */
+.content-body h1 {
+  font-family: var(--font-ui);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 40px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  line-height: 1.4;
+}
+
+.content-body h2 {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 30px 0 10px;
+  line-height: 1.4;
+}
+
+.content-body h3 {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-light);
+  margin: 22px 0 8px;
+  line-height: 1.4;
+}
+
+.content-body p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #2a2a2a;
+  margin-bottom: 16px;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.content-body .footnotes {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.content-body .footnote {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/* ── Index page specific ── */
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.index-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.index-card:hover {
+  box-shadow: 0 4px 16px rgba(0,56,117,0.12);
+  transform: translateY(-2px);
+  border-color: var(--primary-light);
+  text-decoration: none;
+}
+
+.card-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.card-content { flex: 1; }
+
+.card-content .card-number {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--primary);
+  padding: 2px 7px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.card-content .card-title {
+  font-family: var(--font-ui);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.card-content .card-desc {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* ── Footer ── */
+.footer {
+  background: #001840;
+  color: #7a92b0;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  text-align: center;
+  padding: 20px 40px;
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+.footer a { color: #aabbd4; text-decoration: none; }
+.footer .divider { margin: 0 8px; color: #3a5070; }
+
+/* ── Hamburger for mobile ── */
+.mobile-toggle {
+  display: none;
+  position: fixed;
+  bottom: 20px; right: 20px;
+  z-index: 200;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 48px; height: 48px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+  .sidebar.open { transform: translateX(0); }
+  .main { margin-left: 0; }
+  .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+  .content-wrap { padding: 32px 20px 60px; }
+  .topbar { padding: 0 20px; }
+  .section-banner { padding: 24px 24px; }
+  .section-banner h1 { font-size: 20px; }
+  .index-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="report-title">La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe</div>
+    <div class="report-subtitle">Del diagnóstico a la hoja de ruta para la acción · 2026</div>
+    <div class="logos">
+      <span class="logo-badge">UNESCO</span>
+      <span class="logo-badge" style="background:#003399;color:#fff;">UE</span>
+      <span class="logo-badge" style="background:#555;color:#fff;">I4T</span>
+    </div>
+  </div>
+  <div class="sidebar-nav">
+    <a href="index.html"  style="font-weight:700; border-top:1px solid rgba(255,255,255,0.07); padding-top:14px;">
+      <span class="nav-icon">🏠</span> Inicio
+    </a>
+    <div class="nav-section-label">Portada y Estructura</div>
+<a href="cover.html" class=""><span class="nav-icon">📄</span>Portada</a>
+<a href="indice.html" class=""><span class="nav-icon">📋</span>Índice</a>
+<div class="nav-section-label">Visión General</div>
+<a href="resumen-intro.html" class=""><span class="nav-icon">📝</span>Resumen Ejecutivo e Introducción</a>
+<a href="contexto-regional.html" class=""><span class="nav-icon">🌎</span>Contexto Regional</a>
+<div class="nav-section-label">Análisis por País</div>
+<a href="costa-rica.html" class="active"><span class="nav-icon">🇨🇷</span>Costa Rica</a>
+<a href="el-salvador.html" class=""><span class="nav-icon">🇸🇻</span>El Salvador</a>
+<a href="guatemala.html" class=""><span class="nav-icon">🇬🇹</span>Guatemala</a>
+<a href="honduras.html" class=""><span class="nav-icon">🇭🇳</span>Honduras</a>
+<a href="mexico.html" class=""><span class="nav-icon">🇲🇽</span>México</a>
+<a href="panama.html" class=""><span class="nav-icon">🇵🇦</span>Panamá</a>
+<a href="republica-dominicana.html" class=""><span class="nav-icon">🇩🇴</span>República Dominicana</a>
+<div class="nav-section-label">Perspectiva Regional</div>
+<a href="alineamiento-regional.html" class=""><span class="nav-icon">🔗</span>Alineamiento Regional UNESCO</a>
+<a href="talleres.html" class=""><span class="nav-icon">🎓</span>Los Talleres en América Latina</a>
+<div class="nav-section-label">Cierre</div>
+<a href="conclusiones.html" class=""><span class="nav-icon">✅</span>Conclusiones y Recomendaciones</a>
+<a href="bibliografia.html" class=""><span class="nav-icon">📚</span>Bibliografía</a>
+  </div>
+</nav>
+
+<!-- Main -->
+<div class="main">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="breadcrumb">
+      <a href="index.html">Inicio</a>
+      <span class="sep">/</span>
+      <span>Costa Rica</span>
+    </div>
+    <div class="topbar-actions">
+      <a href="contexto-regional.html" class="btn-nav">← Contexto Regional</a>
+      <a href="el-salvador.html" class="btn-nav">El Salvador →</a>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content-wrap">
+    <div class="section-banner">
+      <div class="section-tag">UNESCO · I4T · UPF Barcelona</div>
+      <h1>🇨🇷 Costa Rica</h1>
+    </div>
+    <div class="content-body">
+      <h1>3. Análisis por País: Costa Rica</h1>
+<h2>3.1 Sistema Político y Legal</h2>
+<p>Costa Rica cuenta con un sistema de gobierno de corte presidencialista y las iniciativas de ley puede ser propuestas por el Legislativo como por el Ejecutivo. En la región de Centroamérica, se ha caracterizado por encontrarse en posiciones de alta calidad democrática y, a pesar de que ha tenido descensos en los últimos años en el Democracy Index de The Economist, se mantiene clasificada como una democracia plena. El funcionamiento del sistema político está configurado por tres Poderes de la República (Ejecutivo, Legislativo y Judicial) y un Tribunal Supremo de Elecciones que tiene el mismo rango constitucional. Mantiene elecciones nacionales libres y consecutivas desde 1953 y en la actualidad sus comicios eligen a las autoridades del Ejecutivo y el Legislativo cada 4 años, con una elección a medio periodo para el caso de autoridades populares de gobiernos locales, a quienes se les designa también por 4 años. Costa Rica tiene un control concentrado de constitucionalidad y se otorga interpretación constitucional exclusiva y excluyente al Tribunal Supremo de Elecciones en materia electoral. Este último órgano tiene una doble función: le compete ser administración electoral y registraduría civil; y, adicionalmente, tiene facultades constitucionales de autoridad jurisdiccional para la tutela de derechos políticos. La organización del Estado, además de las atribuciones de estos Poderes, se descentraliza a nivel institucional entre Ministerios, instituciones autónomas y semiautónomas; y, de modo separado, en una descentralización territorial de 7 provincias con 84 municipios, compuestos cada uno de ellos por Alcaldías y Concejos Municipales.</p>
+<h2>3.2 Libertad de Expresión y Derechos Humanos</h2>
+<p>La libertad de expresión (artículo 29), el derecho de acceso a la información (artículo 27) y el derecho a las telecomunicaciones (artículo 24), son previsiones establecidas a texto expreso de la Constitución y desarrolladas a nivel jurisprudencial por la Sala Constitucional de la Corte Suprema de Justicia. El país figura como uno de los principales destinos de exilio para periodistas centroamericanos y latinoamericanos18, aunque el último reporte de la Relatoría especial para la libertad de expresión de la OEA advirtió sobre las dificultades que recientemente se han agravado para estas personas, principalmente por costos de vida y la inseguridad ciudadana, lo que los ha llevado a ocuparse en otros ámbitos profesionales. Las posiciones y resultados en índices y reportes de libertad de expresión para este país son las siguientes:</p>
+<div class="footnotes">
+<p class="footnote">18Universidad de Costa Rica. (2025). Informe de voces desplazadas. https://www.ucr.ac.cr/medios/documentos/2025/informe-voces-desplazadas-proledi-ucr-6882ccd979021.pdf for the Governance of Digital Platforms’ Tabla 2. Posición del país en índices de libertad de expresión Índice / Reporte Calificación Posición Año Reporteros Sin Fronteras (RSF) 73.09 36 2025 V-Dem 0.94 23 2024 Freedom on the Net 85 (Free) 5(72) 2023 Fuente: Elaboración propia a partir de RSF (2025), V-Dem (2024) y Freedom House (2023). La tutela judicial, tanto de la libertad y el acceso a la información como de la libertad de expresión, le compete a la Sala Constitucional por la vía del recurso de amparo; y, tratándose de esas mismas libertades en el ámbito de las campañas electorales, el ejercicio de derechos políticos y los agravios en perjuicio representantes populares, se tramita como amparo ante el Tribunal Supremo de Elecciones. Adicionalmente, el país cuenta con tres dependencias administrativas involucradas en esta materia. La primera de ellas es la Agencia de Protección de Datos de los Habitantes, la cual atiende en sede administrativa reclamaciones por el uso indebido de datos, imágenes o información personal. Esta oficina también gestiona solicitudes relacionadas con el derecho al olvido, respecto de personas que solicitan la supresión de noticias periodísticas o contenidos digitales con una vigencia superior a 10 años y que no revisten de interés público. La segunda institución relacionada es la Oficina de Control de Propaganda, con una competencia limitada a moderar la publicidad (no contenido editorial) en los que se haga un uso indebido, violento o inapropiado de la imagen de la mujer y de las personas adultas mayores, así como de la fijación de franjas horarias permitidas para los contenidos televisivos. Adicionalmente, la Superintendencia de Telecomunicaciones funge como una dependencia técnica y administrativa en cuanto a las regulaciones asociadas con la prestación de servicios públicos, infraestructura y despliegue de redes de comunicación y de explotación del espacio radioeléctrico. Principalmente, en cuanto a la regulación y supervisión de las reglas de competencia entre los sujetos privados a los que se les concesiona el uso del espectro de telecomunicaciones. Aunque no se trata de una dependencia administrativa exclusivamente orientada a la gobernanza de plataformas digitales, se identificó que la Dirección General de Tributación, adscrita al Ministerio de Hacienda, juega un rol importante en este tema. A partir de una reforma fiscal del 2018, se habilitó legalmente la posibilidad de que el Estado cobre como tributo el 13% del Impuesto sobre el Valor Agregado a los servicios digitales transfronterizos. La lista de plataformas sujetas a este impuesto no es taxativa por ley; esto delega la potestad en la Dirección General de Tributación de establecer sus criterios, incluir y excluir a las plataformas a través de resoluciones administrativas, así como establecer el procedimiento para el cobro del tributo. Según los registros oficiales de la Sala Constitucional, en el año 2024 se interpusieron 41 procesos de amparo en los que se reclamaba por libertad de expresión y prensa; asimismo, 3130 recursos por derecho de petición y acceso a la información. En su conjunto, estos procesos representaron el 8% de las gestiones tramitadas por el Tribunal Constitucional durante ese año.19 El 49% de esos casos fue declarado con lugar o parcialmente con lugar. Recientemente se han presentado afectaciones en cuanto a la tutela de acceso a la información bajo el contexto electoral. Una ONG relacionada a privados de libertad en régimen de alta contención y de máxima seguridad, reclamaron por la vía de amparo ante el TSE que no podían informarse debido a que el centro penitenciario no se cuenta con televisores. Esto último, porque el Juez de Garantías</p>
+<p class="footnote">19Sala Constitucional de la Corte Suprema de Justicia. (2024). Compendio anual estadístico. https://salaconstitucional.poder-judicial.go.cr/index.php/jurisprudencia/estadistica-por-temas/estadisticas-por- temas-de-asuntos-votados for the Governance of Digital Platforms’ (ejecución de la pena) así lo remitió por medio de resolución. La gestión de amparo fue rechazada por falta de legitimación. Los privados de libertad en otros tipos de regímenes carcelarios menos gravosos sí cuentan con acceso regulado a transmisiones televisivas. Otro de los casos asociados en esta materia es el resuelto por el organismo electoral a favor de un candidato que, en medio de la campaña, bloqueó a un usuario de la red social X. El demandante reclamó ante el TSE que el bloqueo le impedía acceder a la información de campaña que publicara el candidato. En la resolución n. N.º 3252-E1-2018 el organismo señaló que “los datos divulgados en esas plataformas, aun cuando estén relacionados con la agenda política de la agrupación, no tienen la virtud de convertir en público el perfil utilizado por el candidato; es decir, su uso y administración continúan siendo de índole privada, por lo que el Estado deberá abstenerse de ejecutar cualquier acción que limite la autonomía de sus propietarios”. Existen dos informes recientes sobre la situación de la libertad de expresión y derechos humanos de esta índole en el país. El primero fue elaborado por la Universidad para la Paz de la ONU, la cual tiene sede en Costa Rica. El segundo fue elaborado por la Universidad de Costa Rica. Ambos coinciden en que los años recientes han reflejado un deterioro en la calidad de la libertad de expresión, de prensa y de información, principalmente por prácticas como: • Restricciones u obstaculizaciones en el acceso a la información pública debido a que las instituciones públicas facilitan los datos o los documentos de manera ilegible o incompleta. También, debido a que en las comparecencias de asuntos clave como los procedimientos sancionatorios por presunto financiamiento electoral irregular, los funcionarios se acogen a su derecho de abstención y, con ello, se reduce aún más la transparencia de la información. • La falta de accesibilidad web en los sitios de instituciones públicas se constituye en un obstáculo para el derecho a la información ciudadana, afectando a la población con discapacidad, lo cual lesiona la garantía de la libertad de expresión al limitar la capacidad de recibir información de calidad. • Ambos reportes discuten la aparición de perfiles falsos y cuentas anónimas que promueven ataques. Se documenta la intimidación en línea contra periodistas críticos por parte de funcionarios de gobierno o &quot;troles&quot;. Otro tema relacionado y que aparece en ambos informes es la discusión pública acerca de la contratación de la pauta publicitaria del Gobierno en beneficio de ciertos sectores exclusivamente, así como las manifestaciones denigrantes en relación con algunos medios de comunicación y periodistas por parte de autoridades oficiales. Aunque algunas de estas situaciones han sido tuteladas por la justicia constitucional, otras de ellas han quedado sin protección o respuesta. Los informes apuntan a que la falta de regulación sobre transparencia y moderación de contenido en plataformas digitales deja al descubierto prácticas como estas.</p>
+</div>
+<h2>3.3 Entorno Digital</h2>
+<p>El reporte más reciente publicado por la Superintendencia de Telecomunicaciones menciona que, para el año 2024, existía una relación de suscripciones de telefonía móvil por habitante que ascendía a 132%20, correspondiente a una cantidad de poco más de 5 millones de suscripciones individuales a servicios móviles de internet.</p>
+<div class="footnotes">
+<p class="footnote">20Superintendencia de Telecomunicaciones. (2024). Estadísticas del sector telecomunicaciones 2024. https://sutel.go.cr/sites/default/files/estadisticas-sector-telecomunicaciones-2024.pdf for the Governance of Digital Platforms’ Un informe de Opensignal con datos del 2024 resaltó el proceso que está en marcha con respecto al despliegue de conectividad 5G en el país21, pues la SUTEL reinició el proceso de subasta de espectro para 5G, incluyendo bandas de 700 MHz, 2,3 GHz, 3,5 GHz, 26 GHz y 28 GHz. En Costa Rica los usuarios de los tres principales operadores de internet móvil tienen cobertura 4G al menos en un 73% del tiempo, y se indica que la disponibilidad comercial de 5G es limitada, pues menos de 1% de los usuarios de Liberty Costa Rica tienen 5G y solo el 6% del tiempo están bajo cobertura 5G” en el momento del análisis.22 Información disponible en DataReportal muestra que la adopción de redes sociales es prácticamente transversal: casi la mitad de la población de 18 años o más (86,6%) está en alguna red social. El usuario costarricense promedio tiene mediana edad ~35 años y mayoritariamente vive en zonas urbanas (aproximadamente un 83% población urbana). La distribución por sexo está equilibrada: las mujeres representan ~48–51% de los usuarios y los hombres el resto23. Geográficamente, el 80% vive en ciudades (principalmente en el Gran Área Metropolitana) y las provincias de San José y Alajuela concentran la mayor parte de usuarios activos. Por edades, los más activos son los jóvenes y adultos jóvenes; por ejemplo, los estudios de Porter Novelli presentados en RED 50624 reflejan que los grupos de 13–34 años abarcan cerca del 60% del uso de TikTok y redes sociales en general. En redes como TikTok e Instagram predomina el público menor de 35 años, mientras que Facebook es muy popular en mayores de 35. En general, la adopción crece en todos los grupos demográficos, aunque hay más penetración entre los más jóvenes para plataformas emergentes como TikTok o Snapchat. Como se mencionó antes, una reforma fiscal aprobada en años recientes extendió la aplicación del impuesto sobre el valor agregado a los servicios digitales que prestan las plataformas de manera transfronteriza. Aunque este registro podría ayudar a conocer los montos de recaudación por plataformas, el consumo por cada una de ellas y otros detalles relevantes, la información no se encuentra desglosada. El cobro del tributo se dio por primera vez en octubre de 2020. Para ese entonces, el Ministerio de Hacienda reportó una recaudación en ese mes de 1,4 millones de dólares; mientras que, para agosto de 2025, se reportó un ingreso de 3,2 millones de dólares25. Es decir, en cerca de 4 años se ha duplicado el monto que percibe el Estado por este componente fiscal.</p>
+</div>
+<h2>3.4 Plataformas digitales disponibles en el país</h2>
+<p>Costa Rica no cuenta con un registro oficial que domicilie jurídicamente a las plataformas en el país. La única obligación legal es con respecto a aquellos servicios en los que media un pago y que sea susceptible del impuesto señalado en el apartado anterior. Según el Ministerio de Hacienda, a diciembre de 2024 se tenía un listado formal de 161 plataformas sobre las que aplica el cobro por el consumo de sus servicios. También, a partir de 2026, entrará en vigor una resolución que obliga a las plataformas a informar al Ministerio de Hacienda acerca de las rentas generadas digitalmente por creadores de contenido y sujetos similares. Esto con el propósito de hacer extensivo el cobro del impuesto sobre la renta a este tipo de personas físicas. Según el artículo 1 de la resolución, su propósito es los procedimientos deberán aplicar los Operadores de Plataforma Digitales Informantes, respecto del cumplimiento de</p>
+<div class="footnotes">
+<p class="footnote">21Opensignal. (2024, diciembre). Costa Rica mobile network experience report – December 2024. 22 WePlan Analytics. (2024, septiembre). Costa Rica mobile quality report – September 2024. 23 Kemp, S. (2025, enero). Digital 2025: Costa Rica. DataReportal. https://datareportal.com/reports/digital-2025- costa-rica</p>
+<p class="footnote">24RED 506. (2022). Infografías RED 506 [Diapositivas]. SlideShare. https://es.slideshare.net/slideshow/infografasred5062022pdf/253586731</p>
+<p class="footnote">25Ministerio de Hacienda. (2025). Recaudación del IVA en servicios digitales transfronterizos. Dirección General de Tributación. for the Governance of Digital Platforms’ las obligaciones de registro e información con los ingresos obtenidos por los vendedores en actividades relevantes que ofrezcan alojamiento, transporte y servicios personales a través de plataformas. El estudio de 2022 publicado por Porter Novelli identificó la distribución de usuarios por plataformas del siguiente modo: Tabla 3. Distribución de usuarios según plataforma digital en Costa Rica Plataforma Cantidad (en millones de usuarios) WhatsApp 3.524 Instagram 1.934 TikTok 1.777 Facebook 1.754 YouTube 1.734 Twitter (X) 0.558 Fuente: elaboración propia a partir de Porter Novelli26 En materia electoral, el Tribunal Supremo de Elecciones ha anunciado el establecimiento de convenios específicos de colaboración con plataformas digitales, principalmente con Meta. No obstante, la suscripción de estos convenios no representa la formalización o domiciliación legal en el país, sino que son canales de comunicación entre el organismo electoral y las plataformas para la moderación de contenido en aquellas denuncias que se tramitan con ocasión de la campaña. Aunque los registros financieros de los partidos son públicos, en materia electoral no se cuenta con un listado único de gastos realizados por estas agrupaciones en contenidos digitales y plataformas.</p>
+</div>
+<h2>3.5 Contexto legislativo y regulatorio en Costa Rica</h2>
+<h3>3.5.1 Marco constitucional</h3>
+<p>El país cuenta con la tutela de la libertad de expresión y de prensa, la privacidad de las comunicaciones y el acceso a la información a texto expreso de la Constitución. Además, por la vía de interpretación, el Tribunal Constitucional ha incorporado en el bloque de convencionalidad o corpus iuris interamericano, con lo que ha integrado en el ordenamiento los alcances de casos concretos, sentencias y opiniones consultivas de la Corte Interamericana que se asocian a estos derechos fundamentales. Como se indicó en líneas anteriores, el control de constitucionalidad es concentrado. Tratándose del derecho de rectificación y respuesta, esa tutela también es aplicable a sujetos de derecho privado en caso de que se demuestre su transgresión a en perjuicio de particulares o personas físicas y recientemente se emitieron pronunciamientos que deniegan la tutela constitucional de ese derecho cuando lo que se ha afectado es la imagen o el nombre de una institución pública. En materia electoral, la acogida de ese bloque de convencionalidad se ha enfocado en las limitaciones de contenidos y control mediático que se vinculan a prohibiciones de funcionarios públicos y otros Poderes. Se trata de una prohibición prevista en el Código Electoral, según la cual a 26 Herrera, K. (2022). Usuarios activos en redes sociales CR: Distribución total geográfica, edad y género [Infografía]. Radiografía del Consumidor Conectado, conferencia RED 506, El Financiero, con base en datos de Porter Novelli. for the Governance of Digital Platforms’</p>
+<p>los órganos de Gobierno y a las instituciones públicas en general se les impide la exaltación de logros de gestión a través de redes sociales, medios de comunicación o cualquier otro tipo de difusión, desde el momento de la convocatoria a elecciones. Una interpretación del TSE había limitado esa prohibición en contenidos de plataformas digitales únicamente a las publicaciones en las que mediara pago. A partir del 2025 se incorporó a la jurisprudencia electoral las sentencias interamericanas Gadea Mantilla vs Nicaragua y Capriles vs Venezuela; de ese modo, el TSE interpretó que la veda a este tipo de contenidos debía aplicarse indistintamente de si mediaba o no pago a las plataformas por parte de las instituciones.</p>
+<h3>3.5.2 Legislación sobre Telecomunicaciones y Medios</h3>
+<p>La regulación del sector de telecomunicaciones se rige por la Ley General de Telecomunicaciones (LGT),27 cuyo objetivo primario es regular el uso y la explotación de redes y la prestación de servicios de telecomunicaciones. Esta ley se fundamenta en principios rectores como la universalidad (garantizar un mínimo de servicios sin discriminación) y la solidaridad (establecer mecanismos de acceso para personas de menores ingresos y grupos especiales). La LGT define las redes como sistemas de transmisión que utilizan diversos medios, incluyendo ondas radioeléctricas, cable, y redes utilizadas para la radiodifusión sonora y televisiva y redes de televisión por cable. No se refiere a redes digitales ni plataformas de esta índole. Para operar y explotar redes de telecomunicaciones que requieran el uso del espectro radioeléctrico, se otorga una concesión. Para las redes públicas, la concesión habilita a su titular para prestar todo tipo de servicio de telecomunicaciones disponible al público. En cuanto a los medios de comunicación y prensa que utilizan el espectro (radiodifusión sonora y televisiva), su aprovechamiento es considerado una actividad privada de interés público por sus aspectos informativos, culturales y recreativos. La concesión y prestación de estos servicios de acceso libre (sin pago de suscripción) continúan rigiéndose por la Ley de Radio N.º 175828 y su Reglamento.29 No obstante, las redes que dan soporte a estos servicios quedan sujetas a la LGT en aspectos como la planificación y control del espectro radioeléctrico, el acceso, la interconexión y el régimen sectorial de competencia En cuanto a regulación de identidad digital, se dispone a través de la Ley de Certificados, Firmas Digitales y Documentos Electrónicos (Ley N° 8454)30, que se aplica a toda clase de transacciones y actos jurídicos, tanto públicos como privados. Esta ley otorga equivalencia funcional a cualquier manifestación con carácter representativo o declarativo transmitida por un medio electrónico o informático, considerándola jurídicamente equivalente a los documentos físicos. Los documentos electrónicos suscritos con certificado digital gozan de la misma fuerza probatoria que los documentos físicos, aunque el costo corre por cuenta del usuario y se requiere de un dispositivo o hardware</p>
+<div class="footnotes">
+<p class="footnote">27Asamblea Legislativa de la República de Costa Rica. (2008, 4 de junio). Ley N.º 8642. Ley General de Telecomunicaciones. La Gaceta N.º 107. https://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&amp;nValor2=6 0840</p>
+<p class="footnote">28Asamblea Legislativa de la República de Costa Rica. (1954, 19 de junio). Ley N.º 1758. Ley de Radio. La Gaceta N.º 142. https://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&amp;nValor2=1 1646</p>
+<p class="footnote">29Poder Ejecutivo de la República de Costa Rica. (1954, 4 de agosto). Decreto Ejecutivo N.º 18. Reglamento a la Ley de Radio. La Gaceta N.º 175. https://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&amp;nValor2=1 1075</p>
+<p class="footnote">30Asamblea Legislativa de la República de Costa Rica. (2005, 30 de agosto). Ley N.º 8454. Ley de Certificados, Firmas Digitales y Documentos Electrónicos. La Gaceta N.º 197. https://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&amp;nValor2=5 5648 for the Governance of Digital Platforms’ adaptador para utilizarlo en ordenadores y móviles. Específicamente, la firma digital, un conjunto de datos asociado a un documento electrónico que permite verificar su integridad e identificar al autor, tiene el mismo valor y eficacia probatoria de una firma manuscrita.</p>
+</div>
+<h3>3.5.3 Regulación específica sobre plataformas y/o regulación de</h3>
+<p>contenidos Costa Rica no cuenta con una ley o norma especial sobre plataformas digitales hasta ahora, su única mención a nivel legal se encuentra en la reforma fiscal del 2018 y lo es con respecto al cobro del Impuesto sobre el Valor Agregado.31 La normativa específica que regula el reconocimiento legal para efectos tributarios les reconoce según estas disposiciones, cuando medie la venta de servicios digitales o de telecomunicaciones, realizada por medio de internet o cualquier otra plataforma digital, y comercializada a través de un emisor de tarjeta de débito o de crédito internacional, o a través de un proveedor o intermediario domiciliado en el extranjero. Así como la venta de servicios o bienes intangibles, realizada por medio de internet o cualquier otra plataforma digital, y comercializada a través de una entidad pública o privada, a partir de una cuenta bancaria que facilite el pago a la cuenta de un vendedor o proveedor, no domiciliado en el país. Otra mención normativa de las plataformas se asocia con el marco regulatorio de protección de datos personales. El Reglamento32 de la Ley Protección de Datos Personales33 utiliza el término Intermediario Tecnológico o Proveedor de Servicios para referirse a la persona física o jurídica, pública o privada, que brinde servicios de infraestructura, plataforma, software u otros. En este contexto, la responsabilidad por el tratamiento de los datos personales recae en el responsable de la base de datos que contrata o subcontrata dichos servicios, y este debe verificar que el intermediario cumpla con las medidas de seguridad mínimas. 3131Asamblea Legislativa de la República de Costa Rica. (1954, 19 de junio). Ley N.º 1758. Ley de Radio. La Gaceta N.º 142. https://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&amp;nValor2=1 1646</p>
+<div class="footnotes">
+<p class="footnote">31Poder Ejecutivo de la República de Costa Rica. (1954, 4 de agosto). Decreto Ejecutivo N.º 18. Reglamento a la Ley de Radio. La Gaceta N.º 175. https://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&amp;nValor2=1 1075</p>
+<p class="footnote">31Asamblea Legislativa de la República de Costa Rica. (2005, 30 de agosto). Ley N.º 8454. Ley de Certificados, Firmas Digitales y Documentos Electrónicos. La Gaceta N.º 197. https://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&amp;nValor2=5 5648</p>
+<p class="footnote">32Poder Ejecutivo de la República de Costa Rica. (2013, 5 de marzo). Decreto Ejecutivo N.º 37541-JP. Reglamento a la Ley de Protección de la Persona frente al Tratamiento de sus Datos Personales. La Gaceta N.º 45. https://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&amp;nValor2=7 4334 3333Asamblea Legislativa de la República de Costa Rica. (2011, 7 de julio). Ley N.º 8968. Protección de la Persona frente al Tratamiento de sus Datos Personales. La Gaceta N.º 170. https://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&amp;nValor2=7 0946 for the Governance of Digital Platforms’</p>
+</div>
+<h3>3.5.4 Legislación sobre protección de datos y privacidad</h3>
+<p>Costa Rica sí cuenta con una norma específica en materia de protección de datos y privacidad. Se trata de la Ley N° 8968,34 cuyo fin es garantizar a toda persona el derecho fundamental a la autodeterminación informativa en relación con su vida o actividad privada. La norma regula lo relacionado con el flujo de informaciones que conciernen a cada persona, evitando así que se propicien acciones discriminatorias. El ámbito de aplicación abarca los datos personales que figuren en bases de datos (automatizadas o manuales), incluso cuando se trata de datos en la nube. La ley formaliza el consentimiento informado, exigiendo que la recolección de datos personales se realice con el consentimiento expreso del titular, el cual debe ser libre, específico, informado e inequívoco, y debe constar por escrito, ya sea en un documento físico o electrónico. El consentimiento se puede revocar de la misma forma, aunque sin efecto retroactivo. Además, la ley prohíbe la recolección de datos sin consentimiento, o aquellos adquiridos por medios fraudulentos, desleales o ilícitos. En cuanto a la aplicación a plataformas, el Reglamento aclara que el responsable de la base de datos (propietario o administrador que decide la finalidad del tratamiento) que contrate o subcontrate servicios de un intermediario tecnológico (plataformas, software, infraestructura) mantiene la responsabilidad por el tratamiento de esos datos personales. Los responsables deben adoptar medidas de seguridad, y la PRODHAB puede requerir los protocolos mínimos de seguridad para verificar su cumplimiento ante denuncias. Se garantiza el derecho de acceso a la información, así como la posibilidad de solicitar la rectificación, actualización o supresión (eliminación) de los datos. Respecto al derecho al olvido, la conservación de los datos personales que puedan afectar al titular no deberá exceder el plazo de diez años, desde la fecha de terminación del objeto de tratamiento, salvo excepciones legales.</p>
+<h3>3.5.5 Regulación específica de protección de colectivos vulnerables</h3>
+<p>En primer lugar, la Ley N° 1026735 prohíbe la difusión de propaganda que degrade la dignidad, el honor y la imagen de la persona adulta mayor o que promueva mitos y/o estereotipos contra la vejez y el proceso de envejecimiento. El ámbito de aplicación es explícito al incluir propaganda destinada a redes sociales, juegos de video, servicios digitales u otras plataformas presentes en Internet, así como material audiovisual descargable. La Oficina de Control de Propaganda (OCP) puede ordenar el retiro inmediato de esta propaganda como medida cautelar. El segundo grupo de tutela se trata de las acciones de violencia de género en la publicidad (digital o analógica) de índole comercial. La Ley N° 581136 controla y regula la propaganda comercial que ofenda la dignidad, el pudor de la familia y en la que se utilice la imagen de la mujer impúdicamente para promover ventas. Las empresas de prensa, radio, cine y televisión (y en general, todas aquellas</p>
+<div class="footnotes">
+<p class="footnote">34Asamblea Legislativa de la República de Costa Rica. (2011, 7 de julio). Ley N.º 8968. Protección de la Persona frente al Tratamiento de sus Datos Personales. La Gaceta N.º 170. https://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&amp;nValor2=7 0946</p>
+<p class="footnote">35Asamblea Legislativa de la República de Costa Rica. (2022, 11 de julio). Ley N.º 10267. Ley para prohibir la difusión de propaganda que degrade a la persona adulta mayor. La Gaceta N.º 172. https://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&amp;nValor2=9 7727</p>
+<p class="footnote">36Asamblea Legislativa de la República de Costa Rica. (1975, 10 de octubre). Ley N.º 5811. Ley de la Oficina de Control de Propaganda. La Gaceta N.º 202. https://www.pgrweb.go.cr/scij/Busqueda/Normativa/Normas/nrm_texto_completo.aspx?nValor1=1&amp;nValor2=1 1077 for the Governance of Digital Platforms’ que exploten un medio de comunicación individual o colectivo) son subsidiariamente responsables de las infracciones. Esta propaganda debe tener la previa y expresa aprobación de la OCP. También se establece que la propaganda que ofende la dignidad o que es impúdica está prohibida de modo absoluto en programas o actividades dirigidos a menores de edad. Por último, la Ley General de Telecomunicaciones prohíbe la utilización de sistemas de llamada automática por voz, fax, o correo electrónico con fines de venta directa sin el consentimiento previo de los usuarios. Además, se prohíbe enviar mensajes electrónicos de venta directa que disimulen u oculten la identidad del remitente.</p>
+</div>
+<h3>3.5.6 Regulación Electoral Digital</h3>
+<p>Costa Rica no cuenta con marco regulatorio sobre desinformación en campañas electorales, sino que su abordaje ha sido principalmente a través de la jurisprudencia del TSE. Existen al menos dos ámbitos sobre los cuales se enfoca jurídicamente esa interpretación. La primera se trata de la veda que aplica a instituciones de gobierno con respecto a la divulgación de logros y exaltación de acciones sobre su gestión, durante el periodo de campaña. En la resolución n. 4190-E8-202537, el TSE dispuso adecuar su criterio en cuanto a los alcances del artículo 142 del Código Electoral38 en el sentido de que las instituciones deben acatar la restricción, tanto en medios de comunicación tradicionales, medios de comunicación y plataformas digitales institucionales, ya sea que medie pago o no. Por otra parte, el organismo reconoce como gasto de campaña la compra de servicios y publicidad a las plataformas digitales, para lo cual le requiere a cada partido político los enlaces o cuentas que utilizarán en la contienda electoral y desde las cuales se hará la adquisición de esa pauta.</p>
+<h2>3.6 Alineamiento con las Directrices UNESCO: Costa Rica</h2>
+<p>El análisis del alineamiento de Costa Rica con las directrices de la UNESCO revela que el país cuenta con un robusto diseño constitucional, tanto sustantivo como procedimental, que garantiza el acceso a la información, la libertad de expresión y de prensa, la privacidad de las comunicaciones y el derecho a las telecomunicaciones. A través de la interpretación constitucional, se ha establecido que los tratados y convenios internacionales que amplían los derechos fundamentales, junto con la jurisprudencia interamericana, poseen un rango superior al de la propia Constitución y son de aplicación inmediata. Esto asegura una sólida base normativa para proteger las libertades individuales y colectivas. Sin embargo, la tutela efectiva de estos derechos enfrenta importantes retos operativos, ya que las reclamaciones se concentran exclusivamente en la Sala Constitucional; un sistema que, si bien es gratuito y libre de formalismos, padece de una marcada centralización territorial. A esto se suma un vacío normativo significativo, pues el país carece de regulaciones específicas sobre la moderación de contenidos en plataformas digitales y sobre la protección al consumidor en el ámbito de los servicios digitales transfronterizos.</p>
+<div class="footnotes">
+<p class="footnote">37Tribunal Supremo de Elecciones de la República de Costa Rica. (2025, 20 de junio). Resolución N.º 4190- E8-2025. Adecuación de criterio sobre el uso de plataformas digitales de las instituciones públicas para divulgar información de la gestión gubernamental durante el período de campaña. https://tse.go.cr/imgs/info/4190-E8- 2025.pdf</p>
+<p class="footnote">38Asamblea Legislativa de la República de Costa Rica. (2009, 2 de septiembre). Ley N.º 8765. Código Electoral. La Gaceta N.º 171, Alcance N.º 37. https://www.tse.go.cr/normativa/codigoelectoral for the Governance of Digital Platforms’ Ante la ausencia de una ley sectorial integral que defina criterios claros de limitación de contenidos, la aplicación de los principios de legalidad, necesidad y proporcionalidad recae en el análisis caso por caso que realiza la Sala Constitucional. La jurisprudencia exige que cualquier restricción a las libertades esté fundamentada en una ley pública, clara y accesible, y que la medida adoptada sea idónea, previsible y la menos lesiva posible. En la práctica, las limitaciones actuales provienen de normativas dispersas en áreas como el derecho penal, electoral o la protección de datos. Esta falta de una definición estatutaria única genera un panorama regulatorio fragmentado, donde distintas autoridades aplican criterios variados dependiendo de si el enfoque es tributario, de telecomunicaciones o electoral. Consecuentemente, Costa Rica no dispone de un régimen de responsabilidad moderno para las plataformas, como un puerto seguro (&quot;safe harbor&quot;), debiendo resolver los conflictos según la materia específica involucrada. Por ejemplo, en época de campañas políticas, el Tribunal Supremo de Elecciones (TSE) recurre a convenios de colaboración con las plataformas mediante resoluciones jurisdiccionales, pero carece de herramientas sancionatorias eficaces ante posibles incumplimientos. Esta carencia de un marco unificado se refleja también en la ausencia de obligaciones profundas sobre el funcionamiento interno de las plataformas, tales como la gestión de riesgos, las auditorías algorítmicas obligatorias o los requerimientos exhaustivos de transparencia sobre el uso de algoritmos y términos de servicio. En lugar de ello, las autoridades administrativas competentes terminan ordenando medidas sobre unidades individuales de contenido. Asimismo, aunque existen principios constitucionales contra las suspensiones arbitrarias, no hay un régimen específico que prohíba expresamente bloqueos estatales de plataformas sin un procedimiento judicial exigible, ni existe una disposición general que regule la obligación de vigilancia por parte de estas empresas. En cuanto a la protección de grupos vulnerables, si bien hay leyes penales y normativas específicas que defienden a menores, mujeres y adultos mayores frente a la propaganda ofensiva o la explotación, no existen obligaciones sectoriales directas para que las plataformas implementen mecanismos preventivos como filtros o verificación de edad. Una situación similar ocurre con la lucha contra la desinformación, la cual es gestionada principalmente por el TSE de manera temporal durante los procesos electorales mediante acuerdos voluntarios, sin constituir una normativa permanente. Finalmente, el marco legal no exige a las plataformas proporcionar herramientas de empoderamiento a los usuarios, dejando la alfabetización digital relegada a estrategias nacionales y políticas públicas que operan como iniciativas aisladas y aún no logran una cobertura generalizada. for the Governance of Digital Platforms’</p>
+</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <em>Proyecto UNESCO financiado por la Unión Europea: "Safeguarding Freedom of Expression and Access to Information through the implementation of the UNESCO Guidelines for the Governance of Digital Platforms"</em>
+    <br>
+    Autores: Rodrigo Cetina-Presuel, José Achoy y Priscilla Ruiz
+    <span class="divider">·</span>
+    I4T Global Knowledge Network · UPF Barcelona School of Management · 2026
+  </footer>
+</div>
+
+<!-- Mobile toggle -->
+<button class="mobile-toggle" id="menuToggle" aria-label="Menú">☰</button>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.getElementById('menuToggle');
+  toggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && e.target !== toggle) sidebar.classList.remove('open');
+  });
+</script>
+
+</body>
+</html>

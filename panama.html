@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panamá | Regulación de Plataformas Digitales</title>
+  <meta name="description" content="La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe — Panamá">
+  <style>
+:root {
+  --primary: #003875;
+  --primary-light: #005ea6;
+  --accent: #e8c900;
+  --bg: #f5f7fa;
+  --sidebar-bg: #002255;
+  --sidebar-width: 280px;
+  --text: #222;
+  --muted: #666;
+  --border: #d0d7e3;
+  --white: #fff;
+  --max-content: 860px;
+  --font: 'Georgia', 'Times New Roman', serif;
+  --font-ui: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: #cdd6f4;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-header {
+  background: #001840;
+  padding: 20px 18px 16px;
+  border-bottom: 3px solid var(--accent);
+}
+
+.sidebar-header .report-title {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-header .report-subtitle {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: #aabbd4;
+  margin-top: 5px;
+  line-height: 1.3;
+}
+
+.sidebar-header .logos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.logo-badge {
+  background: var(--accent);
+  color: #001840;
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sidebar-nav {
+  padding: 10px 0 20px;
+}
+
+.sidebar-nav .nav-section-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: #7b9dc8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 14px 18px 4px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 18px;
+  color: #c0d0e8;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  line-height: 1.4;
+  transition: background 0.15s, color 0.15s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-nav a:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--white);
+  border-left-color: var(--accent);
+}
+
+.sidebar-nav a.active {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  font-weight: 600;
+  border-left-color: var(--accent);
+}
+
+.nav-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Main content ── */
+.main {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.breadcrumb {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb a { color: var(--primary-light); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #bbb; }
+
+.topbar-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-nav {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 5px 14px;
+  border: 1.5px solid var(--primary);
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-nav:hover { background: var(--primary); color: var(--white); }
+.btn-nav.disabled { opacity: 0.35; pointer-events: none; }
+
+/* ── Content area ── */
+.content-wrap {
+  max-width: var(--max-content);
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+  flex: 1;
+}
+
+.section-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 32px 40px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; right: -20px;
+  width: 140px; height: 140px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+
+.section-banner .section-tag {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.section-banner h1 {
+  font-family: var(--font-ui);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--white);
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+/* ── Typography ── */
+.content-body h1 {
+  font-family: var(--font-ui);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 40px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  line-height: 1.4;
+}
+
+.content-body h2 {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 30px 0 10px;
+  line-height: 1.4;
+}
+
+.content-body h3 {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-light);
+  margin: 22px 0 8px;
+  line-height: 1.4;
+}
+
+.content-body p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #2a2a2a;
+  margin-bottom: 16px;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.content-body .footnotes {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.content-body .footnote {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/* ── Index page specific ── */
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.index-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.index-card:hover {
+  box-shadow: 0 4px 16px rgba(0,56,117,0.12);
+  transform: translateY(-2px);
+  border-color: var(--primary-light);
+  text-decoration: none;
+}
+
+.card-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.card-content { flex: 1; }
+
+.card-content .card-number {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--primary);
+  padding: 2px 7px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.card-content .card-title {
+  font-family: var(--font-ui);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.card-content .card-desc {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* ── Footer ── */
+.footer {
+  background: #001840;
+  color: #7a92b0;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  text-align: center;
+  padding: 20px 40px;
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+.footer a { color: #aabbd4; text-decoration: none; }
+.footer .divider { margin: 0 8px; color: #3a5070; }
+
+/* ── Hamburger for mobile ── */
+.mobile-toggle {
+  display: none;
+  position: fixed;
+  bottom: 20px; right: 20px;
+  z-index: 200;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 48px; height: 48px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+  .sidebar.open { transform: translateX(0); }
+  .main { margin-left: 0; }
+  .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+  .content-wrap { padding: 32px 20px 60px; }
+  .topbar { padding: 0 20px; }
+  .section-banner { padding: 24px 24px; }
+  .section-banner h1 { font-size: 20px; }
+  .index-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="report-title">La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe</div>
+    <div class="report-subtitle">Del diagnóstico a la hoja de ruta para la acción · 2026</div>
+    <div class="logos">
+      <span class="logo-badge">UNESCO</span>
+      <span class="logo-badge" style="background:#003399;color:#fff;">UE</span>
+      <span class="logo-badge" style="background:#555;color:#fff;">I4T</span>
+    </div>
+  </div>
+  <div class="sidebar-nav">
+    <a href="index.html"  style="font-weight:700; border-top:1px solid rgba(255,255,255,0.07); padding-top:14px;">
+      <span class="nav-icon">🏠</span> Inicio
+    </a>
+    <div class="nav-section-label">Portada y Estructura</div>
+<a href="cover.html" class=""><span class="nav-icon">📄</span>Portada</a>
+<a href="indice.html" class=""><span class="nav-icon">📋</span>Índice</a>
+<div class="nav-section-label">Visión General</div>
+<a href="resumen-intro.html" class=""><span class="nav-icon">📝</span>Resumen Ejecutivo e Introducción</a>
+<a href="contexto-regional.html" class=""><span class="nav-icon">🌎</span>Contexto Regional</a>
+<div class="nav-section-label">Análisis por País</div>
+<a href="costa-rica.html" class=""><span class="nav-icon">🇨🇷</span>Costa Rica</a>
+<a href="el-salvador.html" class=""><span class="nav-icon">🇸🇻</span>El Salvador</a>
+<a href="guatemala.html" class=""><span class="nav-icon">🇬🇹</span>Guatemala</a>
+<a href="honduras.html" class=""><span class="nav-icon">🇭🇳</span>Honduras</a>
+<a href="mexico.html" class=""><span class="nav-icon">🇲🇽</span>México</a>
+<a href="panama.html" class="active"><span class="nav-icon">🇵🇦</span>Panamá</a>
+<a href="republica-dominicana.html" class=""><span class="nav-icon">🇩🇴</span>República Dominicana</a>
+<div class="nav-section-label">Perspectiva Regional</div>
+<a href="alineamiento-regional.html" class=""><span class="nav-icon">🔗</span>Alineamiento Regional UNESCO</a>
+<a href="talleres.html" class=""><span class="nav-icon">🎓</span>Los Talleres en América Latina</a>
+<div class="nav-section-label">Cierre</div>
+<a href="conclusiones.html" class=""><span class="nav-icon">✅</span>Conclusiones y Recomendaciones</a>
+<a href="bibliografia.html" class=""><span class="nav-icon">📚</span>Bibliografía</a>
+  </div>
+</nav>
+
+<!-- Main -->
+<div class="main">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="breadcrumb">
+      <a href="index.html">Inicio</a>
+      <span class="sep">/</span>
+      <span>Panamá</span>
+    </div>
+    <div class="topbar-actions">
+      <a href="mexico.html" class="btn-nav">← México</a>
+      <a href="republica-dominicana.html" class="btn-nav">República Dominicana →</a>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content-wrap">
+    <div class="section-banner">
+      <div class="section-tag">UNESCO · I4T · UPF Barcelona</div>
+      <h1>🇵🇦 Panamá</h1>
+    </div>
+    <div class="content-body">
+      <h1>8. Análisis por País: Panamá</h1>
+<h2>8.1 Sistema Político y Legal</h2>
+<p>La República de Panamá está regida por la Constitución Política de la República de Panamá de 1972 (CPRP),157 siendo esta la ley fundamental que la establece como una república presidencialista con un sistema de gobierno democrático con división de poderes basado en tres órganos: ejecutivo, legislativo y judicial. Su constitución tiene 328 artículos a lo largo de un preámbulo y 15 títulos. En su articulado se establece la estructura del Estado Panameño (arts. 1-7), las condiciones de Nacionalidad y Extranjería (arts. 8-16), una parte extensa de derechos y deberes tanto individuales como sociales (arts. 17-130) más otra de derechos políticos (arts. 131-145). Los órganos legislativo (art. 146-174), ejecutivo (175-200) y judicial (201-224, se describen a continuación. La organización territorial es en los regímenes municipal y provincial (arts. 225-256), la Hacienda Pública (257-281), las directrices que organizan la Economía Nacional (arts. 282-298) y después las disposiciones referentes a los Servidores Públicos (299-309), la Fuerza Pública (310-312). El proceso de Reforma de la Constitución se establece en los artículos 313 y 314 y existe un título dedicado al Canal de Panamá (315-323), la más importante de sus infraestructuras nacionales más un apartado de disposiciones finales y transitorias. Además de los tres poderes del Estado, existen otras entidades particularmente relevantes para la regulación y la protección de derechos en el ámbito digital. Específicamente, la Defensoría del Pueblo es la encargada de velar por los derechos fundamentales (art. 129 CPRP), lo que permite interpretar que, al controlar los hechos, actos u omisiones de los servidores públicos, también deben vigilar cómo estos se comportan en entornos digitales y cómo las decisiones que toman pueden afectar los derechos de los ciudadanos en estos espacios. El Tribunal Electoral, autónomo e independiente, es el encargado de interpretar y aplicar la Ley Electoral,158 y de decidir sobre las controversias que surjan de su aplicación. El art. 143 de la Constitución otorga al Tribunal la potestad de sancionar las faltas y delitos contra la libertad y pureza del sufragio, de lo que se puede interpretar que tiene el poder para sancionar aquellas faltas y delitos que se originen en el ámbito digital. El mismo artículo da al Tribunal la iniciativa legislativa en las materias de su competencia, lo que quiere decir que tiene el poder de introducir legislación electoral encaminada a mitigar cualquier efecto que las plataformas digitales puedan tener en el proceso electoral y su normal desarrollo. Por su parte, el artículo 144 establece a la Fiscalía General Electoral como una agencia de instrucción “independiente y coadyuvante del Tribunal Electoral” y que tiene entre sus funciones salvaguardar los derechos políticos de los ciudadanos panameños, lo que quiere decir que tiene atribuciones para perseguir aquellos hechos que se den en el entorno digital y que puedan interferir con los derechos electorales de dichos ciudadanos, pues la Fiscalía también tiene el encargo de perseguir delitos y contravenciones electorales.</p>
+<div class="footnotes">
+<p class="footnote">157Panamá. (1972). Constitución Política de la República de Panamá. Gaceta Oficial N.º 17,210. (Reformada por los Actos Legislativos N.º 1 de 1983, N.º 1 y N.º 2 de 1993, N.º 1 de 1994 y el Acto Constitucional N.º 1 de 2004). https://www.gacetaoficial.gob.pa/gacetas/25176_2004.pdf</p>
+<p class="footnote">158Panamá. (2022, 28 de octubre). Texto Único del Código Electoral de la República de Panamá (Decreto 60 de 2022). Gaceta Oficial N.º 29,652-A. https://www.gacetaoficial.gob.pa/gacetas/29652A_2022.pdf for the Governance of Digital Platforms’</p>
+</div>
+<h2>8.2 Libertad de Expresión y Derechos Humanos</h2>
+<p>La CPRP establece un marco para la protección de derechos humanos, aunque separando los derechos individuales y sociales (arts. 17 a 130) de los derechos políticos (131-145). El art. 37 garantiza la libre emisión del pensamiento sin censura previa, aunque estableciendo límites en las expresiones que atenten contra “la reputación o la honra de las personas o contra la seguridad social o el orden público.” El artículo 89 define a los medios de comunicación social como “instrumentos de información, educación, recreación y difusión cultural y científica” sugiriendo el deber de difundir información veraz. Además, el propio artículo 89 establece que, si los medios de comunicación social difunden publicidad o propaganda, “estas no deben ser contrarias a la salud, la moral, la educación, formación cultural de la sociedad y la conciencia nacional”, refiriendo a la ley secundaria que ha de reglar el funcionamiento de estos medios. Esta disposición constitucional abre la puerta a interesantes discusiones sobre el papel de los medios de comunicación social en internet y su deber de contribuir a entornos informativos digitales saludables, que protejan los bienes y valores que se reflejan en este artículo. Por su parte, el art. 29 declara la inviolabilidad de las comunicaciones privadas. El art. 42 establece el derecho al acceso y rectificación de datos personales y el art. 43 garantiza el acceso a la información pública. Estos se complementan con el art. 41que establece los derechos de petición y queja, y, más relevantes para nuestro estudio, el art. 49 que consagra los derechos de consumidores y usuarios a servicios de calidad y a la información veraz sobre bienes y servicios (lo que afectaría a cómo se publicitan en internet). Se ratifican además el Pacto Internacional de Derechos Civiles y Políticos (PIDCP) y la Ley 79 de 2013 (Convenio de Budapest).159 Además, el artículo 5 del Código Penal panameño160 establece que las normas de derechos humanos de la Constitución y los convenios internacionales son parte integral de dicho código, garantizando así derechos en el ámbito penal. El sistema judicial tiene la tutela judicial sobre los derechos humanos mientras que la Autoridad Nacional de Transparencia y Acceso a la Información (ANTAI) ejerce la tutela administrativa en materia de datos personales. Es la antes mencionada defensoría del Pueblo la encarga de la protección general de derechos fundamentales mientras que el Tribunal Electoral es el que posee la jurisdicción exclusiva para la tutela de los derechos de comunicación política y libertad de expresión durante las campañas. Más allá de la protección constitucional, judicial y administrativa de derechos humanos, diversas organizaciones internacionales señalan los diversos retos que enfrentan la libertad de expresión, la libertad de prensa y otros derechos en la práctica. De acuerdo con el Global State of Democracy Network de Idea Internacional, Panamá tiene altos índices en representación, y, aunque está en el top 25 de los países en relación con varios de los factores, sigue en el rango medio en derechos, estado de derecho y participación. La buena noticia, siempre según idea, es que desde 2019 los indicadores en libertad de expresión y reducción de las desigualdades económica muestran una tendencia positiva.161</p>
+<div class="footnotes">
+<p class="footnote">159Organización de las Naciones Unidas. (1966, 16 de diciembre). Pacto Internacional de Derechos Civiles y Políticos. Serie Tratados, 999, 171. https://www.ohchr.org/es/instruments- mechanisms/instruments/international-covenant-civil-and-political-rights</p>
+<p class="footnote">160Panamá. (2022). Código Penal de la República de Panamá (Texto Único publicado en la Gaceta Oficial N.º 29,514-A). Editorial Mizrachi &amp; Pujol. https://www.organojudicial.gob.pa/uploads/wp_repo/assets/medias/leyes/codigo_penal_2022.pdf</p>
+<p class="footnote">161International IDEA. (2025). Democracy Tracker: Panama. https://www.idea.int/democracytracker/country/panama for the Governance of Digital Platforms’ Freedom House considera que las instituciones panameñas son democráticas con elecciones competitivas y rotación en el poder. Con un índice de Global Freedom de 83/100 se considera a Panamá como un país libre en donde las libertades de expresión y asociación son respetadas, aunque persisten problemas serios de corrupción e impunidad que afectan tanto a las altas esferas del gobierno como al sistema judicial.162 Por su parte, Reporteros Sin Fronteras (RSF) expresa su preocupación ante las frecuentes demandas que sufren los periodistas que critican las políticas del gobierno o denuncia escándalos de corrupción, particularmente los relacionados con los escándalos financieros internacionales. De acuerdo con su evaluación en el índice 2025, que da a Panamá una puntuación de 66.75 y que le pone en el lugar 53/180 hay evidencias de que la autocensura de los medios está creciendo a la par que crece el peso de la publicidad institucional en los medios online, limitando su independencia163. El reporte país en prácticas de derechos humanos de 2024, elaborado por el Departamento de Estado de los Estados Unidos específicamente señala que, en Panamá, persisten problemas importantes relacionados con la protección de los derechos humanos, entre los que se incluyen restricciones a la libertad de expresión y la libertad de medios, coincidiendo con RSF en que el acoso a periodistas es un problema, también mencionando que los periodistas se autocensuran para evitar represalias del gobierno, los partidos políticos y actores del sector privado. El reporte también apunta a que las amenazas a los periodistas son comunes por parte de grupos criminales cuando estos investigan ciertas actividades criminales. Aun así, según el mismo reporte, el gobierno panameño ha dado pasos creíbles para identificar y castigar a los servidores públicos involucrados en abusos a los derechos humanos.164 El estudio sobre Desafíos a la Libertad de expresión, estado de derecho y democracia en Latinoamérica de la Fundación Internacional Baltasar Garzón pone el foco en el caso de las SLAPPs (demandas estratégicas contra la participación pública por sus siglas en inglés) en Panamá, una práctica de hostigamiento judicial contra periodistas y medios críticos mediante querellas por calumnia e injuria y demandas por daños morales. Según el reporte, el acoso judicial es sistemático, suponiendo la principal amenaza a la libertad de prensa junto con las severas dificultades para acceder a la información pública en el país. Esto es, en buena cuenta, siempre según el reporte, porque en Panamá las leyes dan protección limitada a los periodistas, incluyendo el hecho de que la injuria y la calumnia son delitos que pueden llevar a penas de prisión, lo que se agrava porque el art. 195 del código penal panameño establece que un agravante de la injuria y la calumnia es que sea cometida por un medio de comunicación social. Aunque, por otro lado, existe la exención a la sanción penal cuando el supuesto injuriado o calumniado es un servidor público, esto no impide que se exija la responsabilidad civil derivada de los hechos, con lo que el riesgo de estas demandas continúa.165 Dicho todo lo anterior, un fallo de la Corte Suprema de Justicia de Panamá supone un avance en la dirección correcta, pues sienta un precedente importante para le defensa de la libertad de expresión y la protección del derecho a la información. El fallo refuerza la importancia del interés público en el derecho a la información y analiza a detalle el encaje en la jurisprudencia panameña de la doctrina de “real malicia¨ establecida en el célebre caso New York Times v. Sullvian (1964) de la Corte Suprema de los Estados Unidos. Se establecen así parámetros que permiten proteger mejor la labor de los periodistas cuando informan sobre figuras públicas, estableciendo que el demandante ha de demostrar que los hechos expuestos son efectivamente falsos y además, Más importante aún, la</p>
+<p class="footnote">162Freedom House. (2025). Freedom in the World 2025: Panama. https://freedomhouse.org/country/panama</p>
+<p class="footnote">163Reporteros Sin Fronteras. (2025, 2 de mayo). Clasificación Mundial de la Libertad de Prensa 2025. https://rsf.org/es/clasificacion</p>
+<p class="footnote">164U.S. Department of State. (2025). 2024 Country Reports on Human Rights Practices: Panama. Bureau of Democracy, Human Rights, and Labor. https://www.state.gov/reports/2024-country-reports-on-human-rights- practices/panama</p>
+<p class="footnote">165Graña Gianoni, J. (2025, abril). Desafíos a la libertad de expresión, estado de derecho y democracia en Latinoamérica: Un estudio regional en tema de SLAPPs. Panamá. Fundación Internacional Baltasar Garzón (FIBGAR). https://fibgar.es/wp-content/uploads/2025/04/Panama-Informe-Desafios-a-la-libertad-de-expresion- estado-de-derecho-y-democracia-en-latinoamerica-un-estudio-regional-en-tema-de-SLAPPs.pdf for the Governance of Digital Platforms’ Corte Suprema hace referencia al “impacto inhibitorio” de las demandas contra medios y periodistas que existen reparaciones desproporcionadas.166 En el terreno electoral, está sobre la mesa un paquete de reformas al Código Electoral entregado por el Tribunal Electoral a la Comisión Nacional de Reformas Electorales (CRNE) que se constituyó en febrero de 2025, en donde se incluyen faltas electorales como la difusión de noticias falsas y desinformación que pueda ser “perjudicial para el proceso electoral” o para la laboral del propio Tribunal. A finales de noviembre de 2025, la labor de la Comisión Nacional de Reformas Electorales llegaba a su recta final que se extenderá hasta enero de 2026 momento en que el Tribunal Electoral deberá revisar, ordenar y preparar un paquete final de propuestas a discutirse en la Asamblea Nacional que será quien decida las reglas que regirán los próximos comicios en 2029.167</p>
+</div>
+<h2>8.3 Entorno Digital</h2>
+<p>Según datos recogidos en los indicadores del Servicio de Internet Fijo de la ASEP, en Panamá hay una tendencia constante al alza en la conectividad a internet, evidente en los últimos años, tanto el número de clientes suscritos como el total estimado de usuarios ha crecido significativamente en este período. Como se puede ver en la tabla siguiente, la tasa de penetración ha crecido de los 13.9 clientes por cada 100 habitantes en 2020 a 17.3 en 2024. Por su parte, la penetración de usuarios subió de 48.3 en 2020 a 60 usuarios por cada 100 habitantes en 2024. Tabla 8. Indicadores de servicio de internet fijo en Panamá Fuente: ASEP</p>
+<div class="footnotes">
+<p class="footnote">166Sociedad Interamericana de Prensa. (2024, 4 de julio). La SIP saluda fallo de la Corte Suprema que refuerza la libertad de expresión en Panamá. https://www.sipiapa.org/comunicados-prensa/la-sip-saluda-fallo-la-corte- suprema-que-refuerza-la-libertad-expresion-panama-n1300679</p>
+<p class="footnote">167Gordón Guerrel, I. (2025, 22 de noviembre). Comisión de Reformas Electorales se extenderá hasta 2026. La Estrella de Panamá. https://www.laestrella.com.pa/panama/politica/comision-de-reformas-electorales-se- extendera-hasta-2026-GG17778817 for the Governance of Digital Platforms’ En cuanto a los niveles de alfabetización digital en el país, varios reportes,168 existe una enorme brecha en el acceso a dispositivos y conectividad en los niños de escuelas públicas versus el sistema privado. Antes de la pandemia, solo el 40% de los hogares con niños que asistían a un colegio público tenían internet, y apenas el 30% tenía un ordenador en casa, comparados con el 90% y 80% de los hogares con niños en el sistema privado. Mientras tanto, otro informe centrado en estudiantes universitarios,169 muestra que, aunque todos son usuarios de redes sociales y la mayoría dice contrastar la información, un 10% de los estudiantes admite no reconocer fuentes fiables en internet y la mayoría nunca indica la fuente al difundir información de otros en redes sociales, lo que sugiere que la alfabetización digital con visión crítica todavía tiene que avanzar en el país. Los resultados PISA 2022170 de Panamá señalan que apenas un 1% de los estudiantes en Panamá alcanzó los niveles superiores en lectura, lo que indica que los estudiantes no son capaces de diferenciar hechos de opiniones en base al contenido o a las fuentes. Esto es especialmente preocupante porque quiere decir que la mayoría de los estudiantes en torno a los 15 años en Panamá no tienen la capacidad lectora suficiente para detectar desinformación El mismo reporte señala que en torno al 20-24% de los estudiantes reportó ser víctima de bullying o acoso, dato relevante pues estos comportamientos suelen presentarse también en entornos digitales.</p>
+</div>
+<h2>8.4 Plataformas digitales disponibles en el país</h2>
+<p>En Panamá, YouTube cuenta con unos 2.73 millones de usuarios en el País, un porcentaje que sigue creciendo, mientras que se estima que Instagram, que también crece, tiene unos 2.70 millones de usuarios en el país, es decir, son igualmente populares, aunque la tasa de crecimiento anual de esta última es menor. TikTok, sin embargo, tiene 3.18 millones de usuarios de 18 años o más en Panamá y experimenta aún más crecimiento, lo que confirma que es la red social más popular. De nuevo, Facebook o Twitter, ahora X, son populares, pero no están experimentando el mismo crecimiento y están lejos en número de usuario de las tres primeras. Si miramos a la proporción de usuarios alcanzados por las redes sociales en Panamá, TikTok es quien tiene la mayor proporción con un 80,4%, seguida por YouTube (67,2%) e Instagram (73,4%) lo que confirma que son las tres redes sociales más populares en el país. Justo detrás está Facebook y mucho más atrás están Twitter y todas las demás.171 El ecosistema digital panameño se ha visto dinamizado por el crecimiento acelerado del comercio electrónico y la adopción masiva de métodos de pago digitales. Durante 2024, Panamá registró un récord histórico de 349 millones de transacciones electrónicas, lo que representa un incremento de 21 millones de operaciones de un año a otro. Así, la inclusión financiera y tecnológica del país avanza hacia la consolidación. Según datos de Telered, principal empresa que procesa transacciones y medios de pago económicos en el país, el volumen de capital procesado en estos canales superó los 108,900 millones de Balboas, impulsado por el arraigo del Sistema Clave, que procesó hasta 264</p>
+<div class="footnotes">
+<p class="footnote">168Cubilla-Bonnetier, D., Grajales-Barrios, M., Ortega-Espinosa, A., Puertas, L. y De León Sautú, N. (2023, 6 de febrero). Unequal literacy development and access to online education in public versus private Panamanian schools during COVID-19 pandemic. Frontiers in Education, 8. https://doi.org/10.3389/feduc.2023.989872</p>
+<p class="footnote">169López de Ramos, A. L., Casado Robles, E., Atagua-Díaz, Z., Prado, J. F., Álvarez Franco, A. M., Cáceres, A. y Ramos Fortuna, V. (2024). Análisis de la alfabetización digital: Explorando la brecha de género en estudiantes universitarios panameños. Latitude, 1(19), 22–46. https://doi.org/10.55946/latitude.v1i19.242</p>
+<p class="footnote">170OECD. (2023). PISA 2022 Results (Volume I): The State of Learning and Equity in Education. OECD Publishing. https://doi.org/10.1787/53f23881-en</p>
+<p class="footnote">171Kemp, S. (2025, 15 de diciembre). Digital 2026: Panama. DataReportal; Kepios. https://datareportal.com/reports/digital-2026-panama for the Governance of Digital Platforms’ millones de transacciones en un año y por el fuerte crecimiento de transferencias inmediatas y el uso de billeteras digitales. 172</p>
+</div>
+<h2>8.5 Contexto legislativo y regulatorio en Panamá</h2>
+<h3>8.5.1 Marco constitucional</h3>
+<p>El marco constitucional panameño establece una base garantista y robusta para la protección de los derechos fundamentales, la cual sirve como pilar para la regulación de los entornos digitales. En su núcleo, la Constitución Política de la República de Panamá consagra la libertad de expresión al determinar que toda persona puede emitir libremente su pensamiento de palabra, por escrito o &quot;por cualquier otro medio&quot;, sin estar sujeta a censura previa. Esta formulación abierta permite que la protección constitucional se extienda a internet, las plataformas digitales y las redes sociales. No obstante, el mismo texto constitucional establece que este derecho no es absoluto, pues acarrea responsabilidades legales ulteriores cuando, a través de su ejercicio, se atente contra la reputación o la honra de las personas, o frente a actos que atenten contra la seguridad social o el orden público. De manera complementaria, la constitución panameña erige una barrera estricta frente a la vigilancia arbitraria, un elemento vital para el ejercicio seguro del periodismo y la libertad de expresión en la era digital. Garantiza la inviolabilidad de la correspondencia y de los documentos privados, extendiendo esta protección expresamente a las comunicaciones telefónicas y, por interpretación extensiva, a las telecomunicaciones y datos digitales. El mandato constitucional es claro al establecer que las comunicaciones privadas no pueden ser interceptadas, registradas ni examinadas sino por mandato de una autoridad judicial competente y mediante el cumplimiento estricto de las formalidades legales. Esta garantía protege a los usuarios y a la prensa de intromisiones ilegítimas del Estado en sus comunicaciones electrónicas, resguardando el secreto profesional y la confidencialidad de las fuentes. En lo relativo al acceso a la información y la autodeterminación informativa, la Constitución panameña incorpora herramientas procesales modernas y directas, destacando la figura del habeas Data. A través de este recurso constitucional, se reconoce el derecho de toda persona a acceder a la información sobre sí misma contenida en bases de datos o registros públicos y privados, así como a exigir su rectificación, actualización o confidencialidad si estos fuesen inexactos o vulneraran sus derechos. Simultáneamente, la Constitución consagra el derecho de acceso a la información pública, sentando el principio de máxima publicidad que obliga al Estado a ser transparente, un derecho que hoy en día se materializa indispensablemente a través de portales de datos abiertos y plataformas gubernamentales digitales. Finalmente, en lo que respecta a la libertad de prensa y el debate democrático en línea, el marco panameño busca un equilibrio entre la prohibición de la censura y la mitigación de los nuevos riesgos digitales. Si bien la Constitución protege a los medios de comunicación y prohíbe su clausura o expropiación como mecanismo para silenciar la crítica, los entornos digitales han introducido amenazas como la desinformación masiva y el uso de bots y cuentas falsas, especialmente durante los periodos electorales. Como se puede ver con más detalle en el apartado correspondiente, Panamá ha modificado su legislación electoral para hacer frente a las realidades del internet actual y a los riesgos a la integridad electoral.</p>
+<div class="footnotes">
+<p class="footnote">172Telered. (2025). Noticias y actualidad sobre el sistema de pagos electrónicos en Panamá. https://www.telered.com.pa/category/teleres/ for the Governance of Digital Platforms’</p>
+</div>
+<h3>8.5.2 Legislación sobre Telecomunicaciones y Medios</h3>
+<p>La regulación de las telecomunicaciones y los medios de comunicación en la República de Panamá está cimentada históricamente en dos normativas fundamentales: la Ley 31 de 1996, conocida como la Ley de Telecomunicaciones173, y la Ley 24 de 1999, o Ley de Radiodifusión.174 Estas legislaciones fueron diseñadas con el propósito de organizar la prestación de servicios y regular de manera exhaustiva el uso del espectro radioeléctrico, un bien de dominio público cuya explotación requiere el otorgamiento de concesiones estatales. Si bien estas leyes preceden a la adopción masiva de internet y la emergencia de las plataformas digitales, establecen los principios de competencia, control estatal y protección del interés público que permean la actual gobernanza digital del país. La Ley 24 de 1999 es particularmente relevante por su diseño institucional, ya que designa al Ente Regulador de los Servicios Públicos —actualmente la Autoridad Nacional de los Servicios Públicos (ASEP)— como la entidad dotada de personalidad jurídica y patrimonio propio, encargada de fiscalizar, ordenar y otorgar las concesiones en este sector. La función de la ASEP trasciende la mera administración técnica; tiene el mandato de velar por el bienestar social de los ciudadanos y asegurar la promoción de mercados competitivos. Esta misión se traduce en una supervisión que busca evitar prácticas que distorsionen la competencia leal o perjudiquen la inversión en la infraestructura de comunicaciones del país. Un componente protector de la pluralidad democrática contenido en la Ley 24 de 1999 es la imposición de restricciones explícitas diseñadas para evitar los monopolios mediáticos. La normativa prohíbe el control cruzado entre concesionarios de medios de comunicación abiertos (como la televisión y la radio) y los periódicos de circulación diaria, buscando evitar la concentración de la opinión pública en unas pocas manos. Asimismo, la ley salvaguarda la soberanía informativa al exigir que el control efectivo de las empresas concesionarias permanezca mayoritariamente en manos de ciudadanos nacionales panameños, admitiendo excepciones únicamente en el caso de los servicios de televisión o radio pagada. Además, esta ley sentó las bases regulatorias para la transición tecnológica hacia la radio y televisión digital en el país. En lo referente a la protección de los derechos a la información y la libertad de prensa, destaca el Decreto 155 de 1962175, que regula la radiodifusión en el país. En consonancia con el artículo 37 de la Constitución Política de la República, el artículo 44 de este decreto garantiza explícitamente la libre emisión del pensamiento sin ningún tipo de censura previa. Esta garantía histórica se entrelaza con la Ley de Transparencia (Ley No. 6 del 22 de enero de 2002),176 la cual es un pilar para el ejercicio del periodismo y el escrutinio público. Esta ley garantiza el principio de acceso público a la información y establece mecanismos de transparencia activa y habeas data. Al mismo tiempo, clasifica la información, distinguiendo entre la de acceso libre, la confidencial (datos médicos, vida íntima) y la de acceso restringido (seguridad nacional, secretos comerciales), prohibiendo la divulgación de estas dos últimas categorías, pero fomentando la participación ciudadana mediante consultas públicas antes de tomar decisiones administrativas que afecten intereses ciudadanos.</p>
+<div class="footnotes">
+<p class="footnote">173Panamá. (1996, 9 de febrero). Ley 31 de 1996: Por la cual se dictan normas para la regulación de las telecomunicaciones en la República de Panamá. Gaceta Oficial N.º 22,971. https://www.gacetaoficial.gob.pa/gacetas/22971_1996.pdf</p>
+<p class="footnote">174Panamá. (1999, 30 de junio). Ley 24 de 1999: Por la cual se regulan los servicios públicos de radio y televisión y se dictan otras disposiciones. Gaceta Oficial N.º 23,832. (Actualizada con reformas y leyes complementarias, incluyendo la Ley 281 de 2021). https://asep.gob.pa/direcciones/telecomunicaciones/radio- y-television-digital/legislacion/</p>
+<p class="footnote">175Panamá. (1962, 12 de julio). Decreto Ejecutivo N.º 155 de 12 de julio de 1962, por el cual se reglamenta el ejercicio de la abogacía y se dicta el Código de Ética y Responsabilidad Profesional. Gaceta Oficial N.º 14,672. https://docs.panama.justia.com/federal/decretos-ejecutivos/155-1962-jul-12-1962.pdf</p>
+<p class="footnote">176Panamá. (2002, 22 de enero). Ley N.º 6 de 2002: Que dicta normas para la transparencia en la gestión pública, establece la acción de Habeas Data y dicta otras disposiciones. Gaceta Oficial N.º 24,476. https://www.gacetaoficial.gob.pa/gacetas/24476_2002.pdf for the Governance of Digital Platforms’ La Ley 59 de 2008 sobre Servicio y Acceso Universal a las TIC177 busca la democratización tecnológica y la reducción de la brecha digital. Esta ley tiene como objetivo promover y garantizar el acceso a las tecnologías de la información y las telecomunicaciones en todo el territorio panameño, con un énfasis particular en brindar cobertura y calidad a ciudadanos con limitaciones geográficas o económicas. En su artículo 2, eleva el derecho a la comunicación y la información al nivel de principio fundamental del servicio universal, a la par de la no discriminación, la transparencia y la equidad. Su artículo 3 define el derecho a la información como la &quot;garantía fundamental que tiene cada persona de recibir, buscar, conocer y difundir información&quot;, convirtiendo este derecho en un componente central de la libertad de expresión en el contexto del acceso a la tecnología. Para materializar estos objetivos, la Ley 59 establece la creación de Fondos para el Desarrollo de Proyectos de Servicio y Acceso Universal, los cuales son financiados solidariamente por las empresas operadoras mediante una tasa aplicada sobre las llamadas internacionales entrantes. El artículo 10 de la ley estipula que, al definir los proyectos (como telemedicina o telefonía rural), se dará prioridad a aquellos que faciliten el acceso a la &quot;Sociedad del Conocimiento&quot;, reconociendo que el acceso a la información gubernamental y la participación ciudadana son metas irrenunciables. Complementariamente, el artículo 20 ordena la modernización de la infraestructura existente en áreas de difícil acceso para permitir la conexión a internet. A nivel de defensa de derechos, la Defensoría del Pueblo de Panamá juega un rol transversal. Creada por la Ley No. 7 de 1997178, esta institución fue elevada a rango constitucional mediante la reforma constitucional de 2004, consagrando sus funciones y los requisitos para la elección del Defensor en los artículos 129 y 130 de la Constitución. La Defensoría tiene el encargo de velar por la protección de los derechos humanos de todos los habitantes del país. Dado su mandato de defender activamente estos derechos frente a vulneraciones y de supervisar el actuar de la administración pública, la institución posee una legitimidad y competencia inherentes para intervenir en la protección de los derechos de los usuarios y ciudadanos en el cada vez más complejo ámbito digital.</p>
+</div>
+<h3>8.5.3 Regulación específica sobre plataformas y/o regulación de</h3>
+<p>contenidos Panamá no ha promulgado hasta la fecha una ley que remita explícitamente a la “regulación de plataformas digitales” o la “moderación de contenidos”. Sin embargo, el país cuenta con un marco regulatorio para internet y sus servicios que opera de manera análoga, si bien está claro que hace falta una modernización que le permita acometer con mayor claridad los retos actuales de los entornos digitales, y en particular, como han ido cambiando dichos entornos con la aparición de las grandes plataformas digitales. La Ley No. 51 de 22 de julio de 2008,179 &quot;que define y regula los documentos electrónicos y las firmas electrónicas y la prestación de servicios de almacenamiento tecnológico de documentos y de</p>
+<div class="footnotes">
+<p class="footnote">177Panamá. (2008, 11 de agosto). Ley N.º 59 de 2008: Que promueve el Servicio y Acceso Universal a las tecnologías de la información y de las telecomunicaciones para el desarrollo y dicta otras disposiciones. Gaceta Oficial N.º 26,106. (Modificada por la Ley 70 de 2009, la Ley 62 de 2012 y la Ley 197 de 2021). https://www.gacetaoficial.gob.pa/pdfTemp/26106/12646.pdf</p>
+<p class="footnote">178Panamá. (1997, 5 de febrero). Ley N.º 7 de 5 de febrero de 1997, por la cual se crea la Defensoría del Pueblo. Gaceta Oficial N.º 23,222. (Subrogada parcialmente y complementada por la Ley 504 de 2024). https://www.defensoria.gob.pa/books/ley-no-7-de-5-de-febrero-de-1997-por-la-cual-se-crea-la-defensoria-del- pueblo/</p>
+<p class="footnote">179Panamá. (2008, 22 de julio). Ley N.º 51 de 2008: Que define y regula los documentos electrónicos y las firmas electrónicas y la prestación de servicios de almacenamiento tecnológico de documentos y de certificación de firmas electrónicas y adopta otras disposiciones para el desarrollo del comercio electrónico. Gaceta Oficial N.º 26,090. (Modificada por la Ley 82 de 2012). https://www.gacetaoficial.gob.pa/gacetas/26090_2008.pdf for the Governance of Digital Platforms’ certificación de firmas electrónicas y adopta otras disposiciones para el desarrollo del comercio electrónico&quot; tiene disposiciones que van más allá del comercio y establece el marco legal fundamental para los negocios, las transacciones digitales, las obligaciones de los intermediarios de internet y, por ende, es de singular relevancia para la gobernanza de las plataformas. La amplitud del alcance de la Ley No. 51 se hace evidente desde el artículo 2, donde se definen los sujetos regulados. La ley categoriza como &quot;prestadores de servicios de intermediación&quot; no solo a los proveedores de acceso a internet (ISP) o a las redes de telecomunicación, sino también a quienes prestan servicios de almacenamiento de datos de manera temporal o permanente (servicios en la nube y hosting), y de manera crucial, a quienes proveen &quot;instrumentos de búsqueda, acceso y recopilación de datos o de enlaces a otros sitios de internet&quot;. Esta definición amplia puede interpretarse para involucrar a motores de búsqueda, agregadores de contenido y plataformas de redes sociales actuales, sirviendo de base jurídica para exigir responsabilidades bajo el marco panameño, presentando elementos que son útiles para la regulación de las plataformas digitales. El artículo 3 de esta misma ley estipula los principios rectores de los servicios digitales, incluyendo la libertad de prestación, la compatibilidad, la equivalencia y la neutralidad tecnológica. Sin embargo, impone límites claros, estableciendo que la actividad de los prestadores de servicios debe respetar lo dispuesto en otras leyes en cuanto a la protección de la salud pública, la seguridad nacional, los datos personales y los intereses del consumidor. Asimismo, el Título VI de la ley, que regula el comercio electrónico a través de internet, introduce criterios de territorialidad en sus artículos 77 y</p>
+</div>
+<h1>78. Se considera que una empresa está establecida en Panamá si centraliza su gestión</h1>
+<p>administrativa en el país o dispone de instalaciones de apoyo logístico. Más importante aún, el artículo 78 determina que las empresas extranjeras que vendan servicios o bienes a través de internet hacia Panamá deben cumplir con los requerimientos técnicos y legales vigentes en el país, abriendo la puerta a que las plataformas transnacionales estén sujetas a la legislación local que protege los derechos de los ciudadanos. El aspecto más determinante de la Ley 51 para la regulación de plataformas es la instauración de un &quot;régimen de exención de responsabilidades&quot;, detallado en el Capítulo III. Mientras que el artículo 84 sujeta a los prestadores de servicios a responsabilidades civiles, penales y administrativas de carácter general, los artículos 88 a 91 establecen salvaguardas. Dictaminan que los intermediarios, operadores de redes y proveedores de acceso no son responsables por la información que transmiten si no han originado la transmisión, no modifican los datos y no seleccionan a los destinatarios. Esta inmunidad cubre el almacenamiento automático y transitorio (caching), siempre que la plataforma retire la información diligentemente al tener conocimiento de que ha sido removida en la fuente original. El núcleo de este régimen recae en el concepto de &quot;conocimiento efectivo&quot;. Los prestadores de servicios de alojamiento de datos (hosting), enlaces y herramientas de búsqueda están exentos de toda responsabilidad por los contenidos ilícitos o lesivos almacenados por terceros usuarios, siempre y cuando no tengan conocimiento efectivo de dicha ilicitud. Las plataformas solo incurren en responsabilidad si, tras adquirir dicho conocimiento (por ejemplo, mediante la notificación formal o resolución de una autoridad competente), no actúan con la diligencia debida para retirar los datos o inhabilitar el acceso a los mismos. Este modelo legal significa que, en Panamá, las plataformas no tienen una obligación general de monitorear proactivamente o filtrar todo el contenido que circula en sus redes para mantener su inmunidad, estableciendo un sistema de colaboración reactiva similar al operante en Estados Unidos y la Unión Europea. La autoridad administrativa facultada para velar por este ecosistema es la Dirección General de Comercio Electrónico (DGCE), adscrita al Ministerio de Comercio e Industrias. Sus competencias están definidas en múltiples artículos (incluyendo el 69 al 71, 80, 81, 95 al 97, entre otros). La DGCE tiene facultad inspectora: realiza auditorías técnicas, administra el registro de prestadores de servicios de almacenamiento y puede imponer sanciones severas, incluyendo la suspensión o &quot;prohibición definitiva&quot; de servicios para infractores reincidentes (artículos 63 y 101), algo que puede ser problemático sin límites apropiados. Tiene además una capacidad cuasi-judicial: los artículos 95 for the Governance of Digital Platforms’</p>
+<p>a 97 le otorgan legitimidad activa para iniciar acciones de suspensión contra actos contrarios a la ley, ya sea de oficio o a petición de terceros afectados (como asociaciones de consumidores). Las competencias de la DGCE interactúan directamente con la moderación de contenidos. Según los artículos 83 y 87, cualquier autoridad competente que determine que un contenido atenta contra el orden público, la salud, la dignidad humana o la protección al consumidor, no ordena directamente el bloqueo al intermediario, sino que debe canalizar una solicitud motivada a la DGCE. Esta dirección, al estimar la solicitud, se convierte en la autoridad encargada de ordenar a los proveedores de internet locales la suspensión de la transmisión o el bloqueo de acceso a datos, incluso de prestadores extranjeros. Para asegurar el cumplimiento, el artículo 102 faculta a la DGCE a imponer multas por desacato que pueden ascender a un 5% del valor de la sanción original por cada día de incumplimiento. Consciente del peso de estas medidas, el legislador incluyó salvaguardas en los artículos 39, 65, 83 y 103, exigiendo que toda medida restrictiva sea objetiva, proporcionada y garantice el respeto absoluto a derechos fundamentales como la intimidad y la libertad de expresión. Para complementar la fiscalización estatal, la ley panameña apuesta por la corregulación. Los artículos 92 a 94 facultan a la DGCE para impulsar la creación de códigos de conducta voluntarios a nivel nacional. Estos códigos, que adquieren carácter obligatorio para quienes los suscriben, deben elaborarse con la participación de consumidores y usuarios. Su relevancia para las plataformas es mayúscula, ya que permiten desarrollar procedimientos estandarizados para la detección y retirada de contenidos ilícitos, protección contra el spam, y el establecimiento de mecanismos extrajudiciales de resolución de conflictos. El Decreto Ejecutivo 24 de 2019, que reglamenta la Ley 51, operativiza esto en su Capítulo VII, creando un sistema de &quot;sellos de confianza&quot; para empresas que adopten estos códigos, exigiendo que integren estándares de privacidad, protección al menor y sistemas transparentes para dirimir quejas de los usuarios. Finalmente, la Ley No. 44 del 10 de octubre de 2012 sobre Derecho de Autor y Derechos Conexos180 también es de gran relevancia para el entorno digital. Esta ley modernizó el marco panameño para abarcar internet, determinando en sus artículos 2 y 55 que la puesta a disposición de obras al público incluye las redes digitales y el streaming bajo demanda. El software y las bases de datos también están protegidos (artículos 22 y 33). El Título XI de la ley tipifica delitos de &quot;Observancia Tecnológica&quot;, penalizando severamente la elusión de medidas tecnológicas de autotutela (candados DRM) y la alteración de información sobre gestión de derechos (RMI). Particularmente relevante para las plataformas es el artículo 158, que otorga a la Dirección General de Derecho de Autor la facultad administrativa de ordenar la suspensión inmediata de cualquier comunicación pública o transmisión digital no autorizada, incautar equipos e instruir bloqueos cuando no se acrediten las licencias de explotación, incidiendo así fuertemente en la retirada de contenidos protegidos de la red.</p>
+<h3>8.5.4 Legislación sobre protección de datos y privacidad</h3>
+<p>El derecho a la privacidad y el tratamiento de la información personal de los ciudadanos en Panamá encuentra desarrollo regulatorio en la Ley 81 de 2019 sobre Protección de Datos Personales181. Esta ley establece el marco jurídico general y obligatorio para el tratamiento de datos personales, abarcando tanto a las empresas del sector privado como a las entidades del sector público poniendo un énfasis particular en la autodeterminación informativa. La Ley 81 se basa en principios rectores detallados en su artículo 2. Entre ellos destacan el principio de lealtad y licitud, exigiendo transparencia desde el origen. Asimismo, impone el principio de</p>
+<div class="footnotes">
+<p class="footnote">180Panamá. (2012, 10 de octubre). Ley N.º 44 de 2012: Que dicta normas sobre derecho de autor y derechos conexos y dicta otras disposiciones. Gaceta Oficial N.º 27,141. https://www.gacetaoficial.gob.pa/gacetas/27141_2012.pdf</p>
+<p class="footnote">181Panamá. (2019, 26 de marzo). Ley N.º 81 de 2019: Sobre Protección de Datos Personales. Gaceta Oficial N.º 28,743-A. https://www.gacetaoficial.gob.pa/gacetas/28743A_2019.pdf for the Governance of Digital Platforms’ finalidad y proporcionalidad, el cual dicta que los responsables solo pueden recolectar los datos que sean estrictamente necesarios para un fin específico, legítimo y explícito, prohibiendo cualquier tratamiento posterior que sea incompatible con el propósito original. También es fundamental el principio de seguridad y confidencialidad, que obliga jurídicamente a los responsables de bases de datos a implementar medidas técnicas y organizativas robustas para proteger la información contra accesos no autorizados, alteraciones o pérdida, y a guardar estricto secreto profesional. Para legitimar el tratamiento de los datos personales, el artículo 6 de la ley establece como regla general e indispensable la obtención del consentimiento previo, informado e inequívoco del titular. Solo se contemplan excepciones tasadas legalmente en el artículo 8, tales como la ejecución de un contrato en el que el titular es parte, el cumplimiento de obligaciones legales impuestas al responsable, situaciones de urgencia médica inminente, o cuando se trate de datos provenientes de fuentes de acceso público irrestricto. Este régimen de control estricto se extiende a los flujos transfronterizos de datos. El artículo 5 prohíbe la transferencia de datos a terceros, tanto a nivel nacional como internacional, sin el consentimiento del usuario, a menos que el país receptor o la entidad adquirente ofrezca estándares de protección y seguridad equivalentes a los exigidos por la legislación panameña, o existan tratados internacionales de cooperación y persecución del delito que lo justifiquen. El artículo 15, el cual consagra legalmente los derechos ARCO: el derecho de Acceso a conocer qué datos propios se están procesando; el derecho de Rectificación frente a datos inexactos o incompletos; el derecho de Cancelación (eliminación) de datos cuyo tratamiento no se ajuste a la ley o cuyo propósito haya expirado; y el derecho de Oposición al tratamiento por motivos legítimos fundados. A estos derechos tradicionales se suma, de manera innovadora, el derecho a la portabilidad. Esta garantía jurídica faculta al usuario para solicitar y obtener una copia íntegra de sus datos personales estructurados en un formato electrónico genérico y de uso común, permitiéndole operar en distintos ecosistemas digitales sin perder su historial o perfilamiento. El entramado institucional encargado de velar por el cumplimiento de esta ley es liderado por la Autoridad Nacional de Transparencia y Acceso a la Información (ANTAI). A través de las competencias otorgadas en los artículos 7, 17 y 36, la ANTAI funge como el ente rector y autoridad de control nacional, con potestades plenas para fiscalizar las bases de datos, iniciar investigaciones de oficio o por denuncias ciudadanas, e imponer el régimen sancionador correspondiente. Para fortalecer la gobernanza democrática de la privacidad, el artículo 34 instituye el Consejo de Protección de Datos. Este órgano consultivo de composición multisectorial incluye representantes gubernamentales, de asociaciones de empresas privadas y de gremios profesionales, con el encargo de brindar asesoramiento técnico especializado a la ANTAI y recomendar el diseño de políticas públicas pertinentes.</p>
+</div>
+<h3>8.5.5 Regulación específica de protección de colectivos vulnerables</h3>
+<p>El Estado panameño ha desarrollado una arquitectura penal e institucional específica destinada a proteger a las poblaciones más vulnerables frente a las amenazas que se han amplificado mediante el uso de las tecnologías de la información y la comunicación. El Código Penal (texto único de 2019)182 incorpora los tratados internacionales de derechos humanos en su artículo 5 y ha sido reformado para abordar la cibercriminalidad, reforzado por la Ley 79 de 2013183, que integra las disposiciones del Convenio de Budapest. Esta última ley es vital porque en su artículo 12 establece la responsabilidad (penal, civil o administrativa) de las personas jurídicas —incluyendo empresas de</p>
+<div class="footnotes">
+<p class="footnote">182Panamá. (2019, 14 de mayo). Código Penal de la República de Panamá (Texto Único publicado en la Gaceta Oficial N.º 28,774-B). https://www.gacetaoficial.gob.pa/gacetas/28774B_2019.pdf</p>
+<p class="footnote">183Panamá. (2013, 14 de noviembre). Ley N.º 79 de 2013: Por la cual se aprueba el Convenio sobre la Ciberdelincuencia, hecho en Budapest el 23 de noviembre de 2001. Gaceta Oficial N.º 27,415. https://www.gacetaoficial.gob.pa/gacetas/27415_2013.pdf for the Governance of Digital Platforms’ plataformas— cuando los delitos cibernéticos se cometen por directivos o por subordinados debido a una negligencia o falta de vigilancia en el seno de la entidad. La protección de los menores de edad en el entorno digital es abordada con extremo rigor en el Código Penal. El artículo 184 tipifica la explotación sexual infantil, sancionando con severas penas de 10 a 15 años de prisión a todo aquel que fabrique, publique o distribuya pornografía infantil a través de internet o de cualquier otro medio de comunicación masiva. La ley prevé circunstancias agravantes específicas que incrementan la pena privativa de libertad en 5 años adicionales si la víctima resulta ser menor de 14 años o si se comprueba la existencia de fines de lucro en la explotación del material ilícito. Asimismo, la legislación panameña contempla el ciberacoso y las tácticas predatorias digitales conocidas como grooming. El artículo 187 está diseñado para castigar las estrategias que los abusadores utilizan para ganarse la confianza de los menores con fines de explotación sexual. Este artículo sanciona con penas de 8 a 10 años de prisión a las personas que empleen el correo electrónico, las plataformas de redes sociales, aplicaciones de mensajería u otros medios de comunicación para incitar a los menores a participar en actos sexuales o para promover servicios de esta índole. En la misma línea de protección, el artículo 190 penaliza la promoción o publicidad del turismo sexual dirigida por cualquier medio, incluyendo el espacio digital, estableciendo condenas que oscilan entre los 10 y 12 años de prisión. En materia de protección a las mujeres y combate a la violencia de género, Panamá dio un paso legislativo histórico con la promulgación de la Ley 82 del 24 de octubre de 2013.184 Esta norma integral adopta medidas de prevención contra la violencia y modifica el Código Penal para introducir el tipo delictivo del feminicidio. Su artículo 3 define la violencia contra la mujer de manera abarcadora, incluyendo prácticas discriminatorias en el ámbito público y privado. Lo que resulta verdaderamente pionero para el ecosistema digital es el artículo 4, numeral 21, que define e introduce el concepto de &quot;violencia mediática&quot;. Esta se describe como la publicación o difusión, a través de cualquier medio masivo, de mensajes e imágenes estereotipados que promuevan la explotación, que injurien, deshonren o humillen a las mujeres, o que legitimen la desigualdad de trato y construyan patrones socioculturales reproductores de violencia. La misma Ley 82 reconoce las dimensiones digitales del abuso mediante la definición de la &quot;violencia sexual&quot;, que incluye explícitamente la grabación o difusión sin consentimiento de imágenes íntimas por cualquier medio. El Código penal sanciona la difusión no consentida o sin la debida autorización de grabaciones, imágenes o documentos privados que no estaban destinados a la publicidad. Aunque Panamá no cuenta con una ley o tipo penal que castigue el &quot;discurso de odio&quot; de forma genérica, el ordenamiento jurídico castiga las expresiones hostiles en internet cuando cruzan la línea de la incitación a la violencia, la discriminación sistemática o la afectación del honor. El artículo 178 sanciona penalmente a quien acose, hostigue o discrimine sexualmente a una persona en entornos laborales o educativos, abriendo la puerta a su aplicación cuando estos actos se trasladan a los entornos digitales corporativos o escolares. Por otro lado, los delitos tradicionales de injuria y calumnia (artículos 193 al 195) sufren un incremento sustancial en sus penalidades, pudiendo llegar a penas de prisión efectiva, cuando las ofensas a la dignidad, la honra o el decoro, o la falsa atribución de un delito, se cometen de manera masiva &quot;utilizando un sistema informático&quot; o a través de redes sociales. Por último, para salvaguardar la seguridad de la población frente a amenazas extremas en línea, el Código Penal tipifica el ciberterrorismo. El artículo 293 establece que la utilización de &quot;medios cibernéticos&quot; para cometer actos de terrorismo destinados a causar pánico o un peligro común a la población será sancionada con altísimas penas de 20 a 30 años de prisión. De manera preventiva,</p>
+<p class="footnote">184Panamá. (2013, 24 de octubre). Ley N.º 82 de 2013: Que adopta medidas de prevención contra la violencia en las mujeres y reforma el Código Penal para tipificar el femicidio y sancionar la violencia contra las mujeres. Gaceta Oficial N.º 27,401. https://www.gacetaoficial.gob.pa/gacetas/27401_2013.pdf for the Governance of Digital Platforms’ el artículo 295 castiga la instrucción terrorista en línea, imponiendo de 5 a 10 años de cárcel a quien utilice plataformas de internet para enseñar a construir artefactos explosivos o para reclutar activamente a personas para actos de terror, imponiendo un límite penal infranqueable a la libertad de expresión cuando esta persigue la comisión de atrocidades.</p>
+</div>
+<h3>8.5.6 Regulación Electoral Digital</h3>
+<p>El marco normativo electoral está consolidado en el Texto Único del Código Electoral de 2022.185 El código incorpora las reformas introducidas por la Ley 247 de octubre de 2021186, configurando un marco justicia electoral que busca adaptarse al entorno digital. El código regula integralmente la estructura del Tribunal Electoral, la Fiscalía General Electoral, los derechos políticos y el financiamiento. El Código Electoral panameño reconoce y regula explícitamente a los &quot;medios de comunicación digitales&quot; como canales oficiales de difusión de propaganda política. Los artículos 260 y 262 incluyen dentro de esta definición legal a internet de manera general, las redes sociales, las aplicaciones móviles, los motores de búsqueda y los servicios de mensajería masiva. Al normalizar estos medios, la ley somete la pauta política digital a los mismos rigores que la propaganda tradicional. El artículo 276 establece prohibiciones taxativas a las que queda sujeta toda campaña electoral en internet, proscribiendo terminantemente la &quot;propaganda sucia&quot;. Esta se define jurídicamente como aquel contenido que ofenda la dignidad humana mediante insultos, que incurra en calumnias, que invada la vida privada, que promueva la discriminación sistemática o que afirme la comisión de actos ilegales que no hayan sido previamente dictaminados y probados por tribunales de justicia. Con el fin de evitar el financiamiento oscuro y la manipulación del algoritmo mediante dinero ilícito, el artículo 213 impone la obligación a todos los precandidatos, candidatos y partidos políticos deben autorizar al Tribunal Electoral el acceso directo a los módulos de pautas publicitarias de sus cuentas en redes sociales y plataformas. El objetivo es permitir auditorías y un monitoreo técnico del gasto publicitario en tiempo real; cualquier publicidad que evada este monitoreo es desestimada para efectos del reembolso del financiamiento público electoral. Los artículos 287 a 290 exigen a los actores políticos registrar ante el Tribunal Electoral las direcciones URL oficiales de sus páginas web, las cuentas institucionales y pagadas, e identificar plenamente al administrador o agencia responsable del manejo de sus medios digitales. Asimismo, es obligatorio que toda publicidad digital lleve visible un cintillo o etiqueta de transparencia. El Código Electoral también aborda las amenazas de la desinformación automatizada. El artículo 292 contiene disposiciones específicas contra la manipulación masiva en medios digitales, sancionando duramente el uso de centros de cuentas inauténticas (granjas de perfiles) y el uso de bots diseñados para alterar la percepción del electorado. El Tribunal Electoral, mediante su Dirección Nacional de Organización Electoral, posee facultades para verificar, identificar a los responsables y ordenar la suspensión administrativa inmediata de estas campañas tóxicas. Agotada la vía administrativa, la ley obliga a remitir el caso a la Fiscalía General Electoral. El Decreto N.° 7 del 23 de enero de 2024187 añade un capítulo al Código electoral que tiene como propósito exclusivo reglamentar y combatir la manipulación masiva de medios digitales orientada a</p>
+<div class="footnotes">
+<p class="footnote">185Panamá. (2022, 15 de febrero). Código Electoral de la República de Panamá (Texto Único publicado en la Gaceta Oficial N.º 29,482-A de 22 de febrero de 2022). https://www.gacetaoficial.gob.pa/pdfTemp/29482A/89751.pdf</p>
+<p class="footnote">186Panamá. (2021, 22 de octubre). Ley N.º 247 de 22 de octubre de 2021, que reforma el Código Electoral de la República de Panamá. Gaceta Oficial N.º 29,403-A. https://www.gacetaoficial.gob.pa/pdfTemp/29403_A/GacetaNo_29403a_20211022.pdf</p>
+<p class="footnote">187Panamá. (2024, 23 de enero). Decreto Ejecutivo N.º 7 de 23 de enero de 2024, que reglamenta la Ley 81 de 26 de marzo de 2019, sobre Protección de Datos Personales. Gaceta Oficial N.º 29,956-B. https://www.gacetaoficial.gob.pa/pdfTemp/29956B/GacetaNo_29956b_20240125.pdf for the Governance of Digital Platforms’ socavar la integridad del proceso electoral. El artículo 1 define jurídicamente conceptos modernos como la &quot;desinformación electoral&quot; y la &quot;manipulación masiva&quot;. Su artículo 2 aporta un catálogo detallado de veinte conductas prohibidas que configuran esta manipulación, adaptando la ley a los riesgos del siglo XXI. Se prohíbe el uso malicioso de la Inteligencia Artificial para la creación de deepfakes (alteración de imagen, audio o video), el empleo de granjas de clics para amplificar propaganda dañina, el acoso para silenciar a oponentes políticos o minorías, y el uso de técnicas de microsegmentación destinadas a dirigir mensajes falsos. El decreto empodera a cualquier ciudadano y al propio Tribunal Electoral para denunciar la difusión de noticias falsas a través de aplicaciones de mensajería cerrada (como WhatsApp) o la manipulación de motores de búsqueda, asegurando que las herramientas para defender la democracia estén alineadas con la realidad tecnológica. Las autoridades electorales de Panamá han promovido la firma del Pacto Ético Digital, un instrumento de carácter voluntario que convoca a los partidos, candidatos, medios de comunicación, agencias digitales y ciudadanos influencers a suscribir un compromiso público a favor de la decencia en el ciberespacio. Los firmantes del pacto asumen el deber cívico de respetar las ventanas legales de campaña (vedas electorales), renunciar expresamente al uso de &quot;guerras sucias&quot;, bots y cuentas falsas para destruir prestigios, y se comprometen a ejercer un rol proactivo en la alfabetización de sus audiencias, verificando la autenticidad de los materiales audiovisuales antes de compartirlos (especialmente ante el auge de la IA generativa) y promoviendo un entorno de debate político donde prime la confrontación de ideas sobre el hostigamiento digital sistemático.</p>
+</div>
+<h2>8.6 Alineamiento con las Directrices UNESCO: Panamá</h2>
+<p>El análisis del marco regulatorio de Panamá, contrastado con las Directrices de la UNESCO para la gobernanza de plataformas digitales, revela un ecosistema normativo que cuenta con fundamentos constitucionales sólidos y avances sectoriales notables, pero que aún requiere de una modernización sistémica para regular a los intermediarios de internet con un enfoque integral de derechos humanos. En su base, Panamá exhibe un alineamiento positivo en cuanto a la protección de los derechos humanos y la libertad de expresión; la Constitución Política prohíbe la censura previa de manera neutral respecto a la tecnología y erige barreras estrictas frente a la vigilancia arbitraria, requiriendo siempre mandato judicial para interceptar comunicaciones privadas. A nivel de arquitectura de datos, la Ley 81 de 2019 establece un modelo robusto de privacidad y protección de datos, y delega su supervisión a una autoridad específica (la ANTAI), lo cual sintoniza con la protección de la autonomía que promueve la UNESCO. En cuanto a la regulación de las plataformas y el ecosistema de contenidos, el país no cuenta con una ley contemporánea que regule específicamente la gobernanza de redes sociales. En su lugar, depende de la Ley 51 de 2008 (sobre comercio y documentos electrónicos), la cual establece un régimen de exención de responsabilidades similar al modelo de &quot;puerto seguro&quot;. Esta ley dictamina que las plataformas no son responsables por el contenido de terceros a menos que tengan &quot;conocimiento efectivo&quot; de su ilicitud y no actúen diligentemente para retirarlo. Aunque este enfoque evita la censura proactiva y se alinea en principio con los estándares internacionales de proporcionalidad, la designación de la Dirección General de Comercio Electrónico (DGCE) como la autoridad facultada para ordenar bloqueos a nivel administrativo —pudiendo llegar a imponer prohibiciones definitivas— genera serios cuestionamientos. Este diseño institucional representa una brecha crítica respecto a la recomendación de la UNESCO de contar con un regulador independiente, especializado en la mitigación de riesgos de derechos humanos y separado de la órbita puramente comercial o gubernamental directa, es decir, se identifica una clara oportunidad de mejora Donde Panamá demuestra un alineamiento destacable es en su respuesta frente a las amenazas a la integridad electoral en el entorno digital. El Tribunal Electoral ha liderado reformas al Código Electoral (como la Ley 247 de 2021 y el Decreto N.° 7 de 2024) que abordan directamente los riesgos for the Governance of Digital Platforms’</p>
+<p>sistémicos identificados por la UNESCO. La legislación panameña exige transparencia en el financiamiento de la pauta digital, prohíbe taxativamente la manipulación masiva mediante el uso de *bots* y granjas de cuentas, y tipifica de manera pionera el uso malicioso de la inteligencia artificial (*deepfakes*) para la desinformación electoral. Además, el Estado complementa la regulación punitiva con herramientas de autorregulación y compromiso cívico, como el Pacto Ético Digital, fomentando la corresponsabilidad de los actores políticos, los medios y la ciudadanía en la construcción de un ecosistema informativo sano. Aun así, persisten brechas importantes que limitan la protección efectiva de la deliberación pública. Mientras la UNESCO insiste en despenalizar la expresión y privilegiar las sanciones civiles, en Panamá subsisten serios problemas de acoso judicial contra periodistas, materializado frecuentemente mediante SLAPPs (Demandas Estratégicas contra la Participación Pública) amparadas en normativas penales de injuria y calumnia que contemplan penas de prisión, agravadas si se cometen a través de redes sociales. Finalmente, aunque la Ley 59 de 2008 promueve el acceso universal a las TIC, el empoderamiento digital sigue siendo una tarea pendiente; los preocupantes indicadores educativos internacionales revelan que la inmensa mayoría de los estudiantes panameños carece de la comprensión lectora necesaria para discernir entre hechos y opiniones, lo que deja a la población en un estado de alta vulnerabilidad frente a la desinformación y exige de manera urgente la implementación de políticas nacionales agresivas de alfabetización mediática e informacional. for the Governance of Digital Platforms’</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <em>Proyecto UNESCO financiado por la Unión Europea: "Safeguarding Freedom of Expression and Access to Information through the implementation of the UNESCO Guidelines for the Governance of Digital Platforms"</em>
+    <br>
+    Autores: Rodrigo Cetina-Presuel, José Achoy y Priscilla Ruiz
+    <span class="divider">·</span>
+    I4T Global Knowledge Network · UPF Barcelona School of Management · 2026
+  </footer>
+</div>
+
+<!-- Mobile toggle -->
+<button class="mobile-toggle" id="menuToggle" aria-label="Menú">☰</button>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.getElementById('menuToggle');
+  toggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && e.target !== toggle) sidebar.classList.remove('open');
+  });
+</script>
+
+</body>
+</html>

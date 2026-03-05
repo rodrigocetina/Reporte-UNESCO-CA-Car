@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bibliografía | Regulación de Plataformas Digitales</title>
+  <meta name="description" content="La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe — Bibliografía">
+  <style>
+:root {
+  --primary: #003875;
+  --primary-light: #005ea6;
+  --accent: #e8c900;
+  --bg: #f5f7fa;
+  --sidebar-bg: #002255;
+  --sidebar-width: 280px;
+  --text: #222;
+  --muted: #666;
+  --border: #d0d7e3;
+  --white: #fff;
+  --max-content: 860px;
+  --font: 'Georgia', 'Times New Roman', serif;
+  --font-ui: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: #cdd6f4;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-header {
+  background: #001840;
+  padding: 20px 18px 16px;
+  border-bottom: 3px solid var(--accent);
+}
+
+.sidebar-header .report-title {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-header .report-subtitle {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: #aabbd4;
+  margin-top: 5px;
+  line-height: 1.3;
+}
+
+.sidebar-header .logos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.logo-badge {
+  background: var(--accent);
+  color: #001840;
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sidebar-nav {
+  padding: 10px 0 20px;
+}
+
+.sidebar-nav .nav-section-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: #7b9dc8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 14px 18px 4px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 18px;
+  color: #c0d0e8;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  line-height: 1.4;
+  transition: background 0.15s, color 0.15s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-nav a:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--white);
+  border-left-color: var(--accent);
+}
+
+.sidebar-nav a.active {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  font-weight: 600;
+  border-left-color: var(--accent);
+}
+
+.nav-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Main content ── */
+.main {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.breadcrumb {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb a { color: var(--primary-light); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #bbb; }
+
+.topbar-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-nav {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 5px 14px;
+  border: 1.5px solid var(--primary);
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-nav:hover { background: var(--primary); color: var(--white); }
+.btn-nav.disabled { opacity: 0.35; pointer-events: none; }
+
+/* ── Content area ── */
+.content-wrap {
+  max-width: var(--max-content);
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+  flex: 1;
+}
+
+.section-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 32px 40px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; right: -20px;
+  width: 140px; height: 140px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+
+.section-banner .section-tag {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.section-banner h1 {
+  font-family: var(--font-ui);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--white);
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+/* ── Typography ── */
+.content-body h1 {
+  font-family: var(--font-ui);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 40px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  line-height: 1.4;
+}
+
+.content-body h2 {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 30px 0 10px;
+  line-height: 1.4;
+}
+
+.content-body h3 {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-light);
+  margin: 22px 0 8px;
+  line-height: 1.4;
+}
+
+.content-body p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #2a2a2a;
+  margin-bottom: 16px;
+  text-align: justify;
+  hyphens: auto;
+}
+
+.content-body .footnotes {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.content-body .footnote {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/* ── Index page specific ── */
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.index-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.index-card:hover {
+  box-shadow: 0 4px 16px rgba(0,56,117,0.12);
+  transform: translateY(-2px);
+  border-color: var(--primary-light);
+  text-decoration: none;
+}
+
+.card-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.card-content { flex: 1; }
+
+.card-content .card-number {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--primary);
+  padding: 2px 7px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.card-content .card-title {
+  font-family: var(--font-ui);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.card-content .card-desc {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* ── Footer ── */
+.footer {
+  background: #001840;
+  color: #7a92b0;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  text-align: center;
+  padding: 20px 40px;
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+.footer a { color: #aabbd4; text-decoration: none; }
+.footer .divider { margin: 0 8px; color: #3a5070; }
+
+/* ── Hamburger for mobile ── */
+.mobile-toggle {
+  display: none;
+  position: fixed;
+  bottom: 20px; right: 20px;
+  z-index: 200;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 48px; height: 48px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+  .sidebar.open { transform: translateX(0); }
+  .main { margin-left: 0; }
+  .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+  .content-wrap { padding: 32px 20px 60px; }
+  .topbar { padding: 0 20px; }
+  .section-banner { padding: 24px 24px; }
+  .section-banner h1 { font-size: 20px; }
+  .index-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="report-title">La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe</div>
+    <div class="report-subtitle">Del diagnóstico a la hoja de ruta para la acción · 2026</div>
+    <div class="logos">
+      <span class="logo-badge">UNESCO</span>
+      <span class="logo-badge" style="background:#003399;color:#fff;">UE</span>
+      <span class="logo-badge" style="background:#555;color:#fff;">I4T</span>
+    </div>
+  </div>
+  <div class="sidebar-nav">
+    <a href="index.html"  style="font-weight:700; border-top:1px solid rgba(255,255,255,0.07); padding-top:14px;">
+      <span class="nav-icon">🏠</span> Inicio
+    </a>
+    <div class="nav-section-label">Portada y Estructura</div>
+<a href="cover.html" class=""><span class="nav-icon">📄</span>Portada</a>
+<a href="indice.html" class=""><span class="nav-icon">📋</span>Índice</a>
+<div class="nav-section-label">Visión General</div>
+<a href="resumen-intro.html" class=""><span class="nav-icon">📝</span>Resumen Ejecutivo e Introducción</a>
+<a href="contexto-regional.html" class=""><span class="nav-icon">🌎</span>Contexto Regional</a>
+<div class="nav-section-label">Análisis por País</div>
+<a href="costa-rica.html" class=""><span class="nav-icon">🇨🇷</span>Costa Rica</a>
+<a href="el-salvador.html" class=""><span class="nav-icon">🇸🇻</span>El Salvador</a>
+<a href="guatemala.html" class=""><span class="nav-icon">🇬🇹</span>Guatemala</a>
+<a href="honduras.html" class=""><span class="nav-icon">🇭🇳</span>Honduras</a>
+<a href="mexico.html" class=""><span class="nav-icon">🇲🇽</span>México</a>
+<a href="panama.html" class=""><span class="nav-icon">🇵🇦</span>Panamá</a>
+<a href="republica-dominicana.html" class=""><span class="nav-icon">🇩🇴</span>República Dominicana</a>
+<div class="nav-section-label">Perspectiva Regional</div>
+<a href="alineamiento-regional.html" class=""><span class="nav-icon">🔗</span>Alineamiento Regional UNESCO</a>
+<a href="talleres.html" class=""><span class="nav-icon">🎓</span>Los Talleres en América Latina</a>
+<div class="nav-section-label">Cierre</div>
+<a href="conclusiones.html" class=""><span class="nav-icon">✅</span>Conclusiones y Recomendaciones</a>
+<a href="bibliografia.html" class="active"><span class="nav-icon">📚</span>Bibliografía</a>
+  </div>
+</nav>
+
+<!-- Main -->
+<div class="main">
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="breadcrumb">
+      <a href="index.html">Inicio</a>
+      <span class="sep">/</span>
+      <span>Bibliografía</span>
+    </div>
+    <div class="topbar-actions">
+      <a href="conclusiones.html" class="btn-nav">← Conclusiones y Recomendaciones</a>
+      <span class="btn-nav disabled">→</span>
+    </div>
+  </div>
+
+  <!-- Content -->
+  <div class="content-wrap">
+    <div class="section-banner">
+      <div class="section-tag">UNESCO · I4T · UPF Barcelona</div>
+      <h1>📚 Bibliografía</h1>
+    </div>
+    <div class="content-body">
+      <h1>13. Bibliografía</h1>
+<p>Álvarez Pinzón, G. P. y Herrera Ortiz, M. (2025). Libertad no disponible: El retroceso de los derechos digitales ante la centralización administrativa en México. Revista de Derecho y Tecnologías de la Información, 14(2), 45-68. https://doi.org/10.1017/rdti.2025.102 Amnistía Internacional. (2022, 13 de enero). El Salvador: Amnistía Internacional verifica el uso del programa espía Pegasus para la vigilancia de periodistas. https://www.amnesty.org/es/latest/news/2022/01/el-salvador-pegasus-spyware-surveillance- journalists/ Amnistía Internacional. (2023, 2 de mayo). República Dominicana: El descubrimiento del software espía Pegasus en el teléfono de una destacada periodista debe dar lugar a una investigación imparcial. https://www.amnesty.org/es/latest/news/2023/05/dominican-republic-discovery-of- pegasus-spyware-on-prominent-journalists-phone/ Amnistía Internacional. (2025, 14 de agosto). República Dominicana: Nuevo Código Penal no garantiza los derechos de las mujeres y niñas. https://www.amnesty.org/es/latest/news/2025/08/republica-dominicana-nuevo-codigo-penal-no- garantiza-los-derechos-de-las-mujeres-y-ninas/ Asamblea Legislativa de la República de Costa Rica. (1954, 19 de junio). Ley N.º 1758. Ley de Radio. Diario Oficial La Gaceta N.º 142. Asamblea Legislativa de la República de Costa Rica. (1975, 10 de octubre). Ley N.º 5811. Ley de la Oficina de Control de Propaganda. Diario Oficial La Gaceta N.º 202. Asamblea Legislativa de la República de Costa Rica. (2005, 30 de agosto). Ley N.º 8454. Ley de Certificados, Firmas Digitales y Documentos Electrónicos. Diario Oficial La Gaceta N.º 197. Asamblea Legislativa de la República de Costa Rica. (2008, 4 de junio). Ley N.º 8642. Ley General de Telecomunicaciones. Diario Oficial La Gaceta N.º 107. Asamblea Legislativa de la República de Costa Rica. (2009, 2 de septiembre). Ley N.º 8765. Código Electoral. Diario Oficial La Gaceta N.º 171, Alcance N.º 37. Asamblea Legislativa de la República de Costa Rica. (2011, 7 de julio). Ley N.º 8968. Protección de la Persona frente al Tratamiento de sus Datos Personales. Diario Oficial La Gaceta N.º 170. Asamblea Legislativa de la República de Costa Rica. (2022, 11 de julio). Ley N.º 10267. Ley para prohibir la difusión de propaganda que degrade a la persona adulta mayor. Diario Oficial La Gaceta N.º 172. Asamblea Legislativa de la República de El Salvador. (1997, 22 de mayo). Decreto N.º 142. Ley de Telecomunicaciones. Diario Oficial N.º 108, Tomo N.º 335. Asamblea Legislativa de la República de El Salvador. (2005, 31 de agosto). Decreto N.º 772. Ley de Protección al Consumidor. Diario Oficial N.º 166, Tomo N.º 368. Asamblea Legislativa de la República de El Salvador. (2010, 4 de marzo). Decreto N.º 285. Ley Especial para la Intervención de las Telecomunicaciones. Diario Oficial N.º 45, Tomo N.º 386. Asamblea Legislativa de la República de El Salvador. (2010, 4 de noviembre). Decreto N.º 555. Disposiciones para la Postulación de Candidaturas No Partidarias en las Elecciones Legislativas. Diario Oficial N.º 222, Tomo N.º 389. for the Governance of Digital Platforms’</p>
+<p>Asamblea Legislativa de la República de El Salvador. (2011, 8 de abril). Decreto N.º 534. Ley de Acceso a la Información Pública. Diario Oficial N.º 70, Tomo N.º 391. Asamblea Legislativa de la República de El Salvador. (2013, 31 de enero). Decreto N.º 307. Ley de Partidos Políticos. Diario Oficial N.º 32, Tomo N.º 398. Asamblea Legislativa de la República de El Salvador. (2013, 3 de julio). Decreto N.º 413. Código Electoral. Diario Oficial N.º 122, Tomo N.º 400. Asamblea Legislativa de la República de El Salvador. (2015, 22 de octubre). Decreto N.º 133. Ley de Firma Electrónica. Diario Oficial N.º 201, Tomo N.º 409. Asamblea Legislativa de la República de El Salvador. (2016, 4 de febrero). Decreto N.º 260. Ley Especial contra los Delitos Informáticos y Conexos. Diario Oficial N.º 29, Tomo N.º 410. Asamblea Legislativa de la República de El Salvador. (2020, 22 de octubre). Decreto N.º 463. Ley de Comercio Electrónico. Diario Oficial N.º 215, Tomo N.º 429. Asamblea Legislativa de la República de El Salvador. (2022, 27 de marzo). Decreto N.º 333. Régimen de Excepción. Diario Oficial N.º 59, Tomo N.º 434. Asamblea Legislativa de la República de El Salvador. (2022, 22 de junio). Decreto N.º 431. Ley Crecer Juntos para la Protección Integral de la Primera Infancia, Niñez y Adolescencia. Diario Oficial N.º 118, Tomo N.º 435. Asamblea Legislativa de la República de El Salvador. (2022, 18 de octubre). Ley Especial para el Ejercicio del Sufragio en el Extranjero. Diario Oficial N.º 197, Tomo N.º 437. Asamblea Legislativa de la República de El Salvador. (2023, 2 de noviembre). Diputados despenalizan difusión de mensajes generados por pandillas. https://www.asamblea.gob.sv/node/12992 Asamblea Nacional Constituyente de la República de El Salvador. (1983, 15 de diciembre). Constitución de la República de El Salvador. Diario Oficial N.º 234. Asamblea Nacional Constituyente de la República de Guatemala. (1966, 5 de mayo). Ley de Emisión del Pensamiento. Decreto Número 9. Diario de Centro América. Asamblea Nacional Constituyente de la República de Guatemala. (1985, 31 de mayo). Constitución Política de la República de Guatemala. Diario de Centro América. Asamblea Nacional Constituyente de la República de Guatemala. (1985, 3 de diciembre). Ley Electoral y de Partidos Políticos. Decreto Número 1-85. Diario de Centro América. Asamblea Nacional Constituyente de la República de Guatemala. (1986, 8 de enero). Ley de Amparo, Exhibición Personal y de Constitucionalidad. Decreto Número 1-86. Diario de Centro América. Asamblea Nacional Constituyente de la República de Honduras. (1958, 26 de julio). Ley de Emisión del Pensamiento. Decreto Número 6. Diario Oficial La Gaceta. Asamblea Nacional Constituyente de la República de Honduras. (1982, 20 de enero). Constitución de la República de Honduras. Decreto Número 131. Diario Oficial La Gaceta. for the Governance of Digital Platforms’</p>
+<p>Cámara de Diputados de México. (2024, 20 de diciembre). DOF publica decreto de reforma constitucional en materia de simplificación orgánica (Nota No. 1268). Comunicación Social: Agencia de Noticias. Cámara de Tecnologías de la Información y Comunicación (CAESCO). (2025, 6 de mayo). Informe preliminar sobre el proyecto de Ley Orgánica de Libertad de Expresión y Medios Audiovisuales de la República Dominicana. https://caesco.org/wp-content/uploads/2025/05/Informe-preliminar-sobre-el- Proyecto-de-Ley-Libertad-de-Expresion.pdf Calderón, S. (2024, 15 de octubre). Más 50% de los salvadoreños pasa más de tres horas diarias en redes sociales. Diario El Mundo. https://diario.elmundo.sv/economia/mas-50-de-los-salvadorenos- pasa-mas-de-tres-horas-diarias-en-redes-sociales Cebrián Zazurca, E. (2016). El impacto de Internet en el Estado democrático. Revista de Estudios Políticos, (173), 307-320. Centro de Estudios Transdisciplinarios de Centroamérica. (2023, 27 de septiembre). Autoritarismo en Centroamérica, persecución penal ilegítima en Guatemala, El Salvador, Honduras y Nicaragua. https://www.cetcam.org/los-autoritarismos-en-centroamerica-promueven-la-persecucion-penal- ilegitima/ Chivo Wallet. (s.f.). Inicio. Recuperado el 25 de febrero de 2026, de https://www.chivowallet.com/ Comisión Interamericana de Derechos Humanos. (2025, 14 de agosto). El Salvador: CIDH reitera preocupación por la prolongación excesiva y aplicación indebida del régimen de excepción. Organización de los Estados Americanos. https://www.oas.org/es/cidh/jsForm/?File=/es/cidh/prensa/comunicados/2025/162.asp Comisión Nacional de Telecomunicaciones de Honduras. (2011, 23 de agosto). Reglamento del Servicio de Internet o Acceso a Redes Informáticas. Resolución Número NR004/11. Diario Oficial La Gaceta. Committee to Protect Journalists. (2022, 8 de abril). Nueva ley adoptada en El Salvador sanciona con penas de hasta 15 años de prisión a los periodistas que den cobertura informativa a las pandillas. https://cpj.org/es/2022/04/nueva-ley-adoptada-en-el-salvador-sanciona-con-penas-de-hasta-15- anos-de-prision-a-los-periodistas-que-den-cobertura-informativa-a-las-pandillas/ Congreso de la Ciudad de México. (2024, 7 de junio). Código de Instituciones y Procedimientos Electorales de la Ciudad de México. Gaceta Oficial de la Ciudad de México. Congreso de la República de Guatemala. (1992, 1 de julio). Ley del Impuesto al Valor Agregado. Decreto Número 27-92. Diario de Centro América. Congreso de la República de Guatemala. (1996, 17 de octubre). Ley General de Telecomunicaciones. Decreto Número 94-96. Diario de Centro América. Congreso de la República de Guatemala. (2003, 18 de julio). Ley de Protección Integral de la Niñez y Adolescencia. Decreto Número 27-2003. Diario de Centro América. Congreso de la República de Guatemala. (2008, 23 de septiembre). Ley de Acceso a la Información Pública. Decreto Número 57-2008. Diario de Centro América. Congreso de la República de Guatemala. (2025, 8 de julio). Iniciativa que dispone aprobar la Ley de Protección de Datos Personales. Iniciativa Número 6572. Dirección Legislativa. Congreso Nacional de Honduras. (1995, 31 de octubre). Ley Marco del Sector de Telecomunicaciones. Decreto Número 185-95. Diario Oficial La Gaceta. for the Governance of Digital Platforms’</p>
+<p>Congreso Nacional de Honduras. (2006, 30 de diciembre). Ley de Transparencia y Acceso a la Información Pública. Decreto Número 170-2006. Diario Oficial La Gaceta. Congreso Nacional de Honduras. (2008, 7 de julio). Ley de Protección al Consumidor. Decreto Número 24-2008. Diario Oficial La Gaceta. Congreso Nacional de Honduras. (2011, 12 de diciembre). Ley Especial sobre Intervención de las Comunicaciones Privadas. Decreto Número 243-2011. Diario Oficial La Gaceta. Congreso Nacional de Honduras. (2013, 11 de diciembre). Ley sobre Firmas Electrónicas. Decreto Número 149-2013. Diario Oficial La Gaceta. Congreso Nacional de Honduras. (2017, 18 de octubre). Código Penal de Honduras. Decreto Número 130-2017. Diario Oficial La Gaceta. Congreso Nacional de Honduras. (2021, 26 de mayo). Ley Electoral de Honduras. Decreto Número 35-2021. Diario Oficial La Gaceta N.º 35,609. Consejo Nacional de Inclusión y Educación Financiera de El Salvador. (s.f.). Bitcoin en El Salvador. Recuperado el 25 de febrero de 2026, de https://inclusionfinanciera.gob.sv/bitcoin-en-el-salvador/ Corporación Latinobarómetro. (2020). Informe 2020. https://www.latinobarometro.org/latOnline.jsp Corte de Constitucionalidad de Guatemala. (2004, 14 de octubre). Sentencia del Expediente 1822- 2003. Corte Interamericana de Derechos Humanos. (1985, 13 de noviembre). La colegiación obligatoria de periodistas (arts. 13 y 29 Convención Americana sobre Derechos Humanos) (Opinión Consultiva OC- 5/85, Serie A No. 5). https://www.corteidh.or.cr/tablas/a12040.pdf Corte Interamericana de Derechos Humanos. (2001, 6 de febrero). Caso Ivcher Bronstein vs. Perú (Sentencia de fondo, reparaciones y costas, Serie C No. 74). https://www.corteidh.or.cr/docs/casos/articulos/seriec_74_esp.pdf Corte Interamericana de Derechos Humanos. (2001, 5 de febrero). Caso «La Última Tentación de Cristo» (Olmedo Bustos y otros) vs. Chile (Sentencia de fondo, reparaciones y costas, Serie C No. 73). Corte Interamericana de Derechos Humanos. (2004, 2 de julio). Caso Herrera Ulloa vs. Costa Rica (Sentencia de excepciones preliminares, fondo, reparaciones y costas, Serie C No. 107). Corte Interamericana de Derechos Humanos. (2004, 31 de agosto). Caso Ricardo Canese vs. Paraguay (Sentencia de fondo, reparaciones y costas, Serie C No. 111). Corte Interamericana de Derechos Humanos. (2005, 22 de noviembre). Caso Palamara Iribarne vs. Chile (Sentencia de fondo, reparaciones y costas, Serie C No. 135). Corte Interamericana de Derechos Humanos. (2006, 19 de septiembre). Caso Claude Reyes y otros vs. Chile (Sentencia de fondo, reparaciones y costas, Serie C No. 151). Cubilla-Bonnetier, D., Grajales-Barrios, M., Ortega-Espinosa, A., Puertas, L. y De León Sautú, N. (2023, 6 de febrero). Unequal literacy development and access to online education in public versus private Panamanian schools during COVID-19 pandemic. Frontiers in Education, 8. https://doi.org/10.3389/feduc.2023.989872 for the Governance of Digital Platforms’</p>
+<p>DataReportal. (s.f.). Global digital insights. Recuperado el 27 de agosto de 2025, de https://datareportal.com/ Digital Millennium Copyright Act of 1998, Pub. L. No. 105-304, 112 Stat. 2860 (1998). https://www.copyright.gov/legislation/dmca.pdf Dirección General de Impuestos Internos de la República Dominicana. (2023, 17 de agosto). Norma General N.º 07-2023 sobre el Registro y Administración de Proveedores de Servicios Digitales. Freedom House. (2024, 31 de mayo). Freedom on the Net 2024: Mexico. https://freedomhouse.org/country/mexico/freedom-net/2024 Freedom House. (2025). Freedom in the World 2025: Panama. https://freedomhouse.org/country/panama Galpaya, H. (2017, 23 de febrero). Zero-rating in emerging economies (Global Commission on Internet Governance Paper Series No. 47). Centre for International Governance Innovation. Gordón Guerrel, I. (2025, 22 de noviembre). Comisión de Reformas Electorales se extenderá hasta</p>
+<h1>2026. La Estrella de Panamá.</h1>
+<p>Graña Gianoni, J. (2025, abril). Desafíos a la libertad de expresión, estado de derecho y democracia en Latinoamérica: Un estudio regional en tema de SLAPPs. Panamá. Fundación Internacional Baltasar Garzón (FIBGAR). Guerrero Rodríguez, O. (2025, 2 de julio). Reformas a la Ley Federal de Competencia Económica y extinción de COFECE e IFT. Hogan Lovells. Herrera, K. (2022). Usuarios activos en redes sociales CR: Distribución total geográfica, edad y género [Infografía]. Radiografía del Consumidor Conectado, El Financiero. Human Rights Watch. (2024). Informe mundial 2024: El Salvador. Recuperado el 25 de febrero de 2026, de https://www.hrw.org/es/world-report/2024/country-chapters/el-salvador Human Rights Watch. (2024). Informe mundial 2024: Guatemala. https://www.hrw.org/es/world- report/2024/country-chapters/guatemala Instituto Dominicano de las Telecomunicaciones. (2021, 14 de diciembre). Resolución Núm. 126- 2021 que dicta el Reglamento de Ciberseguridad para la Prestación del Servicio de Acceso a Internet. Instituto Nacional de Estadística, Geografía e Informática de México. (2024). Encuesta Nacional sobre Disponibilidad y Uso de Tecnologías de la Información en los Hogares (ENDUTIH) 2024. International IDEA. (2025). Democracy Tracker: Panama. https://www.idea.int/democracytracker/country/panama International Telecommunication Union. (2023, agosto). Digital development dashboard BETA: El Salvador. International Trade Administration. (2024). El Salvador - Information and communications technology. U.S. Department of Commerce. Internet Society. (2026). Country report for El Salvador. Internet Society Pulse. Recuperado el 25 de febrero de 2026. Kemp, S. (2024, febrero). Digital 2024: Guatemala. DataReportal. for the Governance of Digital Platforms’</p>
+<p>Kemp, S. (2024, febrero). Digital 2024: Honduras. DataReportal. Kemp, S. (2024, febrero). Digital 2024: Mexico. We Are Social; Kepios. Kemp, S. (2025, enero). Digital 2025: Costa Rica. DataReportal. Kemp, S. (2025, enero). Digital 2025: Guatemala. DataReportal. Kemp, S. (2025, 15 de diciembre). Digital 2026: Panama. DataReportal; Kepios. Kemp, S. (2025, 8 de noviembre). Digital 2026: El Salvador. DataReportal. Kepios / DataReportal. (2025). Digital 2025: The Dominican Republic. La Prensa. (2024, 21 de febrero). Honduras suma 4.5 millones de usuarios en redes sociales en 2024. López de Ramos, A. L., Casado Robles, E., Atagua-Díaz, Z., Prado, J. F., Álvarez Franco, A. M., Cáceres, A. y Ramos Fortuna, V. (2024). Análisis de la alfabetización digital: Explorando la brecha de género en estudiantes universitarios panameños. Latitude, 1(19), 22–46. https://doi.org/10.55946/latitude.v1i19.242 Márquez, D. (2025, 10 de junio). DataReportal y el uso de internet y redes sociales en El Salvador</p>
+<h1>2025. iLifebelt.</h1>
+<p>Massé, E., Björksten, &amp; Chima, R. J. S. (2016, 4 de junio). Zero rating: A global threat to the open internet. Access Now. McSherry, C. (2020, 16 de septiembre). Notice and takedown mechanisms: Risks for freedom of expression online [Declaración escrita]. Electronic Frontier Foundation. Méndez Dardón, A. M. (2022). La libertad de expresión en Guatemala: entre la represión y la resistencia. Revista de Ciencia Política de la Universidad Rafael Landívar, 15(2), 45–67. México. (1917, 5 de febrero). Constitución Política de los Estados Unidos Mexicanos. Diario Oficial de la Federación. México. (2020, 1 de julio). Ley Federal del Derecho de Autor. Diario Oficial de la Federación. México. (2024, 16 de diciembre). Ley General de Acceso de las Mujeres a una Vida Libre de Violencia. Diario Oficial de la Federación. México. (2024, 20 de diciembre). Decreto por el que se reforman, adicionan y derogan diversas disposiciones de la Constitución Política de los Estados Unidos Mexicanos, en materia de simplificación orgánica. Diario Oficial de la Federación. México. (2024, 26 de diciembre). Ley Federal de Protección al Consumidor. Diario Oficial de la Federación. México. (2025, 21 de febrero). Ley Federal del Trabajo. Diario Oficial de la Federación. México. (2025, 20 de marzo). Ley Federal de Protección de Datos Personales en Posesión de los Particulares. Diario Oficial de la Federación. México. (2025, 16 de julio). Ley Federal de Competencia Económica. Diario Oficial de la Federación. for the Governance of Digital Platforms’</p>
+<p>México. (2025, 16 de julio). Ley Federal de Telecomunicaciones y Radiodifusión. Diario Oficial de la Federación. México. (2025, 28 de noviembre). Código Penal Federal. Diario Oficial de la Federación. México. Gobierno de la República. (2017). Estrategia Nacional de Ciberseguridad. Mindus, P. (2014). What does e- add to democracy?: Designing an agenda for democracy theory in the information age. En J. Bishop (Ed.), Transforming politics and policy in the digital age. Ministerio de Hacienda de Costa Rica. (2025). Recaudación del IVA en servicios digitales transfronterizos. Dirección General de Tributación. Ministerio de la Mujer de la República Dominicana. (2024). Innovación en las propuestas de ley para la erradicación de la violencia de género. Misión conjunta de Freedom House, ARTICLE 19, CPJ, RSF et al. (2023). Informe de hallazgos de la misión internacional sobre libertad de prensa y de expresión en Guatemala. Mondragón Toledo, G. (2015). La importancia de Internet como fuente de poder de la sociedad. Universidad de Murcia. Movimiento Puente. (s.f.). Honduras: Derechos digitales. https://derechosdigitales.movpuente.com/honduras/ OECD. (2023). PISA 2022 Results (Volume I): The State of Learning and Equity in Education. OECD Publishing. https://doi.org/10.1787/53f23881-en ONU. (2021, 19 de julio). Los gobiernos no pueden usar tecnologías de espionaje a los ciudadanos que violan los derechos humanos. Naciones Unidas. Opensignal. (2024, diciembre). Costa Rica mobile network experience report. Opensignal. (2025, marzo). Guatemala: Mobile network experience report. Organización de las Naciones Unidas. (1966, 16 de diciembre). Pacto Internacional de Derechos Civiles y Políticos. Serie Tratados, 999, 171. Organización de los Estados Americanos. (1969, 22 de noviembre). Convención Americana sobre Derechos Humanos. O.A.S.T.S. No. 36. Panamá. (1962, 12 de julio). Decreto Ejecutivo N.º 155, Código de Ética y Responsabilidad Profesional del Abogado. Gaceta Oficial N.º 14,672. Panamá. (1972). Constitución Política de la República de Panamá. Gaceta Oficial N.º 17,210. (Actualizada con reformas de 2004). Panamá. (1996, 9 de febrero). Ley 31 de 1996: Regulación de las telecomunicaciones. Gaceta Oficial N.º 22,971. Panamá. (1999, 30 de junio). Ley 24 de 1999: Servicios públicos de radio y televisión. Gaceta Oficial N.º 23,832. Panamá. (2002, 22 de enero). Ley N.º 6 de 2002: Transparencia en la gestión pública y Habeas Data. Gaceta Oficial N.º 24,476. for the Governance of Digital Platforms’</p>
+<p>Panamá. (2008, 22 de julio). Ley N.º 51 de 2008: Documentos y firmas electrónicas y comercio electrónico. Gaceta Oficial N.º 26,090. Panamá. (2008, 11 de agosto). Ley N.º 59 de 2008: Servicio y Acceso Universal a las telecomunicaciones. Gaceta Oficial N.º 26,106. Panamá. (2012, 10 de octubre). Ley N.º 44 de 2012: Derecho de autor y derechos conexos. Gaceta Oficial N.º 27,141. Panamá. (2013, 14 de noviembre). Ley N.º 79 de 2013: Aprueba el Convenio sobre la Ciberdelincuencia (Budapest). Gaceta Oficial N.º 27,415. Panamá. (2013, 24 de octubre). Ley N.º 82 de 2013: Medidas contra la violencia en las mujeres y tipificación del femicidio. Gaceta Oficial N.º 27,401. Panamá. (2019, 26 de marzo). Ley N.º 81 de 2019: Protección de Datos Personales. Gaceta Oficial N.º 28,743-A. Panamá. (2019, 14 de mayo). Código Penal de la República de Panamá (Texto Único). Gaceta Oficial N.º 28,774-B. Panamá. (2021, 22 de octubre). Ley N.º 247 de 2021: Reforma el Código Electoral. Gaceta Oficial N.º 29,403-A. Panamá. (2022, 28 de octubre). Texto Único del Código Electoral (Decreto 60 de 2022). Gaceta Oficial N.º 29,652-A. Panamá. (2024, 23 de enero). Decreto Ejecutivo N.º 7 de 2024: Reglamenta la Ley 81 de Protección de Datos Personales. Gaceta Oficial N.º 29,956-B. Piña, G. (2025, 11 de julio). México opaco: falta de transparencia y acorralamiento de medios. Diálogo Político. Poder Ejecutivo de la República de Costa Rica. (1954, 4 de agosto). Decreto Ejecutivo N.º 18. Reglamento a la Ley de Radio. Diario Oficial La Gaceta N.º 175. Poder Ejecutivo de la República de Costa Rica. (2013, 5 de marzo). Decreto Ejecutivo N.º 37541-JP. Reglamento a la Ley de Protección de la Persona frente al Tratamiento de sus Datos Personales. Diario Oficial La Gaceta N.º 45. Programa de las Naciones Unidas para el Desarrollo. (2025, 15 de abril). Datos en la nube, centros en la tierra: El rol de los centros de datos en el futuro digital de ALC. https://www.undp.org/es/latin- america/blog/datos-en-la-nube-centros-en-la-tierra-el-rol-de-los-centros-de-datos-en-el-futuro- digital-de-alc Programa de Libertad de Expresión, Derecho a la Información y Opinión Pública (PROLEDI). (s.f.). Publicaciones PROLEDI. Universidad de Costa Rica. Recuperado el 3 de marzo de 2026, de https://proledi.ucr.ac.cr/publicaciones-proledi/ Pulso Capital. (2025, 16 de junio). Uso de internet y redes sociales en El Salvador 2025. https://pulsocapital.com/uso-de-internet-redes-sociales-el-salvador-2025/ Raziel, Z. (2025, 25 de abril). Sheinbaum frena la Ley de Telecomunicaciones tras la polémica por el artículo que permitía al Gobierno bloquear las plataformas digitales. El País. RED 506. (2022). Infografías RED 506 [Diapositivas]. SlideShare. for the Governance of Digital Platforms’</p>
+<p>Relatoría Especial para la Libertad de Expresión. (2017). Estándares para una internet libre, abierta e incluyente. Comisión Interamericana de Derechos Humanos. Relatoría Especial para la Libertad de Expresión. (2025). El impacto de la vigilancia digital en la libertad de expresión en las Américas (OEA/Ser.L/V/II/CIDH/RELE/INF.33/25). Reporteros Sin Fronteras. (2023). República Dominicana: Contexto Económico. https://rsf.org/es/pais/republica-dominicana Reporteros Sin Fronteras. (2025, 2 de mayo). Clasificación Mundial de la Libertad de Prensa 2025. https://rsf.org/es/clasificacion República Dominicana. (1962, 15 de diciembre). Ley N.º 6132 sobre Expresión y Difusión del Pensamiento. Gaceta Oficial N.º 8,725. República Dominicana. (1997, 27 de enero). Ley N.º 24-97: Modificaciones al Código Penal y protección de la niñez. Gaceta Oficial N.º 9,945. República Dominicana. (1998, 27 de mayo). Ley General de Telecomunicaciones (Ley N.º 153-98). Gaceta Oficial N.º 9,983. República Dominicana. (2002, 4 de septiembre). Ley N.º 126-02 sobre Comercio Electrónico, Documentos y Firmas Digitales. Gaceta Oficial N.º 10,172. República Dominicana. (2003, 7 de agosto). Ley N.º 136-03: Código para el Sistema de Protección y los Derechos Fundamentales de Niños, Niñas y Adolescentes. Gaceta Oficial N.º 10,234. República Dominicana. (2004, 28 de julio). Ley General de Libre Acceso a la Información Pública (Ley N.º 200-04). Gaceta Oficial N.º 10,290. República Dominicana. (2007, 23 de abril). Ley N.º 53-07 sobre Crímenes y Delitos de Alta Tecnología. Gaceta Oficial N.º 10,416. República Dominicana. (2013, 15 de diciembre). Ley N.º 172-13: Protección integral de los datos personales. Gaceta Oficial N.º 10,737. República Dominicana. (2015, 13 de junio). Constitución de la República Dominicana. Gaceta Oficial N.º 10,805. República Dominicana. (2018, 13 de agosto). Ley N.º 33-18 de Partidos, Agrupaciones y Movimientos Políticos. Gaceta Oficial N.º 10,917. República Dominicana. (2022, 14 de junio). Decreto N.º 313-22: Estrategia Nacional de Ciberseguridad 2030. Gaceta Oficial N.º 11,069. República Dominicana. (2023, 17 de febrero). Ley N.º 20-23 Orgánica del Régimen Electoral. Gaceta Oficial N.º 11,092. República Dominicana. (2023, 11 de octubre). Decreto N.º 498-23: Estrategia Nacional de Inteligencia Artificial (ENIA). Gaceta Oficial N.º 11,109. República Dominicana. (2024, 15 de enero). Ley N.º 1-24: Dirección Nacional de Inteligencia (DNI). Gaceta Oficial N.º 11,156. for the Governance of Digital Platforms’</p>
+<p>República Dominicana. (2025, 15 de agosto). Ley N.º 74-25 que establece el Código Penal de la República Dominicana. Gaceta Oficial N.º 11,124. Reuters Fact Check. (2024, 27 de mayo). Verificación: Universidad francesa no realizó estudios con pronóstico sobre elecciones en México. Riquelme, R. (2025, 6 de mayo). 100 millones de personas ya usan internet en México: INEGI. El Economista. Sala Constitucional de la Corte Suprema de Justicia de Costa Rica. (2024). Compendio anual estadístico. Sensor Tower. (2024). Top social networking apps in Guatemala, Q3 2024. Shum, Y. (2023, 16 de febrero). Situación digital, internet y redes sociales Honduras 2023. Sociedad Interamericana de Prensa. (2024, abril). Informe de República Dominicana ante la Reunión de Medio Año. https://www.sipiapa.org/notas/1216584-republica-dominicana Sociedad Interamericana de Prensa. (2024, 4 de julio). La SIP saluda fallo de la Corte Suprema que refuerza la libertad de expresión en Panamá. Superintendencia de Telecomunicaciones de Costa Rica (SUTEL). (2024). Estadísticas del sector telecomunicaciones 2024. Telered. (2025). Noticias y actualidad sobre el sistema de pagos electrónicos en Panamá. Thomson Reuters. (2024, 28 de febrero). El Salvador grants Musk&#x27;s Starlink unit concession for satellite internet. COOL FM. Tribunal Constitucional de la República Dominicana. (2016, 19 de febrero). Sentencia TC/0075/16 (Inconstitucionalidad de artículos de la Ley 6132). Tribunal Supremo de Elecciones de la República de Costa Rica. (2025, 20 de junio). Resolución N.º 4190-E8-2025: Uso de plataformas digitales institucionales en campaña. Tribunal Supremo Electoral de la República de Guatemala. (2016, 12 de octubre). Reglamento a la Ley Electoral y de Partidos Políticos. Acuerdo Número 435-2016. Tribunal Supremo Electoral de la República de Guatemala. (2018, 19 de enero). Reglamento de la Unidad Especializada sobre Medios de Comunicación y Estudios de Opinión. Acuerdo Número 15- 2018. Ulate Chacón, E. N. (2015). Del patrimonio constitucional centroamericano al derecho constitucional centroamericano: Estudios de derecho comparado. ISOLMA. UNESCO. (2024, 28 de septiembre). La transparencia y el acceso a la información pública en América Latina y el Caribe: Pilares de la democracia. Universidad de Costa Rica. (2025). Informe de voces desplazadas. PROLEDI. U.S. Department of State. (2025). 2024 Country Reports on Human Rights Practices: Panama. Bureau of Democracy, Human Rights, and Labor. V-Dem. (2025). Freedom of expression index - V-Dem [Conjunto de datos]. Our World in Data. Vesco Consultores. (2024, 8 de mayo). Tributación de las plataformas digitales en Guatemala. for the Governance of Digital Platforms’</p>
+<p>WePlan Analytics. (2024, septiembre). Costa Rica mobile quality report. for the Governance of Digital Platforms’</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <em>Proyecto UNESCO financiado por la Unión Europea: "Safeguarding Freedom of Expression and Access to Information through the implementation of the UNESCO Guidelines for the Governance of Digital Platforms"</em>
+    <br>
+    Autores: Rodrigo Cetina-Presuel, José Achoy y Priscilla Ruiz
+    <span class="divider">·</span>
+    I4T Global Knowledge Network · UPF Barcelona School of Management · 2026
+  </footer>
+</div>
+
+<!-- Mobile toggle -->
+<button class="mobile-toggle" id="menuToggle" aria-label="Menú">☰</button>
+
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.getElementById('menuToggle');
+  toggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && e.target !== toggle) sidebar.classList.remove('open');
+  });
+</script>
+
+</body>
+</html>
