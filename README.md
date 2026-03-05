@@ -11,7 +11,7 @@ Este reporte mapea y analiza el marco legal y regulatorio existente en siete pa�
 **Autores:** Rodrigo Cetina-Presuel, José Achoy y Priscilla Ruiz
 **Colaboradores:** Daniel Nuñez, Andrés Rincón y Alberto Saldaña
 **Año:** 2026
-**Organizaciones:** I4T Global Knowledge Network · UPF Barcelona School of Management
+**Organizaciones:** UNESCO I4T Global Knowledge Network · UPF Barcelona School of Management
 
 Proyecto UNESCO financiado por la Unión Europea: *"Safeguarding Freedom of Expression and Access to Information through the implementation of the UNESCO Guidelines for the Governance of Digital Platforms"*
 
@@ -44,15 +44,8 @@ Abrir `index.html` en cualquier navegador web para acceder a la página de inici
 
 ---
 
-## Publicar en GitHub Pages
 
-1. Crear un repositorio en GitHub (puede ser público o privado)
-2. Subir todos los archivos `.html` y este `README.md` a la raíz del repositorio
-3. En **Settings → Pages**, seleccionar la rama `main` y carpeta raíz `/`
-4. GitHub Pages publicará el sitio automáticamente en `https://<usuario>.github.io/<repositorio>/`
-
-El archivo de entrada es `index.html`.
 
 ---
 
-*Generado con Claude (Anthropic) — Cowork mode*
+
