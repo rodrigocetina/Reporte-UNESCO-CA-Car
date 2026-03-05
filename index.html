@@ -18,7 +18,7 @@
   --muted: #666;
   --border: #d0d7e3;
   --white: #fff;
-  --max-content: 860px;
+  --max-content: 960px;
   --font: 'Georgia', 'Times New Roman', serif;
   --font-ui: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
@@ -404,6 +404,40 @@ body {
   .section-banner h1 { font-size: 20px; }
   .index-grid { grid-template-columns: 1fr; }
 }
+
+/* ── Mosaic ── */
+.mosaic-group { margin-bottom: 44px; }
+.group-label { font-family: var(--font-ui); font-size: 11px; font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+  margin-bottom: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; gap: 8px; }
+.group-label::before { content: ''; display: inline-block; width: 14px; height: 3px;
+  border-radius: 2px; background: currentColor; }
+.mosaic-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+.mosaic-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px;
+  padding: 22px 22px 18px; text-decoration: none; color: inherit; display: flex;
+  flex-direction: column; gap: 10px; transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06); position: relative; overflow: hidden; }
+.mosaic-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--card-color, var(--primary)); opacity: 0; transition: opacity 0.2s; }
+.mosaic-card:hover { box-shadow: 0 6px 20px rgba(0,56,117,0.13); transform: translateY(-3px);
+  border-color: var(--primary-light); text-decoration: none; }
+.mosaic-card:hover::before { opacity: 1; }
+.card-top { display: flex; align-items: center; gap: 12px; }
+.card-icon { font-size: 26px; line-height: 1; flex-shrink: 0; }
+.card-tag { display: inline-block; font-family: var(--font-ui); font-size: 9.5px; font-weight: 800;
+  padding: 2px 8px; border-radius: 3px; text-transform: uppercase; letter-spacing: 0.08em;
+  background: var(--tag-bg, #e8eef7); color: var(--tag-color, var(--primary)); }
+.card-title { font-family: var(--font-ui); font-size: 14px; font-weight: 700;
+  color: var(--primary); line-height: 1.35; flex: 1; }
+.card-desc { font-family: var(--font-ui); font-size: 12px; color: #666; line-height: 1.5; flex: 1; }
+.open-btn { display: inline-flex; align-items: center; gap: 5px; margin-top: 4px;
+  padding: 6px 14px; border-radius: 5px; font-size: 11.5px; font-family: var(--font-ui);
+  font-weight: 700; cursor: pointer; text-decoration: none; background: var(--primary);
+  color: var(--white); transition: opacity 0.15s, background 0.15s; align-self: flex-start; }
+.open-btn:hover { opacity: 0.85; }
+@media (max-width: 768px) { .mosaic-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 480px) { .mosaic-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -417,187 +451,190 @@ body {
 <span class="logo-badge" style="background:#555;color:#fff;">I4T</span>
 </div>
 </div>
-<div class="sidebar-nav">
-<a class="active" href="index.html" style="font-weight:700; border-top:1px solid rgba(255,255,255,0.07); padding-top:14px;">
-<span class="nav-icon">🏠</span> Inicio
-    </a>
-<div class="nav-section-label">Portada y Estructura</div>
-<a class="" href="cover.html"><span class="nav-icon">📄</span>Portada</a>
-<a class="" href="indice.html"><span class="nav-icon">📋</span>Índice</a>
+<div class="sidebar-nav"><a class="active" href="index.html" style="font-weight:700; border-top:1px solid rgba(255,255,255,0.07); padding-top:14px;"><span class="nav-icon">🏠</span> Inicio</a>
+<a href="cover.html"><span class="nav-icon">📋</span>Créditos</a>
 <div class="nav-section-label">Visión General</div>
 <a href="resumen.html"><span class="nav-icon">📝</span>Resumen Ejecutivo</a>
 <a href="introduccion.html"><span class="nav-icon">📖</span>Introducción</a>
-<a class="" href="contexto-regional.html"><span class="nav-icon">🌎</span>Contexto Regional</a>
+<a href="contexto-regional.html"><span class="nav-icon">🌎</span>Contexto Regional</a>
 <div class="nav-section-label">Análisis por País</div>
-<a class="" href="costa-rica.html"><span class="nav-icon">🇨🇷</span>Costa Rica</a>
-<a class="" href="el-salvador.html"><span class="nav-icon">🇸🇻</span>El Salvador</a>
-<a class="" href="guatemala.html"><span class="nav-icon">🇬🇹</span>Guatemala</a>
-<a class="" href="honduras.html"><span class="nav-icon">🇭🇳</span>Honduras</a>
-<a class="" href="mexico.html"><span class="nav-icon">🇲🇽</span>México</a>
-<a class="" href="panama.html"><span class="nav-icon">🇵🇦</span>Panamá</a>
-<a class="" href="republica-dominicana.html"><span class="nav-icon">🇩🇴</span>República Dominicana</a>
+<a href="costa-rica.html"><span class="nav-icon">🇨🇷</span>Costa Rica</a>
+<a href="el-salvador.html"><span class="nav-icon">🇸🇻</span>El Salvador</a>
+<a href="guatemala.html"><span class="nav-icon">🇬🇹</span>Guatemala</a>
+<a href="honduras.html"><span class="nav-icon">🇭🇳</span>Honduras</a>
+<a href="mexico.html"><span class="nav-icon">🇲🇽</span>México</a>
+<a href="panama.html"><span class="nav-icon">🇵🇦</span>Panamá</a>
+<a href="republica-dominicana.html"><span class="nav-icon">🇩🇴</span>República Dominicana</a>
 <div class="nav-section-label">Perspectiva Regional</div>
-<a class="" href="alineamiento-regional.html"><span class="nav-icon">🔗</span>Alineamiento Regional UNESCO</a>
-<a class="" href="talleres.html"><span class="nav-icon">🎓</span>Los Talleres en América Latina</a>
+<a href="alineamiento-regional.html"><span class="nav-icon">🔗</span>Alineamiento Regional UNESCO</a>
+<a href="talleres.html"><span class="nav-icon">🎓</span>Los Talleres en América Latina</a>
 <div class="nav-section-label">Cierre</div>
-<a class="" href="conclusiones.html"><span class="nav-icon">✅</span>Conclusiones y Recomendaciones</a>
-<a class="" href="bibliografia.html"><span class="nav-icon">📚</span>Bibliografía</a>
-</div>
+<a href="conclusiones.html"><span class="nav-icon">✅</span>Conclusiones y Recomendaciones</a>
+<a href="bibliografia.html"><span class="nav-icon">📚</span>Bibliografía</a></div>
 </nav>
 <div class="main">
 <div class="topbar">
 <div class="breadcrumb"><span>Inicio</span></div>
-<div class="topbar-actions">
-<a class="btn-nav" href="cover.html">Ir al reporte →</a>
-</div>
+<div class="topbar-actions"><a class="btn-nav" href="resumen.html">Resumen Ejecutivo →</a></div>
 </div>
 <div class="content-wrap">
 <div class="section-banner" style="background: linear-gradient(135deg, #001840 0%, #003875 60%, #005ea6 100%);">
 <div class="section-tag">UNESCO · I4T · UPF Barcelona · 2026</div>
-<h1 style="font-size:28px;">🌎 La Regulación de Plataformas Digitales</h1>
-<p style="color:#aabbd4; font-family:var(--font-ui); font-size:15px; margin-top:10px; line-height:1.5; position:relative; z-index:1;">
+<h1>🌎 La Regulación de Plataformas Digitales</h1>
+<p style="color:rgba(255,255,255,0.75); font-family:var(--font-ui); font-size:14px; margin-top:6px; position:relative; z-index:1; line-height:1.5;">
         México, Centroamérica y el Caribe — Del diagnóstico a la hoja de ruta para la acción
       </p>
 </div>
 <div class="content-body">
-<p style="font-size:16px; line-height:1.8; color:#444; margin-bottom:32px;">
+<p style="font-size:16px; line-height:1.8; color:#e0e8f4; margin-bottom:0; font-family:var(--font-ui); position:relative; z-index:1;">
   Este reporte mapea y analiza el marco legal y regulatorio existente en siete países
   hispanohablantes de Centroamérica y el Caribe respecto a la gobernanza de las plataformas
   digitales, evaluando su alineamiento con las
-  <strong>Directrices UNESCO para la Gobernanza de Plataformas Digitales</strong>.
+  <strong style="color:#e8c900;">Directrices UNESCO para la Gobernanza de Plataformas Digitales</strong>.
   También se incluye un resumen de lo discutido y las conclusiones de los Talleres regionales
   UNESCO en los que participaron autoridades y representantes de sociedad civil de siete países
   de la región. Todo esto sirve para, en las conclusiones, marcar una hoja de ruta para la
   acción basada en las prioridades identificadas en la región.
 </p>
-<div class="index-grid">
-<a class="index-card" href="cover.html">
-<span class="card-icon">📄</span>
-<div class="card-content">
-<span class="card-number">01</span>
-<div class="card-title">Portada</div>
-<div class="card-desc">Portada oficial del reporte</div>
-</div>
-</a>
-<a class="index-card" href="indice.html">
-<span class="card-icon">📋</span>
-<div class="card-content">
-<span class="card-number">02</span>
-<div class="card-title">Índice</div>
-<div class="card-desc">Tabla de contenidos completa</div>
-</div>
-</a>
-<a class="index-card" href="resumen.html">
+<div style="height:36px;"></div>
+<!-- Group: Visión General -->
+<div class="mosaic-group">
+<div class="group-label" style="color:#005ea6;">Visión General</div>
+<div class="mosaic-grid">
+<a class="mosaic-card" href="resumen.html" style="--card-color:#005ea6;">
+<div class="card-top">
 <span class="card-icon">📝</span>
-<div class="card-content">
-<span class="card-number">03</span>
+<span class="card-tag" style="background:#dbeafe;color:#1e3a5f;">Resumen</span>
+</div>
 <div class="card-title">Resumen Ejecutivo</div>
-<div class="card-desc">Hallazgos clave, brechas y dicotomías regionales</div>
-</div>
-</a><a class="index-card" href="introduccion.html">
+<div class="card-desc">Hallazgos principales, brechas regulatorias y hoja de ruta regional</div>
+<span class="open-btn" style="background:#005ea6;">Abrir →</span>
+</a>
+<a class="mosaic-card" href="introduccion.html" style="--card-color:#005ea6;">
+<div class="card-top">
 <span class="card-icon">📖</span>
-<div class="card-content">
-<span class="card-number">04</span>
+<span class="card-tag" style="background:#dbeafe;color:#1e3a5f;">Introducción</span>
+</div>
 <div class="card-title">Introducción</div>
-<div class="card-desc">Objetivos, metodología y alcance del reporte</div>
-</div>
+<div class="card-desc">Objetivos, metodología y alcance del análisis comparativo</div>
+<span class="open-btn" style="background:#005ea6;">Abrir →</span>
 </a>
-<a class="index-card" href="contexto-regional.html">
+<a class="mosaic-card" href="contexto-regional.html" style="--card-color:#005ea6;">
+<div class="card-top">
 <span class="card-icon">🌎</span>
-<div class="card-content">
-<span class="card-number">05</span>
+<span class="card-tag" style="background:#dbeafe;color:#1e3a5f;">Contexto</span>
+</div>
 <div class="card-title">Contexto Regional</div>
-<div class="card-desc">Marco internacional y conectividad en la región</div>
-</div>
+<div class="card-desc">Marco de derechos humanos, conectividad y gobernanza en la región</div>
+<span class="open-btn" style="background:#005ea6;">Abrir →</span>
 </a>
-<a class="index-card" href="costa-rica.html">
-<span class="card-icon">🇨🇷</span>
-<div class="card-content">
-<span class="card-number">06</span>
+</div>
+</div>
+<!-- Group: Análisis por País -->
+<div class="mosaic-group">
+<div class="group-label" style="color:#0e7a5a;">Análisis por País</div>
+<div class="mosaic-grid">
+<a class="mosaic-card" href="costa-rica.html" style="--card-color:#0e7a5a;">
+<div class="card-top"><span class="card-icon">🇨🇷</span>
+<span class="card-tag" style="background:#d1fae5;color:#065f46;">País</span>
+</div>
 <div class="card-title">Costa Rica</div>
-<div class="card-desc">Sistema legal, digital y alineamiento con UNESCO</div>
-</div>
+<div class="card-desc">Sistema legal, entorno digital y alineamiento con directrices UNESCO</div>
+<span class="open-btn" style="background:#0e7a5a;">Abrir →</span>
 </a>
-<a class="index-card" href="el-salvador.html">
-<span class="card-icon">🇸🇻</span>
-<div class="card-content">
-<span class="card-number">07</span>
+<a class="mosaic-card" href="el-salvador.html" style="--card-color:#0e7a5a;">
+<div class="card-top"><span class="card-icon">🇸🇻</span>
+<span class="card-tag" style="background:#d1fae5;color:#065f46;">País</span>
+</div>
 <div class="card-title">El Salvador</div>
-<div class="card-desc">Sistema legal, digital y alineamiento con UNESCO</div>
-</div>
+<div class="card-desc">Sistema legal, entorno digital y alineamiento con directrices UNESCO</div>
+<span class="open-btn" style="background:#0e7a5a;">Abrir →</span>
 </a>
-<a class="index-card" href="guatemala.html">
-<span class="card-icon">🇬🇹</span>
-<div class="card-content">
-<span class="card-number">08</span>
+<a class="mosaic-card" href="guatemala.html" style="--card-color:#0e7a5a;">
+<div class="card-top"><span class="card-icon">🇬🇹</span>
+<span class="card-tag" style="background:#d1fae5;color:#065f46;">País</span>
+</div>
 <div class="card-title">Guatemala</div>
-<div class="card-desc">Sistema legal, digital y alineamiento con UNESCO</div>
-</div>
+<div class="card-desc">Sistema legal, entorno digital y alineamiento con directrices UNESCO</div>
+<span class="open-btn" style="background:#0e7a5a;">Abrir →</span>
 </a>
-<a class="index-card" href="honduras.html">
-<span class="card-icon">🇭🇳</span>
-<div class="card-content">
-<span class="card-number">09</span>
+<a class="mosaic-card" href="honduras.html" style="--card-color:#0e7a5a;">
+<div class="card-top"><span class="card-icon">🇭🇳</span>
+<span class="card-tag" style="background:#d1fae5;color:#065f46;">País</span>
+</div>
 <div class="card-title">Honduras</div>
-<div class="card-desc">Sistema legal, digital y alineamiento con UNESCO</div>
-</div>
+<div class="card-desc">Sistema legal, entorno digital y alineamiento con directrices UNESCO</div>
+<span class="open-btn" style="background:#0e7a5a;">Abrir →</span>
 </a>
-<a class="index-card" href="mexico.html">
-<span class="card-icon">🇲🇽</span>
-<div class="card-content">
-<span class="card-number">10</span>
+<a class="mosaic-card" href="mexico.html" style="--card-color:#0e7a5a;">
+<div class="card-top"><span class="card-icon">🇲🇽</span>
+<span class="card-tag" style="background:#d1fae5;color:#065f46;">País</span>
+</div>
 <div class="card-title">México</div>
-<div class="card-desc">Sistema legal, digital y alineamiento con UNESCO</div>
-</div>
+<div class="card-desc">Sistema legal, entorno digital y alineamiento con directrices UNESCO</div>
+<span class="open-btn" style="background:#0e7a5a;">Abrir →</span>
 </a>
-<a class="index-card" href="panama.html">
-<span class="card-icon">🇵🇦</span>
-<div class="card-content">
-<span class="card-number">11</span>
+<a class="mosaic-card" href="panama.html" style="--card-color:#0e7a5a;">
+<div class="card-top"><span class="card-icon">🇵🇦</span>
+<span class="card-tag" style="background:#d1fae5;color:#065f46;">País</span>
+</div>
 <div class="card-title">Panamá</div>
-<div class="card-desc">Sistema legal, digital y alineamiento con UNESCO</div>
-</div>
+<div class="card-desc">Sistema legal, entorno digital y alineamiento con directrices UNESCO</div>
+<span class="open-btn" style="background:#0e7a5a;">Abrir →</span>
 </a>
-<a class="index-card" href="republica-dominicana.html">
-<span class="card-icon">🇩🇴</span>
-<div class="card-content">
-<span class="card-number">12</span>
+<a class="mosaic-card" href="republica-dominicana.html" style="--card-color:#0e7a5a;">
+<div class="card-top"><span class="card-icon">🇩🇴</span>
+<span class="card-tag" style="background:#d1fae5;color:#065f46;">País</span>
+</div>
 <div class="card-title">República Dominicana</div>
-<div class="card-desc">Sistema legal, digital y alineamiento con UNESCO</div>
-</div>
+<div class="card-desc">Sistema legal, entorno digital y alineamiento con directrices UNESCO</div>
+<span class="open-btn" style="background:#0e7a5a;">Abrir →</span>
 </a>
-<a class="index-card" href="alineamiento-regional.html">
-<span class="card-icon">🔗</span>
-<div class="card-content">
-<span class="card-number">13</span>
+</div>
+</div>
+<!-- Group: Perspectiva Regional -->
+<div class="mosaic-group">
+<div class="group-label" style="color:#6d28d9;">Perspectiva Regional</div>
+<div class="mosaic-grid">
+<a class="mosaic-card" href="alineamiento-regional.html" style="--card-color:#6d28d9;">
+<div class="card-top"><span class="card-icon">🔗</span>
+<span class="card-tag" style="background:#ede9fe;color:#4c1d95;">Regional</span>
+</div>
 <div class="card-title">Alineamiento Regional UNESCO</div>
-<div class="card-desc">Evaluación comparativa de los 7 países</div>
-</div>
+<div class="card-desc">Evaluación comparativa del alineamiento de los 7 países con las directrices UNESCO</div>
+<span class="open-btn" style="background:#6d28d9;">Abrir →</span>
 </a>
-<a class="index-card" href="talleres.html">
-<span class="card-icon">🎓</span>
-<div class="card-content">
-<span class="card-number">14</span>
+<a class="mosaic-card" href="talleres.html" style="--card-color:#6d28d9;">
+<div class="card-top"><span class="card-icon">🎓</span>
+<span class="card-tag" style="background:#ede9fe;color:#4c1d95;">Talleres</span>
+</div>
 <div class="card-title">Los Talleres en América Latina</div>
-<div class="card-desc">Talleres de capacitación en Santo Domingo, 2025</div>
-</div>
+<div class="card-desc">Talleres de capacitación y co-creación, Santo Domingo, diciembre 2025</div>
+<span class="open-btn" style="background:#6d28d9;">Abrir →</span>
 </a>
-<a class="index-card" href="conclusiones.html">
-<span class="card-icon">✅</span>
-<div class="card-content">
-<span class="card-number">15</span>
+</div>
+</div>
+<!-- Group: Cierre -->
+<div class="mosaic-group">
+<div class="group-label" style="color:#b45309;">Cierre</div>
+<div class="mosaic-grid">
+<a class="mosaic-card" href="conclusiones.html" style="--card-color:#b45309;">
+<div class="card-top"><span class="card-icon">✅</span>
+<span class="card-tag" style="background:#fef3c7;color:#92400e;">Cierre</span>
+</div>
 <div class="card-title">Conclusiones y Recomendaciones</div>
-<div class="card-desc">Principales hallazgos y acciones recomendadas</div>
-</div>
+<div class="card-desc">Hallazgos principales y hoja de ruta para la gobernanza digital regional</div>
+<span class="open-btn" style="background:#b45309;">Abrir →</span>
 </a>
-<a class="index-card" href="bibliografia.html">
-<span class="card-icon">📚</span>
-<div class="card-content">
-<span class="card-number">16</span>
+<a class="mosaic-card" href="bibliografia.html" style="--card-color:#b45309;">
+<div class="card-top"><span class="card-icon">📚</span>
+<span class="card-tag" style="background:#fef3c7;color:#92400e;">Cierre</span>
+</div>
 <div class="card-title">Bibliografía</div>
-<div class="card-desc">Fuentes y referencias completas</div>
-</div>
+<div class="card-desc">Fuentes y referencias completas del reporte</div>
+<span class="open-btn" style="background:#b45309;">Abrir →</span>
 </a>
+</div>
 </div>
 </div>
 </div>
