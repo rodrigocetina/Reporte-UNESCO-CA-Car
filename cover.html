@@ -414,6 +414,38 @@ sup.fn-ref {
   font-weight: 700;
   letter-spacing: 0;
 }
+
+/* ── Partners block ───────────────────────────────────────── */
+.partners-block {
+  margin-top: 2rem;
+}
+.partners-label {
+  font-weight: 700;
+  color: #003875;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+.partners-logos {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  background: #fff;
+  padding: 1rem 0;
+}
+.partner-logo {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.partners-label--sm {
+  font-size: 0.85rem;
+}
+.partner-logo--wide {
+  height: auto;
+  max-width: 100%;
+}
 </style>
 </head>
 <body>
@@ -422,11 +454,7 @@ sup.fn-ref {
 <div class="sidebar-header">
 <div class="report-title">La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe</div>
 <div class="report-subtitle">Del diagnóstico a la hoja de ruta para la acción · 2026</div>
-<div class="logos">
-<span class="logo-badge">UNESCO</span>
-<span class="logo-badge" style="background:#003399;color:#fff;">UE</span>
-<span class="logo-badge" style="background:#555;color:#fff;">I4T</span>
-</div>
+<div class="logos"><span class="logo-badge">UNESCO</span></div>
 </div>
 <div class="sidebar-nav"><a href="index.html" style="font-weight:700; border-top:1px solid rgba(255,255,255,0.07); padding-top:14px;"><span class="nav-icon">🏠</span> Inicio</a>
 <a class="active" href="cover.html"><span class="nav-icon">📋</span>Créditos</a>
@@ -467,8 +495,23 @@ sup.fn-ref {
 <h1>📋 Autoría y créditos</h1>
 </div>
 <div class="content-body">
-<p>La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe Del diagnóstico a la luz de las Directrices UNESCO para la Gobernanza de Plataformas Digitales a la hoja de ruta para la acción.</p>
-<p>I4T Global Knowledge Network · UPF Barcelona School of Management 2026 Autores: Rodrigo Cetina-Presuel, José Achoy y Priscilla Ruiz Colaboradores: Daniel Nuñez, Andrés Rincón yAlberto Saldaña the implementation of the UNESCO Guidelines for the Governance of Digital Platforms’ Partners:</p>
+<p>2026 · UNESCO · I4T Global Knowledge Network · UPF Barcelona School of Management</p><p><strong>Autores:</strong> Rodrigo Cetina-Presuel, José Achoy y Priscilla Ruiz</p>
+<p><strong>Colaboradores:</strong> Daniel Nuñez, Andrés Rincón y Alberto Saldaña</p>
+<div class="partners-block">
+<p class="partners-label">Partners:</p>
+<div class="partners-logos">
+<img alt="UNESCO" class="partner-logo" src="UNESCO.png"/>
+<img alt="I4T Global Knowledge Network" class="partner-logo" src="I4T.png"/>
+<img alt="UPF Barcelona School of Management" class="partner-logo" src="UPF.png"/>
+</div>
+</div>
+
+<div class="partners-block">
+<p class="partners-label partners-label--sm">Global and Regional Partners</p>
+<div class="partners-logos">
+<img alt="Global and Regional Partners" class="partner-logo partner-logo--wide" src="Global and regional.png"/>
+</div>
+</div>
 </div>
 </div>
 <!-- Footer -->
