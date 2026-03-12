@@ -446,6 +446,39 @@ sup.fn-ref {
   height: auto;
   max-width: 100%;
 }
+
+/* ── Credits meta row ─────────────────────────────────────── */
+.credits-meta {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.4rem;
+  background: #fff;
+  padding: 0.6rem 0;
+}
+.credits-year {
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #003875;
+}
+.credits-meta a {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.credits-meta a:hover { opacity: 0.75; }
+.credits-meta .meta-logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── White background for this page ──────────────────────── */
+.main { background: #fff; }
+.content-wrap { background: #fff; }
 </style>
 </head>
 <body>
@@ -495,7 +528,18 @@ sup.fn-ref {
 <h1>📋 Autoría y créditos</h1>
 </div>
 <div class="content-body">
-<p>2026 · UNESCO · I4T Global Knowledge Network · UPF Barcelona School of Management</p><p><strong>Autores:</strong><br/>
+<div class="credits-meta">
+  <span class="credits-year">2026</span>
+  <a href="https://www.unesco.org/en" target="_blank" rel="noopener" title="UNESCO">
+    <img alt="UNESCO" class="meta-logo" src="UNESCO.png"/>
+  </a>
+  <a href="https://www.i4tknowledge.org/" target="_blank" rel="noopener" title="I4T Global Knowledge Network">
+    <img alt="I4T Global Knowledge Network" class="meta-logo" src="I4T.png"/>
+  </a>
+  <a href="https://www.bsm.upf.edu/" target="_blank" rel="noopener" title="UPF Barcelona School of Management">
+    <img alt="UPF Barcelona School of Management" class="meta-logo" src="UPF.png"/>
+  </a>
+</div><p><strong>Autores:</strong><br/>
 <a href="https://www.bsm.upf.edu/en/faculty-research/faculty/rodrigo-cetina-presuel" target="_blank" rel="noopener">Rodrigo Cetina-Presuel</a>, UPF Barcelona School of Management<br/>
 <a href="https://www.linkedin.com/in/jose-achoy-b40a61190" target="_blank" rel="noopener">José Achoy</a>, Universidad Complutense de Madrid<br/>
 Priscilla Ruiz</p>
@@ -503,9 +547,9 @@ Priscilla Ruiz</p>
 <div class="partners-block">
 <p class="partners-label">Partners:</p>
 <div class="partners-logos">
-<img alt="UNESCO" class="partner-logo" src="UNESCO.png"/>
-<img alt="I4T Global Knowledge Network" class="partner-logo" src="I4T.png"/>
-<img alt="UPF Barcelona School of Management" class="partner-logo" src="UPF.png"/>
+<a href="https://www.unesco.org/en" target="_blank" rel="noopener" title="UNESCO"><img alt="UNESCO" class="partner-logo" src="UNESCO.png"/></a>
+<a href="https://www.i4tknowledge.org/" target="_blank" rel="noopener" title="I4T Global Knowledge Network"><img alt="I4T Global Knowledge Network" class="partner-logo" src="I4T.png"/></a>
+<a href="https://www.bsm.upf.edu/" target="_blank" rel="noopener" title="UPF Barcelona School of Management"><img alt="UPF Barcelona School of Management" class="partner-logo" src="UPF.png"/></a>
 </div>
 </div>
 
