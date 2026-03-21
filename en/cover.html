@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Autoría y créditos | Regulación de Plataformas Digitales</title>
-<meta content="La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe — Autoría y créditos" name="description"/>
+<title>Authorship and Credits | Regulation of Digital Platforms</title>
+<meta content="The Regulation of Digital Platforms in Mexico, Central America and the Caribbean — Authorship and Credits" name="description"/>
 <style>
 :root {
   --primary: #003875;
@@ -196,6 +196,27 @@ body {
 
 .btn-nav:hover { background: var(--primary); color: var(--white); }
 .btn-nav.disabled { opacity: 0.35; pointer-events: none; }
+
+.btn-lang {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  background: #1a7a3a;
+  text-decoration: none;
+  padding: 5px 12px;
+  border: 1.5px solid #1a7a3a;
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn-lang:hover {
+  background: #145f2d;
+  border-color: #145f2d;
+}
 
 /* ── Content area ── */
 .content-wrap {
@@ -492,93 +513,90 @@ sup.fn-ref {
 /* ── White background for this page ──────────────────────── */
 .main { background: #fff; }
 .content-wrap { background: #fff; }
-.btn-lang { font-family: var(--font-ui); font-size: 12px; font-weight: 700; color: #fff; background: #1a5a9a; text-decoration: none; padding: 5px 12px; border: 1.5px solid #1a5a9a; border-radius: 4px; transition: background 0.15s, color 0.15s; display: flex; align-items: center; gap: 4px; }
-.btn-lang:hover { background: #134278; border-color: #134278; }
 </style>
 </head>
 <body>
 <!-- Sidebar -->
 <nav class="sidebar" id="sidebar">
 <div class="sidebar-header">
-<div class="report-title">La Regulación de Plataformas Digitales en México, Centroamérica y el Caribe</div>
-<div class="report-subtitle">Del diagnóstico a la hoja de ruta para la acción · 2026</div>
+<div class="report-title">The Regulation of Digital Platforms in Mexico, Central America and the Caribbean</div>
+<div class="report-subtitle">From Diagnosis to a Roadmap for Action · 2026</div>
 <div class="logos"><span class="logo-badge">UNESCO</span></div>
 </div>
-<div class="sidebar-nav"><a href="index.html" style="font-weight:700; border-top:1px solid rgba(255,255,255,0.07); padding-top:14px;"><span class="nav-icon">🏠</span> Inicio</a>
-<a class="active" href="cover.html"><span class="nav-icon">📋</span>Créditos</a>
-<div class="nav-section-label">Visión General</div>
-<a href="resumen.html"><span class="nav-icon">📝</span>Resumen Ejecutivo</a>
-<a href="introduccion.html"><span class="nav-icon">📖</span>Introducción</a>
-<a href="contexto-regional.html"><span class="nav-icon">🌎</span>Contexto Regional</a>
-<div class="nav-section-label">Análisis por País</div>
+<div class="sidebar-nav"><a href="index.html" style="font-weight:700; border-top:1px solid rgba(255,255,255,0.07); padding-top:14px;"><span class="nav-icon">🏠</span> Home</a>
+<a class="active" href="cover.html"><span class="nav-icon">📋</span>Credits</a>
+<div class="nav-section-label">Overview</div>
+<a href="resumen.html"><span class="nav-icon">📝</span>Executive Summary</a>
+<a href="introduccion.html"><span class="nav-icon">📖</span>Introduction</a>
+<a href="contexto-regional.html"><span class="nav-icon">🌎</span>Regional Context</a>
+<div class="nav-section-label">Country Analysis</div>
 <a href="costa-rica.html"><span class="nav-icon">🇨🇷</span>Costa Rica</a>
 <a href="el-salvador.html"><span class="nav-icon">🇸🇻</span>El Salvador</a>
 <a href="guatemala.html"><span class="nav-icon">🇬🇹</span>Guatemala</a>
 <a href="honduras.html"><span class="nav-icon">🇭🇳</span>Honduras</a>
-<a href="mexico.html"><span class="nav-icon">🇲🇽</span>México</a>
-<a href="panama.html"><span class="nav-icon">🇵🇦</span>Panamá</a>
-<a href="republica-dominicana.html"><span class="nav-icon">🇩🇴</span>República Dominicana</a>
-<div class="nav-section-label">Perspectiva Regional</div>
-<a href="alineamiento-regional.html"><span class="nav-icon">🔗</span>Alineamiento Regional UNESCO</a>
-<a href="talleres.html"><span class="nav-icon">🎓</span>Los Talleres en América Latina</a>
-<div class="nav-section-label">Cierre</div>
-<a href="conclusiones.html"><span class="nav-icon">✅</span>Conclusiones y Recomendaciones</a>
-<a href="bibliografia.html"><span class="nav-icon">📚</span>Bibliografía</a></div>
+<a href="mexico.html"><span class="nav-icon">🇲🇽</span>Mexico</a>
+<a href="panama.html"><span class="nav-icon">🇵🇦</span>Panama</a>
+<a href="republica-dominicana.html"><span class="nav-icon">🇩🇴</span>Dominican Republic</a>
+<div class="nav-section-label">Regional Perspective</div>
+<a href="alineamiento-regional.html"><span class="nav-icon">🔗</span>UNESCO Regional Alignment</a>
+<a href="talleres.html"><span class="nav-icon">🎓</span>Workshops in Latin America</a>
+<div class="nav-section-label">Closing</div>
+<a href="conclusiones.html"><span class="nav-icon">✅</span>Conclusions and Recommendations</a>
+<a href="bibliografia.html"><span class="nav-icon">📚</span>Bibliography</a></div>
 </nav>
 <!-- Main -->
 <div class="main">
 <!-- Top bar -->
 <div class="topbar">
 <div class="breadcrumb">
-<a href="index.html">Inicio</a>
+<a href="index.html">Home</a>
 <span class="sep">/</span>
-<span>Autoría y créditos</span>
+<span>Authorship and Credits</span>
 </div>
-<div class="topbar-actions"><a class="btn-lang" href="en/cover.html">🇬🇧 English</a>
-<a class="btn-nav" href="index.html">← Inicio</a><a class="btn-nav" href="resumen.html">Resumen Ejecutivo →</a></div>
+<div class="topbar-actions"><a class="btn-nav" href="index.html">← Home</a><a class="btn-nav" href="resumen.html">Executive Summary →</a><a class="btn-lang" href="../cover.html">🇪🇸 Español</a></div>
 </div>
 <!-- Content -->
 <div class="content-wrap">
 <div class="section-banner">
 <div class="section-tag">UNESCO · I4T · UPF Barcelona</div>
-<h1>📋 Autoría y créditos</h1>
+<h1>📋 Authorship and Credits</h1>
 </div>
 <div class="content-body">
 <div class="credits-meta">
-  <span class="credits-year">2026 · Publicado bajo licencia <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a></span>
-</div><p><strong>Autores:</strong><br/>
+  <span class="credits-year">2026 · Published under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a> license</span>
+</div><p><strong>Authors:</strong><br/>
 <a href="https://www.bsm.upf.edu/en/faculty-research/faculty/rodrigo-cetina-presuel" target="_blank" rel="noopener">Rodrigo Cetina-Presuel</a>, UPF Barcelona School of Management<br/>
 <a href="https://www.linkedin.com/in/jose-achoy-b40a61190" target="_blank" rel="noopener">José Achoy</a>, Universidad Complutense de Madrid<br/>
 Priscilla Ruiz</p>
-<p><strong>Colaboradores:</strong> Daniel Nuñez, Andrés Rincón y Alberto Saldaña</p>
+<p><strong>Collaborators:</strong> Daniel Nuñez, Andrés Rincón and Alberto Saldaña</p>
 <div class="partners-block">
 <p class="partners-label">Partners:</p>
 <div class="partners-logos">
-<a href="https://www.unesco.org/en" target="_blank" rel="noopener" title="UNESCO"><img alt="UNESCO" class="partner-logo" src="UNESCO.png"/></a>
-<a href="https://www.i4tknowledge.org/" target="_blank" rel="noopener" title="I4T Global Knowledge Network"><img alt="I4T Global Knowledge Network" class="partner-logo" src="I4T.png"/></a>
-<a href="https://www.bsm.upf.edu/" target="_blank" rel="noopener" title="UPF Barcelona School of Management"><img alt="UPF Barcelona School of Management" class="partner-logo" src="UPF.png"/></a>
+<a href="https://www.unesco.org/en" target="_blank" rel="noopener" title="UNESCO"><img alt="UNESCO" class="partner-logo" src="../UNESCO.png"/></a>
+<a href="https://www.i4tknowledge.org/" target="_blank" rel="noopener" title="I4T Global Knowledge Network"><img alt="I4T Global Knowledge Network" class="partner-logo" src="../I4T.png"/></a>
+<a href="https://www.bsm.upf.edu/" target="_blank" rel="noopener" title="UPF Barcelona School of Management"><img alt="UPF Barcelona School of Management" class="partner-logo" src="../UPF.png"/></a>
 </div>
 </div>
 
 <div class="partners-block">
 <p class="partners-label partners-label--sm">Global and Regional Partners:</p>
 <div class="partners-logos">
-<img alt="Global and Regional Partners" class="partner-logo partner-logo--wide" src="Global and regional.png"/>
+<img alt="Global and Regional Partners" class="partner-logo partner-logo--wide" src="../Global and regional.png"/>
 </div>
 </div>
 </div>
 </div>
 <!-- Footer -->
 <footer class="footer">
-<em>Proyecto UNESCO financiado por la Unión Europea: "Safeguarding Freedom of Expression and Access to Information through the implementation of the UNESCO Guidelines for the Governance of Digital Platforms"</em>
+<em>UNESCO Project funded by the European Union: "Safeguarding Freedom of Expression and Access to Information through the implementation of the UNESCO Guidelines for the Governance of Digital Platforms"</em>
 <br/>
-    Autores: Rodrigo Cetina-Presuel, José Achoy y Priscilla Ruiz
+    Authors: Rodrigo Cetina-Presuel, José Achoy and Priscilla Ruiz
     <span class="divider">·</span>
     I4T Global Knowledge Network · UPF Barcelona School of Management · 2026
   </footer>
 </div>
 <!-- Mobile toggle -->
-<button aria-label="Menú" class="mobile-toggle" id="menuToggle">☰</button>
+<button aria-label="Menu" class="mobile-toggle" id="menuToggle">☰</button>
 <script>
   const sidebar = document.getElementById('sidebar');
   const toggle = document.getElementById('menuToggle');

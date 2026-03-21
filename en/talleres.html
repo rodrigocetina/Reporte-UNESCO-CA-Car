@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Workshops in Latin America | Regulation of Digital Platforms</title>
+<meta content="The Regulation of Digital Platforms in Mexico, Central America and the Caribbean — Workshops in Latin America" name="description"/>
+<style>
+:root {
+  --primary: #003875;
+  --primary-light: #005ea6;
+  --accent: #e8c900;
+  --bg: #f5f7fa;
+  --sidebar-bg: #002255;
+  --sidebar-width: 280px;
+  --text: #222;
+  --muted: #666;
+  --border: #d0d7e3;
+  --white: #fff;
+  --max-content: 860px;
+  --font: 'Georgia', 'Times New Roman', serif;
+  --font-ui: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: #cdd6f4;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-header {
+  background: #001840;
+  padding: 20px 18px 16px;
+  border-bottom: 3px solid var(--accent);
+}
+
+.sidebar-header .report-title {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-header .report-subtitle {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: #aabbd4;
+  margin-top: 5px;
+  line-height: 1.3;
+}
+
+.sidebar-header .logos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.logo-badge {
+  background: var(--accent);
+  color: #001840;
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sidebar-nav {
+  padding: 10px 0 20px;
+}
+
+.sidebar-nav .nav-section-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: #7b9dc8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 14px 18px 4px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 18px;
+  color: #c0d0e8;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  line-height: 1.4;
+  transition: background 0.15s, color 0.15s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-nav a:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--white);
+  border-left-color: var(--accent);
+}
+
+.sidebar-nav a.active {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  font-weight: 600;
+  border-left-color: var(--accent);
+}
+
+.nav-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Main content ── */
+.main {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+}
+
+
+.breadcrumb {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb a { color: var(--primary-light); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #bbb; }
+
+.topbar-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+.btn-nav {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 5px 14px;
+  border: 1.5px solid var(--primary);
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-nav:hover { background: var(--primary); color: var(--white); }
+.btn-nav.disabled { opacity: 0.35; pointer-events: none; }
+
+.btn-lang { font-family: var(--font-ui); font-size: 12px; font-weight: 700; color: #fff; background: #1a7a3a; text-decoration: none; padding: 5px 12px; border: 1.5px solid #1a7a3a; border-radius: 4px; transition: background 0.15s, color 0.15s; display: flex; align-items: center; gap: 4px; } .btn-lang:hover { background: #145f2d; border-color: #145f2d; }
+
+/* ── Content area ── */
+.content-wrap {
+  max-width: var(--max-content);
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+  flex: 1;
+}
+
+.section-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 32px 40px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; right: -20px;
+  width: 140px; height: 140px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+
+.section-banner .section-tag {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.section-banner h1 {
+  font-family: var(--font-ui);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--white);
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+/* ── Typography ── */
+.content-body h1 {
+  font-family: var(--font-ui);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 40px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  line-height: 1.4;
+}
+
+.content-body h2 {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 30px 0 10px;
+  line-height: 1.4;
+}
+
+.content-body h3 {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-light);
+  margin: 22px 0 8px;
+  line-height: 1.4;
+}
+
+.content-body p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #2a2a2a;
+  margin-bottom: 16px;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.content-body .footnotes {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.content-body .footnote {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/* ── Index page specific ── */
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.index-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.index-card:hover {
+  box-shadow: 0 4px 16px rgba(0,56,117,0.12);
+  transform: translateY(-2px);
+  border-color: var(--primary-light);
+  text-decoration: none;
+}
+
+.card-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.card-content { flex: 1; }
+
+.card-content .card-number {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--primary);
+  padding: 2px 7px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.card-content .card-title {
+  font-family: var(--font-ui);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.card-content .card-desc {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* ── Footer ── */
+.footer {
+  background: #001840;
+  color: #7a92b0;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  text-align: center;
+  padding: 20px 40px;
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+.footer a { color: #aabbd4; text-decoration: none; }
+.footer .divider { margin: 0 8px; color: #3a5070; }
+
+/* ── Hamburger for mobile ── */
+.mobile-toggle {
+  display: none;
+  position: fixed;
+  bottom: 20px; right: 20px;
+  z-index: 200;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 48px; height: 48px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+  .sidebar.open { transform: translateX(0); }
+  .main { margin-left: 0; }
+  .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+  .content-wrap { padding: 32px 20px 60px; }
+  .topbar { padding: 0 20px; }
+  .section-banner { padding: 24px 24px; }
+  .section-banner h1 { font-size: 20px; }
+  .index-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Footnote reference superscripts ── */
+sup.fn-ref {
+  font-size: 0.68em;
+  vertical-align: super;
+  line-height: 0;
+  color: #005ea6;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.table-caption {
+  font-size: 0.9rem;
+  color: #003875;
+  margin-bottom: 0.5rem;
+}
+.table-source {
+  font-size: 0.78rem;
+  color: #666;
+  margin-top: 0.4rem;
+  font-style: italic;
+}
+.table-wrapper {
+  margin: 2rem 0;
+}
+.recommendations-table ol {
+  margin: 0.4rem 0 0 1.2rem;
+  padding: 0;
+}
+.recommendations-table li {
+  margin-bottom: 0.3rem;
+}
+</style>
+</head>
+<body>
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+<div class="sidebar-header">
+<div class="report-title">The Regulation of Digital Platforms in Mexico, Central America and the Caribbean</div>
+<div class="report-subtitle">From Diagnosis to a Roadmap for Action · 2026</div>
+<div class="logos"><span class="logo-badge">UNESCO</span></div>
+</div>
+<div class="sidebar-nav"><a href="index.html" style="font-weight:700; border-top:1px solid rgba(255,255,255,0.07); padding-top:14px;"><span class="nav-icon">🏠</span> Home</a>
+<a href="cover.html"><span class="nav-icon">📋</span>Credits</a>
+<div class="nav-section-label">Overview</div>
+<a href="resumen.html"><span class="nav-icon">📝</span>Executive Summary</a>
+<a href="introduccion.html"><span class="nav-icon">📖</span>Introduction</a>
+<a href="contexto-regional.html"><span class="nav-icon">🌎</span>Regional Context</a>
+<div class="nav-section-label">Country Analysis</div>
+<a href="costa-rica.html"><span class="nav-icon">🇨🇷</span>Costa Rica</a>
+<a href="el-salvador.html"><span class="nav-icon">🇸🇻</span>El Salvador</a>
+<a href="guatemala.html"><span class="nav-icon">🇬🇹</span>Guatemala</a>
+<a href="honduras.html"><span class="nav-icon">🇭🇳</span>Honduras</a>
+<a href="mexico.html"><span class="nav-icon">🇲🇽</span>Mexico</a>
+<a href="panama.html"><span class="nav-icon">🇵🇦</span>Panama</a>
+<a href="republica-dominicana.html"><span class="nav-icon">🇩🇴</span>Dominican Republic</a>
+<div class="nav-section-label">Regional Perspective</div>
+<a href="alineamiento-regional.html"><span class="nav-icon">🔗</span>UNESCO Regional Alignment</a>
+<a class="active" href="talleres.html"><span class="nav-icon">🎓</span>Workshops in Latin America</a>
+<div class="nav-section-label">Closing</div>
+<a href="conclusiones.html"><span class="nav-icon">✅</span>Conclusions and Recommendations</a>
+<a href="bibliografia.html"><span class="nav-icon">📚</span>Bibliography</a></div>
+</nav>
+<!-- Main -->
+<div class="main">
+<!-- Top bar -->
+<div class="topbar">
+<div class="breadcrumb">
+<a href="index.html">Home</a>
+<span class="sep">/</span>
+<span>Workshops in Latin America</span>
+</div>
+<div class="topbar-actions">
+<a class="btn-lang" href="../talleres.html">🇪🇸 Español</a>
+<a class="btn-nav" href="alineamiento-regional.html">← UNESCO Regional Alignment</a>
+<a class="btn-nav" href="conclusiones.html">Conclusions and Recommendations →</a>
+</div>
+</div>
+<!-- Content -->
+<div class="content-wrap">
+<div class="section-banner">
+<div class="section-tag">UNESCO · I4T · UPF Barcelona</div>
+<h1>🎓 Workshops in Latin America</h1>
+</div>
+<div class="content-body"><h1>11. Training workshops for Mexico, Central America and the Caribbean</h1>
+<p>With the support of UNESCO, and the financing of the European Union, the I4T Global Knowledge Network organized a series of training workshops on the regulation of digital platforms in the context of UNESCO Guidelines in Santo Domingo, Dominican Republic, under a hybrid modality (in-person and online). This event was framed within the UNESCO project titled "Safeguarding Freedom of Expression and Access to Information through the implementation of the UNESCO Guidelines for the Governance of Digital Platforms" with financing and support from the European Union, as well as the present report. The main objective of these meetings was to generate a space for analysis and training around the implementation of UNESCO Guidelines, promoting a human rights-based approach to regulating the digital ecosystem in the region.</p>
+<p>To ensure an open and free environment for debate, the sessions were conducted under the Chatham House Rule, allowing attendees to use the information shared without revealing the identity or affiliation of the speakers. The organization of the event was the result of a broad inter-institutional and academic alliance. Among the organizing and collaborating entities stood out institutions of higher education and global networks, such as, the UPF Barcelona School of Management, which led the organization and delivery of the workshops, the Universidad Complutense de Madrid and the Universidad Católica Santo Domingo (UCSD), which was the local organizer, the Global Network for Electoral Justice, and the Institute for Training and Studies in Democracy (IFED) of the Supreme Electoral Court of Costa Rica.</p>
+<p>The convocation managed to bring together key actors in the governance and protection of rights in the digital sphere, integrating a multi-stakeholder perspective. On the government and electoral side, several authorities from the region participated, including the Supreme Electoral Court of Costa Rica, the Higher Electoral Court of El Salvador, the Electoral Justice Court of Honduras, the Electoral Court of Panama, the National Electoral Institute of Mexico and the Higher Electoral Court of the Dominican Republic, as well as the National Authority of Public Services of Panama, the Dominican Institute of Telecommunications (INDOTEL) and the Ministry of Technology and Innovation of the Dominican Republic.</p><p>From the citizen perspective, the event had strong representation of civil society organizations, such as ARTICLE 19 (Mexico and Central America), Digital Rights and the Digital Law Research Center (Costa Rica), SocialTIC and Cultivando Género (Mexico), the National Association of Business Lawyers (ANADE, also from Mexico), ACI Participa (Honduras), Dominicans for Rights (Dominican Republic), the Chamber of Information and Communication Technologies (CAESCO, also from Dominican Republic) and the Pan-American Institute of Law and Technology along with Internet Society (Panama).</p>
+<h2>11.1 Main contributions and conclusions from the workshops</h2>
+<p>The first day of the workshops, held on December 8, 2025, was developed under the central thematic axis of "Regulation of Digital Platforms in the Public Interest". The day began with an introductory session led by UNESCO, which served to present the objectives and priorities of the UNESCO Guidelines, and it was emphasized that the objective is never to censor specific content, but to regulate the systems, processes and algorithms of technology companies under a human rights approach and shared responsibility. This established the roadmap and general context that would guide the debates over the next two days.</p>
+<p>Subsequently, the first session took place, focused on the presentation of the report on "Mapping the Regulatory Framework of Central America and the Caribbean" that precedes these lines. During this space, the most relevant findings of the regional diagnosis were presented and discussed the level of normative alignment of the countries in the region with UNESCO Guidelines. This technical presentation served as a starting point for an enriching exchange of opinions with the authorities and civil society representatives present, allowing them to debate their institutional perspectives and set priorities both at the national and regional levels.</p>
+<p>The presentation of the regional diagnosis triggered an initial exchange in which representatives of authorities, academics and civil society agreed that there is evident regulatory dispersion. A profound paradox was highlighted in the region: while states have demonstrated high efficiency in applying and collecting taxes (such as VAT) on cross-border digital services and streaming platforms, there is an almost total void when it comes to demanding protection of human rights or transparency from them, a diagnosis shared by civil society and authorities.</p>
+<p>The second session was dedicated to analyzing "Regulatory gaps and articulating responses from civil society". The normative vacuums found in the region were deepened, with special emphasis on the risks to human rights protection. It was a space for active listening where civil society organizations—connected both in-person and online—were invited to present their main challenges, expectations and concerns facing the attempts to regulate platforms and government intervention in their respective countries.</p>
+<p>Voices from civil society and academia warned that the region is full of good proposals and documents, but in practice they end up being "dead letters" due to lack of political will. A representative of an electoral authority acknowledged this reality, highlighting that at the political level it has been very difficult to create consensus to regulate the digital environment because political parties and candidates often benefit from manipulation and disinformation campaigns. The Dominican Republic itself was given as an example, where electoral legislation does not contemplate digital campaigns, but legislative attempts to address them have not been successful.</p>
+<p>The representatives of authorities present also expressed profound frustration with their efforts to approach platforms and collaborate. A representative of an electoral authority stated that these corporations "play in the major league" and always prioritize the monetization of hate speech and polarization, and often have more technical and material resources than the authorities themselves. From civil society, it was reported that platforms often ignore their reports of digital violence, state surveillance or coordinated harassment, hiding behind internal policies or even the "social relevance" of problematic users. Additionally, they criticized that technology companies often meet behind closed doors with governments, but excluding civil society from dialogue tables.</p>
+<p>A civil society testimony highlighted the educational gap and stated that it is impossible to build effective digital governance if citizens and public servants lack basic media literacy, and as long as high dependence and lack of technological autonomy persist in the region.</p>
+<p>Finally, various organizations pointed out that, in cases of digital violence, the state does not know how to react and victims do not have clear reporting channels, often going from cyber police to prosecutors and telecommunications agencies without finding adequate remedy, which exacerbates citizen defenselessness. This confirms the regional diagnosis that focuses on normative vacuums, fragmentation and undefined competencies among the relevant authorities.</p>
+<p>The third and last session of the day had a completely practical focus, with the rest of the day dedicated to the "I4T Global Knowledge Network Periodic Table" which used this instrument to articulate a co-creation dynamic, integrating real examples extracted from the regional report so that authorities and civil society entities could work together in proposals to address them. The objective of this exercise was to design governance maps that would resolve specific regulatory needs without compromising freedom of expression and other rights.</p>
+
+<p>Divided into groups to work together, authorities and civil society presented governance map proposals to solve specific problems generating several proposals:</p>
+<p>• Hybrid moderation with local context: A group emphasized that purely automated moderation through algorithms is ineffective and even dangerous in the region since artificial intelligence is unable to understand nuances, idioms and cultural contexts, noting that even homonyms can vary drastically in meaning between countries. Therefore, they presented a model that requires platforms to implement hybrid content moderation mechanisms, which uses automation but contains mechanisms of strict human supervision knowledgeable of the local context, emphasizing that people must always make the final decisions. To this end, the relevance of having robust appeal mechanisms and due process that allow reviewing decisions and providing adequate remedy when necessary was also highlighted.</p>
+<p>• Data sovereignty: A second group warned about the vulnerability of privacy and personal data at the regional level, pointing out that barely 20% of data centers storing Latin American information are located within the continent. They discussed the need to strengthen personal data protection and design regulatory mechanisms that can empower citizens to demand the deletion of their information after a certain time, that can enable authorities to protect especially sensitive information (for example, voter records) and for this it was noted that, in addition to reinforced regulations, institutional coordination mechanisms were necessary.</p>
+<p>• Accountability mechanisms/"following the money": Finally, a third group analyzed what possible alternatives exist to subject foreign platforms to local jurisdiction when they have no physical presence in the countries of the region. The proposal suggested that, beyond electoral or telecommunications entities, the superintendencies of the financial system and the banking and tax authorities can be key actors. Since platforms depend on subscriptions, credit card payments and locally monetized advertising, this type of authority possesses coercive force that can be used to, at least ensure that platforms sit at the negotiation table.</p><p>It was also noted that this type of authority can play an important role in monitoring and moderating fraudulent content online, particularly when related to financial products, investments and other banking operations. The example also served to demonstrate that in platform governance it is necessary to think outside the box and value the role that authorities and regulatory bodies with competencies other than those normally looked at when proposing digital platform governance and regulation schemes.</p>
+<p>Finally, the first day concluded with a closing session in which the findings of the debates were summarized and a collective reflection was carried out to define what should be the unavoidable regulatory priorities for the region in the next three to five years. The collective reflection left a clear mandate: faced with unreachable transnational corporations for small countries in isolation, the main priority of regulators in the next three to five years should be the formation of a more solid bloc of regional alliances that allows inter-institutional and supranational cooperation and coordination. It was also emphasized that a social pact is needed that unites states, relevant authorities, academia and civil society in Central America and the Caribbean that allows exerting geopolitical pressure to demand respect for human rights, algorithmic transparency and ethical use of technology in the digital ecosystem.</p>
+<p>The second day, December 9, 2025, of the workshops was developed under the thematic axis "Protecting Democracy in the Digital Age". The day began with the first technical session, titled "Regulatory and Jurisprudential Responses to Electoral Misinformation". In this space, the main findings of the regional report on legislation aimed at combating misinformation and protecting the integrity of elections were presented, highlighting key lessons derived from jurisprudence. This presentation opened an important dialogue space in which electoral authorities from the region shared firsthand their experiences, operational challenges and main concerns regarding online manipulation campaigns.</p>
+<p>Then there was an exchange of experiences between authorities and civil society. An electoral representative presented the dilemma of "when to respond to electoral misinformation without helping give it more visibility," to which a response was given with an example from Panama, whose authority reported how a digital monitoring center was created focused on rapid fact verification, and, crucially, in prior citizen training so that the electorate learns to identify misinformation itself.</p><p>In this listening space, it was found that the most common disinformation narrative in the region is one that seeks to erode the credibility of the electoral bodies themselves, often through unfounded accusations of fraud, or exploiting ignorance of the processes. Therefore, it was concluded that efforts must be combined to protect the integrity of the processes, but also to defend the institutionality of the authorities and better explain their role as guarantors of free and fair electoral processes.</p>
+<p>The program continued with the session called "Anatomy of electoral integrity in Latin America: from misinformation to the AI challenge", which offered an in-depth analysis of recent electoral processes in various countries of the continent. The presentation not only highlighted cases of success in institutional responses, but also placed strong emphasis on the disruption represented by generative artificial intelligence and the emerging challenges that this technology poses to propaganda and modern political campaigns.</p>
+<p>During this session, a representative of the Costa Rican authority raised that the main challenge for electoral bodies is how to respond to misinformation without the electoral authority becoming another political actor. The shared conclusion was that authorities should prioritize intervening only when misinformation attacks the integrity of the electoral process (for example, discouraging voting or committing gender violence to exclude candidates), and avoid becoming arbiters of intra-party lies, for which, moreover, they lack resources and objective tools.</p>
+<p>The following session adopted a highly interactive methodology, focusing on "The electoral cycle and digital risks". Using the UNESCO guide "Elections in the Digital Age" as a base, authorities and civil society representatives worked together to identify threats to electoral integrity and human rights throughout the three critical stages of the democratic process: the pre-electoral period, election day and the post-electoral phase.</p><p>Participants used the UNESCO guide to identify risks in the three defined stages of the electoral process. The debate addressed the urgency of regulating the use of Artificial Intelligence, pointing out how this technology makes cheaper and automates the creation of psychographic profiles and the distribution of false content, allowing personalization of political persuasion to unprecedented levels. From Civil Society, it was asked to focus on measures, such as those in force in the European Union, that prohibit political microtargeting based on sensitive data.</p>
+<p>This collaborative exercise laid the groundwork for the fourth and final practical session of the day, whose objective was to chart the path "Towards regional protocols to respect rights, preserve electoral integrity and combat misinformation". Through this dynamic, the different sectors, in working tables, dialogued to agree on priorities and outline joint solutions that shield democracy while being scrupulously respectful of human rights. It was agreed that, to effectively face threats to electoral processes, the response cannot depend solely on electoral bodies, which often lack the profile and budget necessary to combat hybrid campaigns. There was consensus that it is necessary to demand transparency in the financing of digital campaigns and promote alliances with universities and data fact-checkers.</p>
+
+<p>Finally, the second day culminated with a closing session where the main conclusions from both days were summarized. Participants conducted a collective reflection to define the roadmap and regulatory priorities needed to protect democracy in the region in the coming years. It was agreed that it is key to strengthen the technical capacities of the states, adapt regulatory frameworks to technological reality and promote digital literacy to shield public trust in the region's democratic systems. It was also reiterated that the main priority identified after the first day's sessions: in the coming years, regulators should prioritize the creation of solid regional alliances. Likewise, Central America and the Caribbean need a multi-sectoral social pact to exert geopolitical pressure and guarantee human rights, algorithmic transparency and ethics in the digital environment.</p>
+<h2>11.2 Analysis of main challenges and regional priorities</h2>
+<p>The celebration of the workshops described above also served to establish dialogue and collect direct opinions from participants on the UNESCO Guidelines and to obtain inputs that allow the I4T Global Knowledge Network to profile the support and evidence it can provide to support the construction of effective platform governance schemes in the Central America and Caribbean region. Such inputs were collected from both representatives of authorities present and representatives of civil society organizations.</p>
+<p>A series of questions and topics were raised to representatives of authorities and civil society from Mexico, Honduras, El Salvador, Panama, Costa Rica and the Dominican Republic who were present at the workshops.</p>
+<p>Based on this exercise, the discussions were articulated around the following thematic axes to validate the main conclusions of the workshops:</p>
+<p>• Paradigm shift towards regulation of processes: There was consensus that regulation should not focus on individual pieces of content—to mitigate the risk of censorship—but on the systems and processes of the platforms. The need to demand transparency in moderation policies and content recommendation, the functioning of algorithmic systems, advertising practices and user reporting mechanisms was emphasized.</p>
+<p>• Regulatory convergence and shared responsibility: A disconnect was evident between regulators and legislators in addressing the phenomenon of misinformation. In response, it was argued that digital challenges are global and transcend national borders. A public-private diplomacy strategy was proposed aimed at creating regional blocs that provide greater bargaining power against large technology companies, thus mitigating the lack of local representation in smaller countries.</p>
+<p>• Governance based on existing institutional infrastructure: Rather than creating new bureaucracies or immediately modifying current legislation, it was recommended to take advantage of the experience and technical capacities of already established agencies (such as electoral authorities, telecommunications entities and banking superintendencies, a proposal that emerged from the workshops themselves), promoting inter-institutional coordination mechanisms but also emphasizing the need to continue working on capacity building for these institutions and building international support schemes for these purposes and for the transmission of experiences and evidence of the regulatory and governance mechanisms that have proven to be effective.</p>
+<p>The specific challenges identified for Central America and the Caribbean were also asked about:</p>
+<p>• Electoral vulnerability and lack of technological autonomy: It was noted that platforms operate as information battlefields during electoral processes, while national legal frameworks are usually insufficient to regulate "dark money" in advertising and digital campaigns. To this is added high dependence on foreign infrastructure (cloud servers and Artificial Intelligence services), which compromises digital sovereignty and personal data protection in the region.</p>
+<p>• Digital literacy and socio-cultural context: It was warned that merely providing internet access is insufficient without the development of critical citizen thinking to identify misinformation and hate speech. Likewise, the application of uniform moderation policies by platforms was criticized, which often ignore the cultural nuances and indigenous languages of each country, resulting in ineffective or discriminatory actions.</p>
+<p>• The challenge of Generative Artificial Intelligence: Generative AI was classified as a new systemic risk. The urgency of establishing clear ethical and regulatory frameworks to prevent abuses, such as the proliferation of deepfakes, which could undermine human dignity or undermine the integrity of democratic processes, was highlighted.</p>
+<p>The I4T Global Knowledge Network also raised a series of questions on which information was sought in the workshops themselves and through direct conversations. The following was built from the transcripts of the general dynamics of the workshops and other particular conversations and from points/objectives previously set:</p>
+<p>• Impact of UNESCO Guidelines on the region's regulatory frameworks. When evaluating the impact of I4T Guidelines in the region, no direct evidence was found that they have inspired concrete regulatory improvements to date; however, participants described them as a valuable "compass" for the region. In contrast, global European frameworks, such as the Digital Services Act (DSA) and the General Data Protection Regulation (GDPR), have served as inspiration and were frequently cited as the standards to follow. As seen, however, although there is much work to be done in the region, in legislation that does exist, several examples of alignment have been found, the main being the constitutional framework of the different countries.</p>
+<p>• Perception and Implementation Challenges. It is important to note that I4T Guidelines are not rejected by local actors. The real obstacle lies in the challenge of "regional adaptation". The main concern of stakeholders is not the guidelines themselves, but the practical difficulty of applying them in small markets. In these countries, giant technology companies generally do not have physical offices or legal representatives, making it almost impossible to hold them accountable or accountable at the local level.</p>
+<p>• Areas of Opportunity and Identified Gaps. During the sessions and conversations, several gaps were identified that require continued attention from UNESCO: Linguistic and cultural nuances: It was evident that the guidelines need a much deeper approach to indigenous languages and local dialects, contexts in which content moderation by platforms is often non-existent. Agility versus Artificial Intelligence: There is a latent concern that the speed at which Generative AI evolves is rapidly outpacing the responsiveness capacity of current regulatory frameworks.</p>
+<p>Influence of small states: The urgent need to create specific protocols for those countries that, due to their size, lack the individual bargaining power necessary to face large platforms was identified.</p>
+<p>• Expectations towards UN Agencies. Faced with these challenges, stakeholders have very clear expectations about the support they require from UN agencies. First, they request support in regional diplomacy to help small nations form solid blocs that allow them to negotiate together with Big Tech. Second, they require technical assistance to develop specialized monitoring units and digital forensic tracking capacities. Finally, they expect the UN to facilitate effective dialogue spaces, promoting a multi-stakeholder model that manages to bring government, academia and civil society to the same table.</p>
+<div class="table-wrapper">
+<p class="table-caption"><strong>Table 10.</strong> Summary of Findings</p>
+<table class="recommendations-table">
+<tr>
+<th>Specific Question</th>
+<th>Workshop Findings</th>
+</tr>
+<tr>
+<td><strong>Have I4T Guidelines inspired better regulation?</strong></td>
+<td>No direct evidence. The guidelines were described as a compass for the region.</td>
+</tr>
+<tr>
+<td><strong>Have other global frameworks inspired better regulation?</strong></td>
+<td>Yes. The EU Digital Services Act (DSA) and GDPR were frequently cited as standards.</td>
+</tr>
+<tr>
+<td><strong>Are I4T Guidelines rejected? Why?</strong></td>
+<td>No, they are not rejected. However, there is a challenge of "regional adaptation". The main concern is not the guidelines themselves, but the difficulty of applying them to small markets where Big Tech companies have no physical offices or legal representatives to hold accountable.</td>
+</tr>
+<tr>
+<td><strong>Have gaps been identified for the UNESCO Team?</strong></td>
+<td>Yes. Several gaps for continuous improvement were observed:
+        <ol>
+<li><strong>Linguistic and Cultural Nuances:</strong> Guidelines need greater focus on indigenous languages and local dialects where moderation is often non-existent.</li>
+<li><strong>Agility vs. AI:</strong> The speed of Generative AI evolution is rapidly outpacing current frameworks.</li>
+<li><strong>Influence of Small States:</strong> The need for specific protocols for countries lacking individual bargaining power with platforms.</li>
+</ol>
+</td>
+</tr>
+<tr>
+<td><strong>What do stakeholders expect from UN Agencies?</strong></td>
+<td>Stakeholders are seeking:
+        <ol>
+<li><strong>Support in Regional Diplomacy:</strong> Help small nations form blocs to negotiate with Big Tech.</li>
+<li><strong>Technical Assistance:</strong> Expertise for specialized monitoring units and digital forensic tracking.</li>
+<li><strong>Effective Dialogue Spaces:</strong> Facilitate "multi-stakeholder" model where government, academia and civil society collaborate with platforms.</li>
+</ol>
+</td>
+</tr>
+</table>
+<p class="table-source">Source: own elaboration</p>
+</div>
+<p>All the information and opinions collected allow the I4T Global Knowledge Network to identify a list of key points to scale from Central America and the Caribbean, which can help the network focus its collaboration with the region over the coming years:</p>
+<p>• Linguistic Sovereignty: Work to ensure that platforms provide transparency reports specifically for indigenous languages and regional dialects, not just for "Spanish" as a whole. The differences that exist between the different ways of speaking Spanish in the countries of the region must also be taken into account.</p>
+<p>• Regional Negotiation Protocols: Develop a framework for small states to negotiate as a bloc with platforms and that regulatory and governance action is coordinated, ensuring that they are not ignored due to the size of their market.</p>
+<p>• Rapid Response Forensic Analysis: UNESCO could facilitate a "Global Technical Assistance Center" (Helpdesk) or a network of experts that small state electoral authorities can turn to during active electoral cycles to verify AI-generated misinformation.</p>
+<p>• Explore in greater depth the role of banking authorities for Platform Supervision and existing risks: Explore the adoption of a "Banking Superintendency" model for platform governance. This approach leverages the high institutional autonomy and technical expertise of financial regulators to manage platforms as "systemic risks", using proven "Know Your Customer" (KYC) protocols to track financing (misinformation and advertising interference) and explore mechanisms to freeze platform payments.</p>
+<p>The dialogues in Central America and the Caribbean show that there is consensus on the need for a paradigm shift in regulatory change: moving from restrictive content moderation to transparent supervision of the systems, processes and algorithms of digital platforms. While UNESCO I4T Guidelines are valued as an orienting compass, the operational reality shows that small nations lack the individual influence to demand accountability from Big Tech. This vulnerability is exacerbated by systemic threats such as electoral misinformation, the emergence of Generative Artificial Intelligence and the application of global policies that systematically ignore indigenous languages and local cultural nuances.</p>
+<p>To address these structural challenges, the I4T Knowledge Network must focus its collaboration on empowering the region through collective action and institutional innovation. Strategic priorities demand facilitating protocols for countries to negotiate as a unified regional bloc, demanding linguistic sovereignty in transparency reports and deploying specialized technical assistance. Likewise, it is fundamental to capitalize on existing state infrastructure by exploring innovative models, such as the involvement of banking authorities to supervise platforms economically and to identify and address systemic risks.</p></div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<em>UNESCO project funded by the European Union: "Safeguarding Freedom of Expression and Access to Information through the implementation of the UNESCO Guidelines for the Governance of Digital Platforms"</em>
+<br/>
+    Authors: Rodrigo Cetina-Presuel, José Achoy and Priscilla Ruiz
+    <span class="divider">·</span>
+    I4T Global Knowledge Network · UPF Barcelona School of Management · 2026
+  </footer>
+</div>
+<!-- Mobile toggle -->
+<button aria-label="Menu" class="mobile-toggle" id="menuToggle">☰</button>
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.getElementById('menuToggle');
+  toggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && e.target !== toggle) sidebar.classList.remove('open');
+  });
+</script>
+</body>
+</html>

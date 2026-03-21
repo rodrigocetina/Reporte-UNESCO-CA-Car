@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dominican Republic | regulation de digital platforms</title>
+<meta content="The Regulation of Digital Platforms in Mexico, Central America and the Caribbean — Dominican Republic" name="description"/>
+<style>
+:root {
+  --primary: #003875;
+  --primary-light: #005ea6;
+  --accent: #e8c900;
+  --bg: #f5f7fa;
+  --sidebar-bg: #002255;
+  --sidebar-width: 280px;
+  --text: #222;
+  --muted: #666;
+  --border: #d0d7e3;
+  --white: #fff;
+  --max-content: 860px;
+  --font: 'Georgia', 'Times New Roman', serif;
+  --font-ui: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: #cdd6f4;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.sidebar-header {
+  background: #001840;
+  padding: 20px 18px 16px;
+  border-bottom: 3px solid var(--accent);
+}
+
+.sidebar-header .report-title {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+
+.sidebar-header .report-subtitle {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  color: #aabbd4;
+  margin-top: 5px;
+  line-height: 1.3;
+}
+
+.sidebar-header .logos {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.logo-badge {
+  background: var(--accent);
+  color: #001840;
+  font-family: var(--font-ui);
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sidebar-nav {
+  padding: 10px 0 20px;
+}
+
+.sidebar-nav .nav-section-label {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: #7b9dc8;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 14px 18px 4px;
+}
+
+.sidebar-nav a {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 18px;
+  color: #c0d0e8;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 12.5px;
+  line-height: 1.4;
+  transition: background 0.15s, color 0.15s;
+  border-left: 3px solid transparent;
+}
+
+.sidebar-nav a:hover {
+  background: rgba(255,255,255,0.07);
+  color: var(--white);
+  border-left-color: var(--accent);
+}
+
+.sidebar-nav a.active {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  font-weight: 600;
+  border-left-color: var(--accent);
+}
+
+.nav-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── Main content ── */
+.main {
+  margin-left: var(--sidebar-width);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topbar {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+}
+
+
+.breadcrumb {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.breadcrumb a { color: var(--primary-light); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb .sep { color: #bbb; }
+
+.topbar-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+
+.btn-nav {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 5px 14px;
+  border: 1.5px solid var(--primary);
+  border-radius: 4px;
+  transition: background 0.15s, color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-nav:hover { background: var(--primary); color: var(--white); }
+.btn-nav.disabled { opacity: 0.35; pointer-events: none; }
+
+/* ── Content area ── */
+.content-wrap {
+  max-width: var(--max-content);
+  width: 100%;
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+  flex: 1;
+}
+
+.section-banner {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  color: var(--white);
+  border-radius: 8px;
+  padding: 32px 40px;
+  margin-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; right: -20px;
+  width: 140px; height: 140px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 50%;
+}
+
+.section-banner .section-tag {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.section-banner h1 {
+  font-family: var(--font-ui);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--white);
+  margin: 0;
+  border: none;
+  padding: 0;
+  background: none;
+}
+
+/* ── Typography ── */
+.content-body h1 {
+  font-family: var(--font-ui);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 40px 0 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--accent);
+  line-height: 1.4;
+}
+
+.content-body h2 {
+  font-family: var(--font-ui);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 30px 0 10px;
+  line-height: 1.4;
+}
+
+.content-body h3 {
+  font-family: var(--font-ui);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary-light);
+  margin: 22px 0 8px;
+  line-height: 1.4;
+}
+
+.content-body p {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #2a2a2a;
+  margin-bottom: 16px;
+  text-align: justify;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.content-body .footnotes {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.content-body .footnote {
+  font-size: 12px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+/* ── Index page specific ── */
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.index-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+}
+
+.index-card:hover {
+  box-shadow: 0 4px 16px rgba(0,56,117,0.12);
+  transform: translateY(-2px);
+  border-color: var(--primary-light);
+  text-decoration: none;
+}
+
+.card-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.card-content { flex: 1; }
+
+.card-content .card-number {
+  font-family: var(--font-ui);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent);
+  background: var(--primary);
+  padding: 2px 7px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 8px;
+  letter-spacing: 0.05em;
+}
+
+.card-content .card-title {
+  font-family: var(--font-ui);
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.card-content .card-desc {
+  font-family: var(--font-ui);
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* ── Footer ── */
+.footer {
+  background: #001840;
+  color: #7a92b0;
+  font-family: var(--font-ui);
+  font-size: 12px;
+  text-align: center;
+  padding: 20px 40px;
+  line-height: 1.6;
+  margin-top: auto;
+}
+
+.footer a { color: #aabbd4; text-decoration: none; }
+.footer .divider { margin: 0 8px; color: #3a5070; }
+
+/* ── Hamburger for mobile ── */
+.mobile-toggle {
+  display: none;
+  position: fixed;
+  bottom: 20px; right: 20px;
+  z-index: 200;
+  background: var(--primary);
+  color: var(--white);
+  border: none;
+  border-radius: 50%;
+  width: 48px; height: 48px;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 768px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+  .sidebar.open { transform: translateX(0); }
+  .main { margin-left: 0; }
+  .mobile-toggle { display: flex; align-items: center; justify-content: center; }
+  .content-wrap { padding: 32px 20px 60px; }
+  .topbar { padding: 0 20px; }
+  .section-banner { padding: 24px 24px; }
+  .section-banner h1 { font-size: 20px; }
+  .index-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Footnote reference superscripts ── */
+sup.fn-ref {
+  font-size: 0.68em;
+  vertical-align: super;
+  line-height: 0;
+  color: #005ea6;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+/* ── Endnotes section ─────────────────────────────────────── */
+.endnotes-section {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 2px solid #c8d8ea;
+}
+.endnotes-section h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #003875;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+.endnotes-section p.footnote {
+  font-size: 0.78rem;
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 0.45rem;
+  padding-left: 1.6em;
+  text-indent: -1.6em;
+}
+.btn-lang { font-family: var(--font-ui); font-size: 12px; font-weight: 700; color: #fff; background: #1a7a3a; text-decoration: none; padding: 5px 12px; border: 1.5px solid #1a7a3a; border-radius: 4px; transition: background 0.15s, color 0.15s; display: flex; align-items: center; gap: 4px; } .btn-lang:hover { background: #145f2d; border-color: #145f2d; }
+</style>
+</head>
+<body>
+<!-- Sidebar -->
+<nav class="sidebar" id="sidebar">
+<div class="sidebar-header">
+<div class="report-title">The Regulation of Digital Platforms in Mexico, Central America and the Caribbean</div>
+<div class="report-subtitle">From Diagnosis to a Roadmap for Action · 2026</div>
+<div class="logos"><span class="logo-badge">UNESCO</span></div>
+</div>
+<div class="sidebar-nav"><a href="index.html" style="font-weight:700; border-top:1px solid rgba(255,255,255,0.07); padding-top:14px;"><span class="nav-icon">🏠</span> Home</a>
+<a href="cover.html"><span class="nav-icon">📋</span>Credits</a>
+<div class="nav-section-label">Overview</div>
+<a href="resumen.html"><span class="nav-icon">📝</span>Executive Summary</a>
+<a href="introduccion.html"><span class="nav-icon">📖</span>Introduction</a>
+<a href="contexto-regional.html"><span class="nav-icon">🌎</span>Regional Context</a>
+<div class="nav-section-label">Country Analysis</div>
+<a href="costa-rica.html"><span class="nav-icon">🇨🇷</span>Costa Rica</a>
+<a href="el-salvador.html"><span class="nav-icon">🇸🇻</span>El Salvador</a>
+<a href="guatemala.html"><span class="nav-icon">🇬🇹</span>Guatemala</a>
+<a href="honduras.html"><span class="nav-icon">🇭🇳</span>Honduras</a>
+<a href="mexico.html"><span class="nav-icon">🇲🇽</span>Mexico</a>
+<a href="panama.html"><span class="nav-icon">🇵🇦</span>Panama</a>
+<a class="active" href="republica-dominicana.html"><span class="nav-icon">🇩🇴</span>Dominican Republic</a>
+<div class="nav-section-label">Regional Perspective</div>
+<a href="alineamiento-regional.html"><span class="nav-icon">🔗</span>UNESCO Regional Alignment</a>
+<a href="talleres.html"><span class="nav-icon">🎓</span>Workshops in Latin America</a>
+<div class="nav-section-label">Closing</div>
+<a href="conclusiones.html"><span class="nav-icon">✅</span>Conclusions and Recommendations</a>
+<a href="bibliografia.html"><span class="nav-icon">📚</span>Bibliography</a></div>
+</nav>
+<!-- Main -->
+<div class="main">
+<!-- Top bar -->
+<div class="topbar">
+<div class="breadcrumb">
+<a href="index.html">Home</a>
+<span class="sep">/</span>
+<span>Dominican Republic</span>
+</div>
+<div class="topbar-actions">
+<a class="btn-lang" href="../republica-dominicana.html">🇪🇸 Español</a>
+
+<a class="btn-nav" href="panama.html">← Panama</a>
+<a class="btn-nav" href="alineamiento-regional.html">UNESCO Regional Alignment →</a>
+</div>
+</div>
+<!-- Content -->
+<div class="content-wrap">
+<div class="section-banner">
+<div class="section-tag">UNESCO · I4T · UPF Barcelona</div>
+<h1>🇩🇴 Dominican Republic</h1>
+</div>
+<div class="content-body"><h1>9. Country Analysis: Dominican Republic</h1>
+<h2>9.1 Political and Legal System</h2>
+<p>El regulatory framework y político de la Dominican Republic se estructura bajo un sistema de gobierno democrático y presidencialista, cimentado en la división clásica de tres poderes independientes: Ejecutivo, Legislativo y Judicial, los cuales coexisten con diversos órganos constitucionales nacional.<sup class="fn-ref">188</sup> autónomos de control. Todo esto se establece en su Constitution</p>
+<p>El Executive Power está encabezado por la Presidencia de la República y opera a través de una red de ministerios y dependencias gubernamentales. Por su parte, la función legislativa recae en el Congreso Nacional, un órgano de conformación bicameral integrado por el Senate y la Chamber of Deputies, el cual detenta la competencia exclusiva para la iniciativa, debate y aprobación del ordenamiento legal del país.</p>
+<p>En el ámbito de la impartición de justicia y la defensa del Estado de Derecho, el sistema se articula principalmente en torno a la Supreme Court of Justice y el Tribunal Constitucional. Este último, instaurado a partir de la reform constitucional del año 2010, actúa como el máximo intérprete y garante definitivo de la supremacía constitucional. Paralelamente, la titularidad de la acción penal pública y la dirección estratégica de la política criminal recaen sobre la Procuraduría General de la República.</p>
+<p>En materia electoral, la administración y logística de los comicios es responsabilidad de la Junta Central Electoral (JCE), cuyas funciones operativas fueron recientemente afianzadas mediante la entrada en vigor de una nueva law Orgánica del regime Electoral en 2024. A su vez, el escrutinio jurisdiccional y la resolución de controversias en este ámbito corresponden al Tribunal Superior Electoral (TSE), garantizando así un sistema de pesos y contrapesos en el ciclo electoral.</p>
+<p>A level de división territorial, el Estado dominicano se organiza administrativamente en provincias, el Distrito Nacional y demarcaciones municipales —que incluyen los distritos municipales—, operando bajo gobiernos locales integrados por alcaldías y concejos municipales electos mediante sufragio popular directo. No obstante, a pesar de este diseño normativo, el modelo de descentralización formal enfrenta retos operativos y estructurales significativos. Al igual que se observa en otras naciones de la región, la autonomy territorial choca en la práctica con marcadas limitaciones en la capacidad financiera y administrativa de los ayuntamientos para ejercer eficazmente sus competencias y atender las demandas ciudadanas.</p>
+<h2>9.2 Freedom of Expression and Human Rights</h2>
+<p>En el marco constitucional de Dominican Republic se reconoce expresamente la freedom of expression y el access to information como derechos fundamentales, y la norma dispone instrumentos procedimentales para su tutela. En la praxis, sin embargo, el estatus efectivo de estos derechos se pondera mediante la confluencia de factores normativos, institucionales y de contexto: protección de la prensa, independencia de órganos de control y rendición de cuentas del poder public.</p>
+<p>La Dominican Republic presenta un escenario de protección multinivel, sustentado en el article 49 de la Constitution y la law General de Libre access to information Pública (law 200-04).<sup class="fn-ref">189</sup> A diferencia de otros contextos, el Tribunal Constitucional ha desarrollado una jurisprudencia sobre el Habeas Data, permitiendo a los citizens controlar el uso de sus personal data, aunque la aplicación de un derecho al olvido sigue siendo materia de debate doctrinal y jurisprudencial frente al interés public de la información.</p>
+<p>Las mediciones internacionales muestran que Dominican Republic mantiene parámetros relativamente favorables en comparación regional. Los informes independientes como el de Reporteros Sin Fronteras (RSF) sitúa al país en un tramo intermedio-alto del Índice Mundial de press freedom. En este tipo de informes, se ha mencionado el tema de las presiones económicas que presionan sobre el ejercicio del periodismo. Entre 2024-2025 se registró una ligera caída en la puntuación nacional. Sin embargo, para el período 2023-2024, informes de RSF y la society Interamericana de Prensa (SIP) han alertado sobre un deterioro en las garantías para el ejercicio periodístico.<sup class="fn-ref">190</sup> Aunque el país se ha mantenido en posiciones relativamente altas en los índices globales, se han documentado situaciones relacionadas con la digital security de estas personas.</p>
+<p class="data-table-title">Tabla 9. Puntajes y posiciones de Dominican Republic en índices de freedom of expression</p>
+<table class="data-table">
+  <thead><tr>
+    <th>Reporte o índice</th>
+    <th>Calificación</th>
+    <th>Posición</th>
+    <th>Año</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Reporteros Sin Fronteras</td><td>69,87</td><td>43</td><td>2025</td></tr>
+    <tr><td>V-Dem</td><td>0,9</td><td>28</td><td>2024</td></tr>
+  </tbody>
+</table>
+<p class="data-table-source">Fuente: elaboración propia a partir de RSF (2025), V-Dem (2024).</p>
+<p>Organismos de human rights y reportes internacionales coinciden en identificar problemas concretos: algunos eventos de amenaza a periodistas, episodios de interferencia en el access to information y riesgos derivados de la concentración mediática y la fragilidad económica de los medios.</p>
+<p>En el caso de los reportes de Human Rights Watch y el Departamento de Estado de los Estados Unidos, se ha mencionado que podrían estar presentándose algunas restricciones indirectas y sobre determinadas prácticas estatales que pueden reducir el espacio de investigación y crítica.<sup class="fn-ref">191</sup> Asimismo, episodios públicos relevantes (por ejemplo, proyectos legislativos controvertidos y movilizaciones de periodistas en 2025) han reavivado el debate sobre el riesgo de instrumentación regulations que podría implicar censura o control indebido del contenido digital. Estos hechos no implican necesariamente una política de censura generalizada, pero muestran la contingencia de la freedom of expression frente a medidas regulatorias que requieren especial atención.</p>
+<p>Un punto de inflexión reciente fue el hallazgo de Amnistía Internacional, en colaboración con el Laboratorio de Seguridad (Security Lab), que confirmó el uso del software espía Pegasus contra la periodista de investigación Nuria Piera.<sup class="fn-ref">192</sup> Este incidente reveló la vulnerabilidad de las comunicaciones privadas de quienes investigan la corrupción y expuso la falta de controles efectivos sobre los organismos de inteligencia del Estado.</p>
+<p>Asimismo, el clima regulatorio se tensó significativamente con la promulgación de la law 1-24,<sup class="fn-ref">193</sup> que creó la Dirección Nacional de Inteligencia (DNI) a principios de 2024. Tanto la society civil como el Colegio Dominicano de Periodistas (CDP), denunciaron que la ambigüedad de dicha norma podría obligar a periodistas y empresas privadas a entregar información confidencial al Estado sin orden judicial previa, vulnerando el secreto profesional y la protección de fuentes.<sup class="fn-ref">194</sup></p>
+<p>according to el análisis de RSF, la mayoría de los medios de comunicación tradicionales están en manos de pocos grupos empresariales, lo que fomenta la autocensura en temas que podrían afectar los intereses económicos de dichos conglomerados.<sup class="fn-ref">195</sup> A diferencia de la violencia física directa que se observa en otros países de Centroamérica, en Dominican Republic lo que se presentan son situaciones vinculadas con amenazas por litigios civiles y eventos de acoso digital. A diferencia de las conclusiones a las que arriban estos informes sobre otros países centroamericanos, en el caso de Dominican Republic se ha señalado la preocupación por posibles situaciones de vigilancia state digital y el uso de legislación sobre delitos de alta tecnología (law 53-07)<sup class="fn-ref">196</sup> para investigar la crítica en social networks.</p>
+<p>En términos institucionales, la protección de este bloque de derechos depende de varias instancias: el Tribunal Constitucional y la Suprema Corte para la defensa jurisdiccional, la Junta Central Electoral para aspectos relativos a propaganda en procesos comiciales, y entidades administrativas que regulan medios e infraestructura (INDOTEL). Tal como ocurre en otros países centroamericanos, la jurisprudencia constitucional<sup class="fn-ref">197</sup> en materia de access to information y expresión también ha representado una vía jurídica que visibiliza el carácter esencial de estos derechos y que fija límites a actuaciones administrativas.</p>
+<h2>9.3 Digital Environment</h2>
+<p>El entorno digital dominicano ha experimentado un crecimiento sostenido en los últimos años, que se traduce en altas tasas de penetración de internet y en una adopción masiva de social networks. Datos del 2025 muestran que al menos un 90% de la población está conectada a internet, con cifras que en distintos informes se sitúan entre 88,6% a 91% y esto coloca a la Dominican Republic entre los países con mayor conectividad de la región.<sup class="fn-ref">198</sup></p>
+<p>Ese grado de conexión se acompaña de una amplia disponibilidad de suscripciones móviles: las conexiones celulares activas superan el 90% de la población, lo que explica la centralidad del canal móvil en la distribución y consumo de información. Toda esta realidad tiene implicaciones directas para la gobernanza de las digital platforms y la propagación de contenidos (incluido el fenómeno de la misinformation), pues el alto level de penetración implica también un alto grado de susceptibilidad o exposición a trastornos informativos por vías digitales.</p>
+<p>En materia de uso de social networks, los datos de 2025 indican que entre el 60% y el 70% de la población mantiene identidades activas en plataformas sociales, con variaciones por plataforma y edad.<sup class="fn-ref">199</sup></p>
+<p>Desde el punto de vista de la política pública, el crecimiento de la conectividad ha impulsado iniciativas estatales y privadas orientadas a la inclusión digital, pero también plantea retos de infraestructura (calidad y velocidad), alfabetización mediática y regulation de plataformas. La disponibilidad de datos<sup class="fn-ref">200</sup> sugiere que la disponibilidad física de conectividad ya no es la principal limitación; más bien, la atención pareciera ser necesaria en otros factores como la calidad de servicio, acceso asequible, protección de datos y fortalecimiento de capacidades críticas en la citizenship para el abordaje de trastornos informativos.</p>
+<h2>9.4 Digital Platforms Available in the Country</h2>
+<p>El mercado dominicano presenta la disponibilidad habitual de plataformas sociales y servicios digitales que dominan la región: Facebook (y Messenger), Instagram, WhatsApp, YouTube, TikTok y X (anteriormente Twitter), junto con servicios locales de noticias y agregadores. La estructura de uso muestra que las plataformas de Meta (Facebook/Instagram/Messenger/WhatsApp) conservan una posición de liderazgo en alcance y tiempo de uso, con Instagram y Facebook reportando varios millones de users activos y una cobertura publicitaria significativa; YouTube se mantiene como el principal repositorio de contenido audiovisual de largo formato, y TikTok ha aumentado principalmente por el uso en poblaciones jóvenes.</p>
+<p>Desde la dimensión comercial, el ecosistema publicitario digital en Dominican Republic depende en gran medida de la infraestructura global de intermediarios (plataformas que actúan como mercados publicitarios), lo que dificulta la trazabilidad de los gastos políticos y la supervisión fiscal DataReportal<sup class="fn-ref">201</sup> sobre pauta transfronteriza. Los informes de mercado y las fichas técnicas de muestran que existe una concentración de audiencias en unas pocas plataformas.</p>
+<h2>9.5 Contexto legislativo y regulatorio en Dominican Republic</h2>
+<h3>9.5.1 Constitutional Framework</h3>
+<p>Al igual que otros ejemplos del constitucionalismo latinoamericano reciente, el marco constitucional dominicano<sup class="fn-ref">202</sup> establece principios y derechos fundamentales vinculados a la freedom of expression, el access to information pública y el secreto de las comunicaciones.</p>
+<p>El diseño constitucional dominicano otorga un rango jerárquico superior a los tratados internacionales de human rights en el bloque de constitucionalidad (article 74.3), lo que obliga a los poderes públicos a interpretar las leyes nacionales conforme a la Convención Americana y demás instrumentos internacionales. El legislador mantiene la competencia para regular el ejercicio de estos derechos, mientras que el Executive Power, a través del Instituto Dominicano de las telecommunications (Indotel), administra el radio spectrum, el cual es reconocido por el article 14 de la Constitution como un patrimonio inalienable de la Nación.</p>
+
+<p>En lo que respecta a la freedom of expression y de prensa, la Constitution dominicana consagra en su article 49 el derecho fundamental de toda persona a expresar libremente sus pensamientos, ideas y opiniones, por cualquier medio, prohibiendo de manera expresa el establecimiento de cualquier forma de censura previa. Este article desglosa las prerrogativas inherentes a la press freedom y de información: garantiza el derecho de buscar, investigar, recibir y difundir información de carácter public, y asegura a los medios de comunicación el libre acceso a las fuentes noticiosas oficiales y privadas de interés public. Como una salvaguarda vital para el libre ejercicio periodístico, la Constitution dominicana protege de manera explícita el secreto profesional y la cláusula de conciencia del periodista, reconociendo a su vez el derecho a la réplica y rectificación ciudadana.</p><p>Estas libertades, sin embargo, no son absolutas; su ejercicio encuentra límites constitucionales en el respeto al derecho al honor, a la intimidad, a la dignidad y a la moral, con un énfasis particular en la protección de la juventud y la infancia.</p>
+<p>En el ámbito de los derechos digitales, el secreto de las comunicaciones y la privacy, la Constitution de 2010 representa un avance significativo al incorporar un lenguaje tecnológico moderno. El article 44, dedicado al derecho a la intimidad y al honor personal, reconoce formalmente la inviolabilidad de la correspondencia, documentos o mensajes privados expresamente en "formatos físico, digital, electrónico o de todo otro tipo". Asimismo, blinda de manera directa el secreto de la comunicación "electrónica, telemática o la establecida en otro medio", determinando que estas comunicaciones y metadatos solo pueden ser ocupados, interceptados o registrados mediante una orden motivada de authority judicial competente, debiendo siempre preservarse el secreto de lo private que no guarde relación con la investigación.</p>
+<p>A la par de la privacy de las comunicaciones, la Constitution dominicana establece garantías para la protección de datos en la era de la información. El mismo article 44 reconoce el derecho de las personas a acceder a los datos que sobre ellas reposen en registros oficiales o privados, exigiendo que el tratamiento de dicha información personal respete los principios de "calidad, licitud, lealtad, seguridad y finalidad". Esta protección se materializa procesalmente a través de la garantía de Habeas data (article 70), facultando a la citizenship a conocer sus datos y a exigir la suspensión, rectificación, actualización y confidencialidad de los mismos en caso de que exista falsedad o discriminación.</p><p>Resulta especialmente relevante el blindaje cruzado a favor de la prensa en este ámbito: al instituir el recurso de Hábeas data, la Constitution establece una prohibición categórica al señalar que "No podrá afectarse el secreto de las fuentes de información periodística", logrando así una convivencia equilibrada entre la protección de la privacy en el entorno digital y el resguardo indispensable para el periodismo de investigación.</p>
+<p>Adicionalmente, el texto constitucional no se limita a la protección pasiva de estos derechos, sino que impone obligaciones activas al Estado para democratizar la esfera pública y el entorno informacional. El numeral 5 del article 49 exige que la law garantice un "acceso equitativo y plural de todos los sectores sociales y políticos a los medios de comunicación propiedad del Estado". Esta visión integradora se refuerza en el article 63, relativo al derecho a la educación, donde se impone a los medios de comunicación la responsabilidad de contribuir a la formación ciudadana y se subraya que el Estado debe garantizar servicios públicos de radio, televisión y "redes de bibliotecas y de informática", con el propósito explícito de permitir el "acceso universal a la información".</p>
+<p>Sin embargo, el ejercicio de la freedom of expression —y por extensión, el de la prensa y la actividad cívica en entornos digitales— cuenta con una limitación extraordinaria dictada por la propia Constitution de la Dominican Republic: el article 266 autoriza la suspensión temporal del derecho a la freedom of expression y de la inviolabilidad de la correspondencia y comunicaciones durante la declaratoria de los Estados de Conmoción Interior y de Emergencia. Esta suspensión, no obstante, procura mantener un piso de garantías, ya que los estados de excepción deben ser debidamente motivados, autorizados por el Congreso Nacional, y los actos adoptados durante los mismos quedan expresamente sometidos al control constitucional.</p>
+
+<h3>9.5.2 Legislation on Telecommunications y Medios</h3>
+<p>El legal framework dominicano para las telecommunications se sustenta principalmente en la law General de telecommunications (153-98), que establece disposiciones específicas sobre la prestación de radioeléctrico.<sup class="fn-ref">203</sup> servicios y la gestión del espectro Esta regulations creó el Instituto Dominicano de las telecommunications (Indotel) como el ente regulator state, dotado de autonomy funcional, jurisdiccional y financiera. El Indotel tiene competencias para regular el mercado, velar por el servicio universal, administrar el espectro y dirimir conflictos entre prestadoras de servicios. A diferencia de un enfoque puramente técnico, el Indotel también ha asumido roles en la definición de estrategias de ciberseguridad y agenda digital nacional.</p>
+<p>Pensamiento<sup class="fn-ref">204</sup>, La law No. 6132 de Expresión y Difusión del promulgada en 1962 tiene implicaciones específicas para el ejercicio periodístico en el país. Aunque esta law prohíbe la censura previa y establece un regime de libertades formales, lo cual se corresponde con las previsiones constitucionales, ha sido objeto de críticas por mantener sanciones penales para los llamados delitos de palabra (difamación e injuria). No obstante, el Tribunal Constitucional ha emitido sentencias que anulan ciertos artículos de esta law que imponían penas de prisión por difamación contra funcionarios crítico.<sup class="fn-ref">205</sup> públicos, fortaleciendo así la protección del discurso Esto demuestra que la jurisprudencia ha cumplido adecuadamente con su rol de control, asegurando que las disposiciones legales no contravengan el orden constitucional ni se extralimiten de tal manera que los derechos y libertades se vean afectados.</p>
+<p>En el ámbito de la digital security y la protección de los users en línea, la Dominican Republic Tecnología.<sup class="fn-ref">206</sup> cuenta con la law No. 53-07 sobre Crímenes y Delitos de Alta Esta legislación tiene como objeto principal la protección integral de los sistemas de información y la sanción de delitos informáticos, cibernéticos y de telecommunications. La norma tipifica y castiga severamente conductas como el acceso ilícito a sistemas, el sabotaje, la alteración de datos y la interceptación o espionaje de comunicaciones sin la debida autorización previa de un juez competente. Para hacer efectiva su aplicación y persecución, la law dispuso la creación de dependencias especializadas, tales como el Departamento de Investigación de Crímenes y Delitos de Alta Tecnología (DICAT) dentro de la Policía Nacional, y la División de Investigaciones de Delitos Informáticos (DIDI) adscrita al Departamento Nacional de Investigaciones.</p>
+<p>Otro pilar fundamental del regulatory framework es la law No. 172-13 sobre Protección de personal data,207 la cual garantiza el respeto a la intimidad y al honor de las personas frente al tratamiento de sus informaciones en archivos o bases de datos públicos y privados. Esta law reglamenta procesalmente el ejercicio de la acción de Habeas Data, otorgando a los citizens el derecho inalienable de acceder, rectificar, actualizar o cancelar sus personal data en caso de error o inexactitud. Además, establece un estricto control operativo sobre las Sociedades de Información Crediticia (SIC) y prohíbe terminantemente la recopilación de "datos sensibles" —como opiniones políticas, convicciones religiosas, estado de salud o preferencias sexuales— sin el consentimiento libre, expreso y por escrito del titular de la información.</p>
+
+<p>Finalmente, de manera reciente, y como se mencionó antes, en el país se aprobó la law 1-24, que creó la Dirección Nacional de Inteligencia (DNI). Esta norma ha sido fuertemente cuestionada por diversos sectores de la society civil y la prensa por contener disposiciones que, en su redacción original, podrían obligar a la entrega de información privada sin la necesidad de una orden judicial privacy.<sup class="fn-ref">208</sup> previa, afectando potencialmente al secreto de las comunicaciones y las garantías a la</p>
+<p>En complemento a la tipificación de los delitos informáticos, la Dominican Republic ha desarrollado políticas públicas orientadas a la prevención y gestión de riesgos en el ciberespacio. La Estrategia 2030209 Nacional de Ciberseguridad establece los objetivos estratégicos para proteger las infraestructuras críticas nacionales, fomentar una cultura y educación nacional de ciberseguridad, y desarrollar el legal framework e institucional en esta materia. Como parte de esta evolución regulations sectorial, el INDOTEL emitió la Resolución núm. 126-2021, la cual dicta el Reglamento de internet.<sup class="fn-ref">210</sup> Ciberseguridad para la Prestación del Servicio de Acceso a Esta resolución impone obligaciones esenciales a las prestadoras de servicios públicos para salvaguardar la integridad de las redes y proteger a los users frente a vulnerabilidades y amenazas digitales.</p>
+<p>Paralelamente, el país ha impulsado la modernización de sus infraestructuras comerciales y judiciales para adaptarlas al ecosistema digital. La law No. 126-02 sobre Comercio Electrónico, Digitales<sup class="fn-ref">211</sup> Documentos y Firmas sentó las bases tempranas para otorgar validez jurídica y fuerza probatoria a las transacciones electrónicas, democratizando el acceso a los mercados globales y revolucionando la forma en que la society dominicana produce y resguarda la información.</p>
+<p>El Estado dominicano ha comenzado a trazar directrices normativas para la adopción de herramientas de frontera. Mediante el decree 498-23, el Executive Power promulgó la Estrategia (ENIA),<sup class="fn-ref">212</sup> Nacional de Inteligencia Artificial con el propósito de democratizar el uso de las TIC, aumentar la competitividad del sector productivo y modernizar el Estado bajo la coordinación del Gabinete de Innovación y Desarrollo Digital.</p>
+<h3>9.5.3 regulation específica sobre plataformas y/o regulation de contenidos</h3>
+<p>Al igual que otros países de la Región, en el caso de la Dominican Republic no se cuenta actualmente con una law vigente y específica que regule a las digital platforms de social networks bajo la figura de intermediarios de internet, ni que establezca un regime de responsabilidad limitada similar a la Sección 230 de EE. UU. o la law de Servicios Digitales (DSA) europea.</p>
+<p>En el ámbito fiscal, la Dirección General de Impuestos Internos (DGII) implementó la Norma General 07-2023, que establece el mecanismo para la recaudación del Impuesto sobre la Transferencia de Bienes Industrializados y Servicios (ITBIS) a los servicios digitales prestados desde el exterior (como Netflix o Spotify), aunque esto es netamente tributario y no implica una regulation sobre la ofrecen.<sup class="fn-ref">213</sup> moderación de los contenidos que estas plataformas</p>
+<p>Ante este vacío regulatorio sectorial, el control de los discursos en el entorno digital se realiza de Tecnología.<sup class="fn-ref">214</sup> facto a través de la law No. 53-07 sobre Crímenes y Delitos de Alta Esta regulations traslada las responsabilidades penales tradicionales al ciberespacio, tipificando de manera directa los "delitos de contenido". Por ejemplo, los artículos 21 y 22 sancionan la difamación y la injuria pública cometidas a través de medios electrónicos, informáticos o telemáticos con penas de prisión y multas. Asimismo, castiga severamente la difusión de pornografía infantil (Art. 24) y el comercio ilícito de bienes y servicios por internet (Art. 20). Aunque esta law no regula directamente a las empresas tecnológicas como intermediarias, sí les impone obligaciones de colaboración; por ejemplo, exige a los proveedores de servicios conservar los datos de tráfico y conexión de los users por un período mínimo de 90 días para facilitar investigaciones penales (Art. 56).</p>
+<p>Para subsanar este rezago y establecer un marco de gobernanza moderno, actualmente se debate Audiovisuales,<sup class="fn-ref">215</sup> en el país el Proyecto de law Orgánica de freedom of expression y Medios el cual dedica un capítulo íntegro (Capítulo IV) a la regulation de las "Plataformas de Contenidos en internet" además de establecer como objetivo específico el garantizar el acceso universal a internet. Hasta enero de 2026, dicho Proyecto de law Orgánica no había obtenido un reporte favorable del Senate.</p><p>Esta propuesta, aplicable a social networks y buscadores comerciales cuya comunidad supere el 10% de los users de internet en el país (excluyendo servicios de mensajería privada que moderen contenidos), exige que las normas comunitarias de estas empresas sean compatibles con los estándares internacionales de human rights. Introduce obligaciones robustas de transparency activa, obligando a las plataformas a publicar sus términos de servicio de manera clara en español, a transparentar el funcionamiento de sus algoritmos de recomendación, y a ofrecer informes semestrales detallados sobre las restricciones o remociones de contenido que ejecuten.</p>
+<p>El proyecto de law establece garantías de due process para los users frente a la moderación algorítmica. La iniciativa propone que las personas afectadas por la suspensión de sus cuentas o la eliminación de sus publicaciones sean notificadas de manera previa, brindándoles razones detalladas y un mecanismo de apelación rápido, accesible y gratuito. Además, en su article 24, define un regime de responsabilidad civil condicionada para los intermediarios (similar al modelo de "puerto seguro"), estableciendo que las plataformas solo serán responsables por los daños resultantes de publicaciones de terceros si, tras recibir una orden judicial específica, omiten tomar las medidas necesarias para inhabilitar dicho contenido (Art. 24).</p><p>Sin embargo, existen vacíos evidentes. No se hace referencia alguna a la content moderation automatizada o a la inteligencia artificial en general y no contiene regulations suficientemente desarrollada sobre microsegmentación o el uso de bots, lo que no será suficiente para reforzar la regulation electoral población.<sup class="fn-ref">216</sup> del país. Tampoco se incluyen o impulsan iniciativas de alfabetización mediática entre la</p>
+<p>Y aunque la propuesta legislativa busca la modernización de la legislación en la era digital, también contiene disposiciones relativas a la labor periodística, buscando protegerla ante la censura previa. La propuesta busca blindar el ejercicio del periodismo mediante la protección absoluta del secreto profesional y la incorporación de la cláusula de conciencia para los comunicadores, pero no ha estado exenta de críticas, ante preocupaciones de que también pueda servir para criminalizar la labor periodística. Una lectura de sus artículos 16 a 18 pone de manifiesto que podría criminalizar la práctica del seudónimo y que puede terminar por dar preeminencia al derecho al honor de las figuras públicas incluso por encima del derecho de la society a estar debidamente informada, lo que puede menoscabar la labor periodística por el medio a represalias.</p>
+<p>Otra innovación destacada es la creación del Instituto Nacional de Comunicación (INACOM), un órgano regulator descentralizado y con autonomy funcional que sustituiría a la antigua commission Nacional de Espectáculos Públicos y Radiofonía y que tendría poderes para supervisar la accesibilidad y promover la cultura local. Pero una de las mayores críticas pone el foco en la concentración de poder técnico y sancionador excesivo del INACOM pues se considera que no tiene adecuados.<sup class="fn-ref">217</sup> los contrapesos externos</p>
+<h3>9.5.4 Legislation on Data Protection and Privacy</h3>
+<p>La Dominican Republic cuenta con una regulations legal específica en esta materia: la law No. 172- Personal.<sup class="fn-ref">218</sup> 13 sobre Protección de Datos de Carácter Esta legislación tiene por objeto principal la protección integral de los personal data asentados en archivos, registros públicos o bancos de datos, sean estos de titularidad pública o privada, con el firme propósito de garantizar el derecho al honor y a la intimidad. La norma materializa operativamente el ejercicio de la acción constitucional de Habeas Data, otorgando a los citizens herramientas legales directas para conocer la existencia de sus datos y exigir la rectificación, actualización, supresión o bloqueo de informaciones que resulten inexactas, erróneas, discriminatorias o que hayan sido recopiladas de manera ilícita.</p>
+<p>El tratamiento de la información bajo este legal framework debe regirse por un catálogo de principios rectores ineludibles, tales como la calidad de los datos, la licitud, la lealtad, la seguridad y la limitación de la finalidad; asegurando que la información recolectada no sea utilizada para propósitos distintos a los que motivaron su obtención original. Uno de los pilares de la law es la exigencia del consentimiento libre, expreso y consciente del titular para el tratamiento y cesión de sus datos, salvo excepciones muy específicas contempladas para fuentes de acceso public o fines de seguridad nacional.</p>
+<p>La law establece un regime de protección reforzada para los denominados "datos sensibles" — aquellos que revelan origen racial, opiniones políticas, convicciones religiosas, afiliación sindical, así como información sobre la salud y la vida sexual—, prohibiendo categóricamente la formación de archivos que los almacenen sin el consentimiento explícito y por escrito de la persona física. La legislación también aborda el movimiento transfronterizo de información, permitiendo la transferencia internacional de datos solo cuando se cuente con la autorización del usuario o bajo supuestos legales estrictos, como la cooperación judicial y la ejecución de tratados internacionales.</p>
+<p>A pesar de la consagración de este amplio abanico de derechos, en la práctica, el diseño de la law 172-13 presenta un enfoque marcadamente inclinado hacia la regulation del sector financiero y los historiales de crédito. Una gran parte de su articulado está destinado a dictar las reglas de operación de las Sociedades de Información Crediticia (SIC) o burós de crédito. Para asegurar el cumplimiento en este sector específico, la law otorga facultades de inspección, vigilancia y sanción administrativa a la Superintendencia de Bancos, consolidando a esta entidad como el órgano de control exclusivo para los bancos de datos destinados a proveer informes crediticios.</p>
+<p>Quizá por este enfoque tan especializado, la Dominican Republic carece de una authority de control independiente y de competencia general en materia de protección de datos, como lo sería una Agencia Nacional de Protección de Datos. Al recaer la supervisión administrativa únicamente en la Superintendencia de Bancos para asuntos crediticios, la tutela de los derechos frente a abusos cometidos por digital platforms, social networks, empresas de telecommunications o aplicaciones móviles queda en un vacío administrativo.</p>
+<p>En consecuencia, para defenderse ante la recopilación abusiva, el perfilamiento algorítmico o la comercialización no autorizada de su información por parte de las grandes tecnológicas, el ciudadano común se ve obligado a judicializar su reclamo a través del Habeas Data ante los tribunales civiles de primera instancia. Esta ausencia de una vía institucional ágil, preventiva y especializada genera barreras de acceso a la justicia y puede limitar la capacidad del Estado dominicano para auditar o sancionar de oficio el tratamiento masivo de datos en entornos digitales.</p>
+<h3>9.5.5 regulation específica de protección de colectivos vulnerables</h3>
+<p>La protección de grupos vulnerables en el ecosistema digital dominicano no cuenta con un legal framework unificado, sino que se encuentra dispersa en una amalgama regulations que los operadores de justicia deben integrar para responder a los desafíos actuales.</p>
+<p>La norma rectora en materia de infancia es la law No. 136-03, que crea el Código para el Sistema Adolescentes.<sup class="fn-ref">219</sup> de Protección y los Derechos Fundamentales de Niños, Niñas y Su article 26 establece el derecho absoluto a la protección de la imagen y la intimidad, prohibiendo terminantemente la difusión de cualquier dato, información o imagen que pueda afectar el desarrollo integral de los menores o exponerlos al escarnio public. Si bien esta disposición es plenamente aplicable a los medios digitales y social networks, su mecanismo de ejecución está pensado para medios tradicionales, careciendo de herramientas ágiles para exigir a las plataformas internacionales la remoción inmediata de contenido lesivo. Instituciones como el Consejo Nacional para la Niñez y la Adolescencia (CONANI) y la Dirección Nacional de Niños, Niñas, Adolescentes y Familias (DINNAF) juegan un rol activo en el monitoreo, aunque su capacidad de respuesta se ve limitada por la velocidad de propagación en el entorno digital.</p>
+<p>En lo que respecta a la violencia de género, existe una brecha significativa entre el legal framework Intrafamiliar,<sup class="fn-ref">220</sup> vigente y la realidad virtual. La law 24-97 sobre Violencia promulgada antes del auge de las social networks, no tipifica la digital violence. Ante este vacío, los fiscales y jueces recurren, de Tecnología<sup class="fn-ref">221</sup> manera supletoria, a la law 53-07 sobre Crímenes y Delitos de Alta para perseguir conductas graves como el chantaje sexual, la extorsión o la difusión no consentida de imágenes íntimas. Sin embargo, este abordaje técnico a menudo invisibiliza el componente de género de la agresión, tratando estos actos como delitos contra el honor o infracciones informáticas genéricas.</p>
+<p>Otra capa de protección fundamental para grupos en situación de vulnerabilidad proviene de la law Personales.<sup class="fn-ref">222</sup> No. 172-13 sobre Protección de Datos Esta norma ofrece un resguardo crucial contra la discriminación digital al definir y proteger con mayor rigor los "datos sensibles". La law prohíbe el tratamiento, sin consentimiento expreso y escrito, de información que revele el origen racial o étnico, las opiniones políticas, las convicciones religiosas o filosóficas, la pertenencia a sindicatos, así como los datos relativos a la salud o a la vida sexual de las personas. Esta disposición es vital para proteger a minorías y colectivos estigmatizados frente a la creación de perfiles discriminatorios o la exposición indebida en digital platforms y bases de datos, si bien como hemos dicho, la law tiene un foco específico en temas financieros, un ámbito en donde ciertamente puede existir la discriminación, pero también vuelve a poner de manifiesto que sería mejor tener una law con un foco más amplio.</p>
+<p>A pesar de estas herramientas legales, el Estado dominicano reconoce la insuficiencia del marco Mujer<sup class="fn-ref">223</sup> actual para ejercer una tutela preventiva y eficaz. El Ministerio de la ha impulsado la mujeres.<sup class="fn-ref">224</sup> necesidad de reformas, incluyendo un proyecto de law de violencia contra las Iniciativas Penal,<sup class="fn-ref">225</sup> como la reform al Código que tipifica de manera autónoma delitos como el ciberacoso y la digital violence de género han salido adelante. Sin duda estas reformas son avances relevantes para dotar al sistema de justicia de tipos penales claros que reconozcan la gravedad de las agresiones virtuales y establezcan mecanismos de protección expeditos para las víctimas a través de un marco Mujer<sup class="fn-ref">226</sup> más robusto y preventivo. Sin embargo, para el propio Ministerio de la y para las organizaciones internacionales, estas reformas son todavía insuficientes para garantizar niñas.<sup class="fn-ref">227</sup> adecuadamente los derechos de las mujeres y</p>
+<h3>9.5.6 regulation Electoral Digital</h3>
+<p>La regulations que rige los procesos democráticos en la Dominican Republic se fundamenta en la 20-23)<sup class="fn-ref">228</sup> law Orgánica del regime Electoral (law núm. y la law de Partidos, Agrupaciones y 33-18).<sup class="fn-ref">229</sup> Movimientos Políticos (law núm. Este andamiaje jurídico otorga a la Junta Central Electoral (JCE) la máxima authority para organizar y supervisar los comicios, dotándola de la potestad rectora para reglamentar los tiempos de campaña, administrar el uso de los medios de comunicación y garantizar principios constitucionales como la equidad y la transparency de la contienda.</p>
+
+<p>La irrupción de las social networks como principal escenario del debate public ha generado tensiones entre el control electoral y los derechos fundamentales. La authority electoral hace esfuerzos administrativos para preservar las reglas del juego. A través de proclamas oficiales, la JCE insta a las organizaciones políticas y a la citizenship a respetar el silencio o "veda electoral" en todos los espacios de difusión, extendiendo este llamado de manera expresa al entorno digital. La aplicación coercitiva de estas medidas en el ciberespacio globalizado resulta sumamente compleja a level operativo.</p>
+<p>Originalmente, además, la law 33-18 intentó establecer un férreo control sobre internet penalizando la difusión de "fake news" o "mensajes negativos" contra candidatos. Sin embargo, mediante la TC/0092/19230, sentencia el Tribunal Constitucional desmanteló dichos artículos por violar la freedom of expression, dictaminando que la crítica política en social networks goza de una protección reforzada y prohibiendo que el Estado actúe como censor del discurso bajo justificaciones electorales. Esto es una prueba más de que el control constitucional dominicano ha funcionado ahí donde la legislación se ha extralimitado.</p>
+<p>Finalmente, el mayor desafío para el sistema electoral dominicano en la actualidad radica en la fiscalización del financiamiento político en el entorno web. En los entornos online, la propaganda ha migrado hacia la publicidad digital hiper-personalizada y micro segmentada. Si bien los partidos tienen la obligación de reportar gastos de campaña, la capacidad técnica de la JCE fue diseñada para auditar medios tradicionales y aún es limitada para monitorear la pauta digital en tiempo real. Tal asimetría hace muy difícil rastrear el origen de los fondos y controlar la proliferación de campaigns encubiertas en internet.</p>
+<h2>9.6 Alineamiento con las Directrices UNESCO: Dominican Republic</h2>
+<p>El análisis del marco normativo e institucional de la Dominican Republic, a la luz de las Directrices de la UNESCO para la gobernanza de digital platforms, revela un escenario de contrastes: un diseño constitucional garantista que convive con vacíos regulatorios sectoriales y desafíos prácticos en el ecosistema digital.</p>
+<p>En su base, el país exhibe una sólida alineación conceptual con los estándares internacionales de human rights. La Constitution no solo prohíbe la censura previa y consagra el derecho a la réplica, sino que dota de rango constitucional a la protección de datos mediante la figura del hábeas data y eleva los tratados internacionales al bloque de constitucionalidad. Este robusto marco ha permitido que el Tribunal Constitucional actúe como un contrapeso efectivo; muestra de ello es la ya mencionada sentencia TC/0092/19, que desmanteló los intentos legislativos de penalizar las “fake news” o los “mensajes negativos” durante las campaigns electorales, sentando el precedente de que la crítica política en social networks goza de una protección reforzada frente a las tentaciones censoras del Estado.</p>
+<p>Sin embargo, en lo que respecta a la regulation específica de los intermediarios de internet, el país carece actualmente de un modelo de gobernanza sistémico. Al no existir un regime de responsabilidad limitada tipo “puerto seguro”, el control de los discursos en línea recae de facto en la law No. 53-07 sobre Crímenes y Delitos de Alta Tecnología. La dependencia del derecho penal para abordar los “delitos de contenido” (como la difamación electrónica) plantea riesgos de desproporcionalidad y asimetría frente a los lineamientos de la UNESCO, los cuales promueven un enfoque civil y preventivo antes que punitivo.</p>
+
+<p>En un intento por subsanar este rezago, el Estado dominicano ha sometido a debate un Proyecto de law Orgánica de freedom of expression y Medios Audiovisuales, el cual incorpora exigencias que se alinean con lo que proponen las directrices UNESCO. La propuesta exige a las grandes plataformas adaptar sus normas comunitarias a los human rights, transparentar algoritmos de recomendación, emitir informes semestrales de moderación y establecer canales de apelación rápidos y gratuitos, instituyendo además un esquema de responsabilidad condicionada.</p>
+<p>No obstante, el proyecto presenta omisiones y riesgos críticos: no aborda la moderación automatizada, la inteligencia artificial, los ejércitos de bots ni la microsegmentación, elementos esenciales para proteger la integridad electoral en un entorno donde la authority (la JCE) ya reconoce limitaciones técnicas para auditar las pautas digitales. Además, la intención de criminalizar el uso de seudónimos en el proyecto choca frontalmente con la protección del anonimato en línea, un pilar defendido internacionalmente para resguardar a voces críticas y disidentes y que entra en tensión directa con la voluntad de las Directrices de proponer un marco de regulation robusta de los human rights. En cualquier caso, hasta enero de 2026, el proyecto de law aún no obtenía un informe favorable del Senate nacional, por lo que su tramitación no ha seguido adelante.</p>
+<p>Finalmente, el diseño institucional y la protección de poblaciones vulnerables evidencian una fragmentación que dificulta la aplicación de la debida diligencia. Aunque leyes como la de Protección de personal data (law 172-13) blindan el tratamiento de "datos sensibles" (como la orientación sexual o la afiliación política), la ausencia de una authority Nacional de Protección de Datos independiente obliga a los citizens a judicializar cualquier abuso cometido por las grandes tecnológicas, erigiendo enormes barreras de acceso a la justicia.</p>
+<p>De igual forma, la protección de niños, niñas y mujeres frente al ciberacoso y la digital violence carece de mecanismos ágiles para exigir la remoción inmediata de contenidos lesivos a las plataformas, obligando a los operadores de justicia a forzar la aplicación de leyes analógicas o delitos informáticos genéricos que terminan invisibilizando la gravedad de estas agresiones. Esta dispersión, sumada a la propuesta de concentrar poderes sancionadores en un posible nuevo Instituto Nacional de Comunicación (INACOM), according to aparece en la mencionada law Orgánica de freedom of expression y Medios Audiovisuales sin contrapesos claros, subraya el reto dominicano de transitar hacia un ecosistema digital que no solo conecte a su población, sino que la proteja estructuralmente bajo un enfoque en donde se incorporen todos los stakeholders relevantes.</p><div class="endnotes-section"><h3>Notes</h3><p class="footnote">188 Dominican Republic. (2015, 13 de junio). Constitution de la Dominican Republic. Proclamada el 13 de junio de 2015. Gaceta Oficial N.º 10,805.</p><p class="footnote">189 Dominican Republic. (2004, 28 de julio). law General de Libre access to information Pública (law N.º 200-04). Gaceta Oficial N.º 10,290. 190 Reporteros Sin Fronteras, Clasificación Mundial de la press freedom 2024: Dominican Republic (París: RSF, 2024), https://rsf.org/es/pais/republica-dominicana. 191 Reporteros Sin Fronteras. (2025). Clasificación Mundial de la press freedom 2025: Dominican Republic. https://rsf.org/en/index 192 Amnistía Internacional. (2023, 2 de mayo). Dominican Republic: El descubrimiento del software espía Pegasus en el teléfono de una destacada periodista debe dar lugar a una investigación imparcial.https://www.amnesty.org/es/latest/news/2023/05/dominican-republic-discovery-of-pegasus-spyware- on-prominent-journalists-phone/.</p><p class="footnote">193 Dominican Republic. (2024, 15 de enero). law N.º 1-24 que crea la Dirección Nacional de Inteligencia (DNI) y el Sistema Nacional de Inteligencia (SNI). Gaceta Oficial N.º 11,156. 194 society Interamericana de Prensa. (2024, abril). Informe de Dominican Republic ante la Reunión de Medio Año. https://www.sipiapa.org/notas/1216584-republica-dominicana.</p><p class="footnote">195 Reporteros Sin Fronteras. (2023). Dominican Republic: Contexto Económico. En Clasificación Mundial de la press freedom 2023., https://rsf.org/es/pais/republica-dominicana.</p><p class="footnote">196 Dominican Republic. (2007, 23 de abril). law N.º 53-07 sobre Crímenes y Delitos de Alta Tecnología. Gaceta Oficial N.º 10,416.</p><p class="footnote">197 Tribunal Constitucional de la Dominican Republic. (2012, 22 de octubre). Sentencia TC/0042/12. Tribunal Constitucional de la Dominican Republic. (2016, 19 de febrero). Sentencia TC/0075/16. Tribunal Constitucional de la Dominican Republic. (2020, 19 de mayo). Sentencia TC/0175/20. Tribunal Constitucional de la Dominican Republic. (2022, 18 de julio). Sentencia TC/0249/22.</p><p class="footnote">198 Kepios / DataReportal, Digital 2025: The Dominican Republic (estadísticas de penetración y conexiones móviles). https://datareportal.com/reports/digital-2025-dominican-republic</p><p class="footnote">199 Kepios / DataReportal, Digital 2025: The Dominican Republic (estadísticas de penetración y conexiones móviles). https://datareportal.com/reports/digital-2025-dominican-republic 200 Kepios / DataReportal, Digital 2025: The Dominican Republic (estadísticas de penetración y conexiones móviles). https://datareportal.com/reports/digital-2025-dominican-republic Republic (véanse actualizaciones y cifras sobre penetración de internet, users de social networks y conexiones móviles), 201 Kepios / DataReportal, Digital 2025: The Dominican Republic (estadísticas de penetración y conexiones móviles). https://datareportal.com/reports/digital-2025-dominican-republic (véanse actualizaciones y cifras sobre penetración de internet, users de social networks y conexiones móviles),</p><p class="footnote">202 Dominican Republic. (2015, 13 de junio). Constitution de la Dominican Republic. Proclamada el 13 de junio de 2015. Gaceta Oficial N.º 10,805.</p><p class="footnote">203 Dominican Republic. (1998, 27 de mayo). law General de telecommunications (law N.º 153-98). Gaceta Oficial N.º 9,983. Art. 1.</p><p class="footnote">204 Dominican Republic. (1962, 15 de diciembre). law N.º 6132 sobre Expresión y Difusión del Pensamiento. Gaceta Oficial N.º 8,725.</p><p class="footnote">205 Tribunal Constitucional de la Dominican Republic. (2016, 19 de febrero). Sentencia TC/0075/16. — declaró inconstitucional los artículos 30, 31, 34, 37, 46, 47 y 48 de la law 6132, los cuales contemplaban penas privativas de libertad por difamación o injuria contra funcionarios públicos y por responsabilidad penal de medios y periodistas.</p><p class="footnote">206 Dominican Republic. (2007, 23 de abril). law N.º 53-07 sobre Crímenes y Delitos de Alta Tecnología. Gaceta Oficial N.º 10,416. 207 Dominican Republic. (2013, 15 de diciembre). law N.º 172-13 que tiene por objeto la protección integral de los personal data asentados en archivos, registros públicos, bancos de datos u otros medios técnicos de tratamiento de datos, destinados a dar informes. Gaceta Oficial N.º 10,737. https://dgii.gov.do/transparency/marcoLegal/Leyes/Ley172-13.pdf</p><p class="footnote">208 society Interamericana de Prensa. (2024, abril). Informe de Dominican Republic ante la Reunión de Medio Año. https://www.sipiapa.org/notas/1216584-republica-dominicana.., https://www.sipiapa.org/.</p><p class="footnote">209 Dominican Republic. (2022, 14 de junio). decree N.º 313-22 que aprueba la Estrategia Nacional de Ciberseguridad 2030. Gaceta Oficial N.º 11,069. https://cncs.gob.do/wp-content/uploads/2022/07/decree-313- 22.pdf</p><p class="footnote">210 Instituto Dominicano de las telecommunications. (2021, 14 de diciembre). Resolución núm. 126-2021 que dicta el Reglamento de Ciberseguridad para la Prestación del Servicio de Acceso a internet. https://drive.google.com/open?id=1oXwB-XYxmBSEfKNMco27-BOxb6HaGe3q</p><p class="footnote">211 Dominican Republic. (2002, 4 de septiembre). law N.º 126-02 sobre Comercio Electrónico, Documentos y Firmas Digitales. Gaceta Oficial N.º 10,172. https://indotel.gob.do/transparency/marco-legal/law-126-02/</p><p class="footnote">212 Dominican Republic. (2023, 11 de octubre). decree N.º 498-23 que declara de interés nacional la adopción y aplicación de la Inteligencia Artificial en la Dominican Republic y aprueba la Estrategia Nacional de Inteligencia Artificial (ENIA). Gaceta Oficial N.º 11,109. https://ogtic.gob.do/wp- content/uploads/2023/10/decree-498-23.pdf</p><p class="footnote">213 Dirección General de Impuestos Internos. (2023, 17 de agosto). Norma General N.º 07-2023 sobre el Registro y Administración de Proveedores de Servicios Digitales. https://dgii.gov.do/legislacion/normasGenerales/Documents/2023/Norma-07-23.pdf</p><p class="footnote">214 Dominican Republic. (2007, 23 de abril). law N.º 53-07 sobre Crímenes y Delitos de Alta Tecnología. Gaceta Oficial N.º 10,416. https://dgii.gov.do/transparency/marcoLegal/Leyes/Ley53-07.pdf</p><p class="footnote">215 Dominican Republic. (2024). Proyecto de law Orgánica de freedom of expression y Medios Audiovisuales. Consultoría Jurídica del Executive Power. https://www.consultoria.gov.do/Documents/GetDocument?reference=a89391e1-c92d-4389-b673- 81dd9e04ae69</p><p class="footnote">216 Cámara de Tecnologías de la Información y Comunicación (CAESCO). (2025, 6 de mayo). Informe preliminar sobre el proyecto de law Orgánica de freedom of expression y Medios Audiovisuales de la Dominican Republic. https://caesco.org/wp-content/uploads/2025/05/Informe-preliminar-sobre-el-Proyecto-de-law- Libertad-de-Expresion.pdf</p><p class="footnote">217 Cámara de Tecnologías de la Información y Comunicación (CAESCO). (2025, 6 de mayo). Informe preliminar sobre el proyecto de law Orgánica de freedom of expression y Medios Audiovisuales de la Dominican Republic. https://caesco.org/wp-content/uploads/2025/05/Informe-preliminar-sobre-el-Proyecto-de-law- Libertad-de-Expresion.pdf</p><p class="footnote">218 Congreso Dominican Republic. (2013, 15 de diciembre). law N.º 172-13 que tiene por objeto la protección integral de los personal data asentados en archivos, registros públicos, bancos de datos u otros medios técnicos de tratamiento de datos, destinados a dar informes. Gaceta Oficial N.º 10,737. https://dgii.gov.do/transparency/marcoLegal/Leyes/Ley172-13.pdf</p><p class="footnote">219 Dominican Republic. (2003, 7 de agosto). law N.º 136-03 que crea el Código para el Sistema de Protección y los Derechos Fundamentales de Niños, Niñas y Adolescentes. Gaceta Oficial N.º 10,234. https://www.poderjudicial.gob.do/wp-content/uploads/2021/01/Ley_136-03.pdf</p><p class="footnote">220 Dominican Republic. (1997, 27 de enero). law N.º 24-97 que introduce modificaciones al Código Penal, al Código de Procedimiento Criminal y al Código para la Protección de Niños, Niñas y Adolescentes. Gaceta Oficial N.º 9,945. https://www.oas.org/dil/esp/Ley_24-97_Republica_Dominicana.pdf</p><p class="footnote">221 Dominican Republic. (2007, 23 de abril). law N.º 53-07 sobre Crímenes y Delitos de Alta Tecnología. Gaceta Oficial N.º 10,416. https://dgii.gov.do/transparency/marcoLegal/Leyes/Ley53-07.pdf</p><p class="footnote">222 Congreso Dominican Republic. (2013, 15 de diciembre). law N.º 172-13 que tiene por objeto la protección integral de los personal data asentados en archivos, registros públicos, bancos de datos u otros medios técnicos de tratamiento de datos, destinados a dar informes. Gaceta Oficial N.º 10,737. https://dgii.gov.do/transparency/marcoLegal/Leyes/Ley172-13.pdf</p><p class="footnote">223 Ministerio de la Mujer de la Dominican Republic. (2024). Innovación en las propuestas de law para la erradicación de la violencia de género. https://mujer.gob.do/index.php/noticias/itemlist/tag/law%20Integral%20de%20Violencia</p><p class="footnote">224 Ministerio de la Mujer de la Dominican Republic. (2022, 12 de diciembre). Executive Power deposita proyectos de law Integral de Violencia contra las Mujeres y reform de law de Tráfico y Trata de Personas. https://mujer.gob.do/index.php/noticias/item/1055-poder-ejecutivo-deposita-proyectos-de-law-integral-de- violencia-contra-las-mujeres-y-reform-de-law-de-trafico-y-trata-de-personas</p><p class="footnote">225 Dominican Republic. (2025, 15 de agosto). law N.º 74-25 que establece el Código Penal de la Dominican Republic. Gaceta Oficial N.º 11,124. https://revistamercado.do/wp-content/uploads/2025/08/law- Nu%CC%81m.-74-25-Co%CC%81digo-Penal-RD.pdf</p><p class="footnote">226 Ministerio de la Mujer de la Dominican Republic. (2024, 11 de julio). Ministerio de la Mujer reitera reform del Código Penal vulnera los human rights de las mujeres. https://mujer.gob.do/index.php/noticias/item/1397-ministerio-de-la-mujer-reitera-reform-del-codigo-penal- vulnera-los-derechos-humanos-de-las-mujeres</p><p class="footnote">227 Amnistía Internacional. (2025, 14 de agosto). Dominican Republic: Nuevo Código Penal no garantiza los derechos de las mujeres y niñas. https://www.amnesty.org/es/latest/news/2025/08/republica-dominicana- nuevo-codigo-penal-no-garantiza-los-derechos-de-las-mujeres-y-ninas/</p><p class="footnote">228 Dominican Republic. (2023, 17 de febrero). law N.º 20-23 Orgánica del regime Electoral. Gaceta Oficial N.º 11,092. https://jce.gob.do/DesktopModules/Bring2mind/DMX/API/Entries/Download?EntryId=31481</p><p class="footnote">229 Dominican Republic. (2018, 13 de agosto). law N.º 33-18 de Partidos, Agrupaciones y Movimientos Políticos. Gaceta Oficial N.º 10,917. https://jce.gob.do/DesktopModules/Bring2mind/DMX/API/Entries/Download?EntryId=23405</p><p class="footnote">230 Tribunal Constitucional de la Dominican Republic. (2019, 21 de mayo). Sentencia TC/0092/19. Acción directa de inconstitucionalidad contra el article 44, numeral 6, de la law núm. 33-18, de Partidos, Agrupaciones y Movimientos Políticos. https://tribunalsg.gob.do/mantenimiento/sentencias/TC-0092-19.pdf</p></div></div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<em>UNESCO project funded by the European Union: "Safeguarding Freedom of Expression and Access to Information through the implementation of the UNESCO Guidelines for the Governance of Digital Platforms"</em>
+<br/>
+    Authors: Rodrigo Cetina-Presuel, José Achoy and Priscilla Ruiz
+    <span class="divider">·</span>
+    I4T Global Knowledge Network · UPF Barcelona School of Management · 2026
+  </footer>
+</div>
+<!-- Mobile toggle -->
+<button aria-label="Menu" class="mobile-toggle" id="menuToggle">☰</button>
+<script>
+  const sidebar = document.getElementById('sidebar');
+  const toggle = document.getElementById('menuToggle');
+  toggle.addEventListener('click', () => sidebar.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!sidebar.contains(e.target) && e.target !== toggle) sidebar.classList.remove('open');
+  });
+</script>
+</body>
+</html>

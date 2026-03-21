@@ -146,15 +146,18 @@ body {
   background: var(--white);
   border-bottom: 1px solid var(--border);
   padding: 0 40px;
-  height: 52px;
+  min-height: 52px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 50;
   box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
 }
+
 
 .breadcrumb {
   font-family: var(--font-ui);
@@ -172,7 +175,9 @@ body {
 .topbar-actions {
   display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
+
 
 .btn-nav {
   font-family: var(--font-ui);
@@ -278,6 +283,7 @@ body {
   color: #2a2a2a;
   margin-bottom: 16px;
   text-align: justify;
+  -webkit-hyphens: auto;
   hyphens: auto;
 }
 
@@ -446,6 +452,8 @@ sup.fn-ref {
 .bar-fill  { background: #003875; height: 100%; border-radius: 2px; }
 .bar-value { width: 52px; min-width: 52px; font-size: 0.85rem; color: #333; padding-left: 0.5rem; }
 .chart-source { font-size: 0.8rem; color: #555; margin-top: 0.6rem; }
+.btn-lang { font-family: var(--font-ui); font-size: 12px; font-weight: 700; color: #fff; background: #1a5a9a; text-decoration: none; padding: 5px 12px; border: 1.5px solid #1a5a9a; border-radius: 4px; transition: background 0.15s, color 0.15s; display: flex; align-items: center; gap: 4px; }
+.btn-lang:hover { background: #134278; border-color: #134278; }
 </style>
 </head>
 <body>
@@ -487,6 +495,7 @@ sup.fn-ref {
 <span>Contexto Regional</span>
 </div>
 <div class="topbar-actions">
+<a class="btn-lang" href="en/contexto-regional.html">🇬🇧 English</a>
 <a class="btn-nav" href="introduccion.html">← Introducción</a>
 <a class="btn-nav" href="costa-rica.html">Costa Rica →</a>
 </div>
