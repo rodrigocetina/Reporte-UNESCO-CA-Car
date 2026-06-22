@@ -227,6 +227,25 @@ body {
   flex: 1;
 }
 
+.home-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 28px;
+  margin-bottom: 32px;
+}
+.home-logos a { display: inline-flex; align-items: center; }
+.home-logo { height: 50px; width: auto; object-fit: contain; }
+@media (max-width: 640px) {
+  .home-logos { gap: 1.4rem; padding: 14px 16px; }
+  .home-logo { height: 36px; }
+}
+
 .section-banner {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
   color: var(--white);
@@ -511,8 +530,14 @@ sup.fn-ref {
 <div class="topbar-actions"><a class="btn-nav" href="resumen.html">Executive Summary →</a><a class="btn-lang" href="../index.html">Español</a></div>
 </div>
 <div class="content-wrap">
+<div class="home-logos">
+<a href="https://www.unesco.org/en" target="_blank" rel="noopener" title="UNESCO"><img alt="UNESCO" class="home-logo" src="../UNESCO.png"/></a>
+<a href="https://www.i4tknowledge.org/" target="_blank" rel="noopener" title="I4T Global Knowledge Network"><img alt="I4T Global Knowledge Network" class="home-logo" src="../I4T.png"/></a>
+<a href="https://www.bsm.upf.edu/" target="_blank" rel="noopener" title="UPF Barcelona School of Management"><img alt="UPF Barcelona School of Management" class="home-logo" src="../UPF.png"/></a>
+<a href="https://european-union.europa.eu/" target="_blank" rel="noopener" title="Funded by the European Union"><img alt="Funded by the European Union" class="home-logo" src="../EU-funded.svg"/></a>
+</div>
 <div class="section-banner" style="background: linear-gradient(135deg, #001840 0%, #003875 60%, #005ea6 100%);">
-<div class="section-tag">UNESCO · I4T · UPF Barcelona · 2026</div>
+<div class="section-tag">2026</div>
 <h1>🌎 The Regulation of Digital Platforms</h1>
 <p style="color:rgba(255,255,255,0.75); font-family:var(--font-ui); font-size:14px; margin-top:6px; position:relative; z-index:1; line-height:1.5;">
         Mexico, Central America and the Caribbean — From Diagnosis to a Roadmap for Action
