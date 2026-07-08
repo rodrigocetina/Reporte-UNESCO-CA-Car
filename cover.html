@@ -457,6 +457,28 @@ sup.fn-ref {
   width: auto;
   object-fit: contain;
 }
+.global-partners-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.2rem 2rem;
+  align-items: center;
+  justify-items: center;
+  background: #fff;
+  padding: 1rem 0;
+}
+.global-partner-logo {
+  max-height: 90px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+@media (max-width: 768px) {
+  .global-partners-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+  .global-partners-grid { grid-template-columns: 1fr; }
+}
 
 /* ── Credits meta row ─────────────────────────────────────── */
 .credits-meta {
@@ -557,19 +579,30 @@ sup.fn-ref {
 <a href="https://www.linkedin.com/in/priscilla-ruiz-tech-lawyer/" target="_blank" rel="noopener">Priscilla Ruiz</a>, <a href="https://www.linkedin.com/company/p-ia-alianza-en-derecho-digital-y-econom%C3%ADa-de-la-innovaci%C3%B3n/?viewAsMember=true" target="_blank" rel="noopener">P-IA: Alianza en Derecho Digital y Economía de la Innovación</a></p>
 <p><strong>Colaboradores:</strong> Daniel Nuñez, Andrés Rincón y Alberto Saldaña</p>
 <div class="partners-block">
-<p class="partners-label">Partners:</p>
+<p class="partners-label">Socios:</p>
 <div class="partners-logos">
-<a href="https://www.unesco.org/en" target="_blank" rel="noopener" title="UNESCO"><img alt="UNESCO" class="partner-logo" src="UNESCO.png"/></a>
-<a href="https://www.i4tknowledge.org/" target="_blank" rel="noopener" title="I4T Global Knowledge Network"><img alt="I4T Global Knowledge Network" class="partner-logo" src="I4T.png"/></a>
 <a href="https://www.bsm.upf.edu/" target="_blank" rel="noopener" title="UPF Barcelona School of Management"><img alt="UPF Barcelona School of Management" class="partner-logo" src="UPF.png"/></a>
-<a href="https://european-union.europa.eu/" target="_blank" rel="noopener" title="Funded by the European Union"><img alt="Funded by the European Union" class="partner-logo partner-logo--eu" src="EU-funded.svg"/></a>
+<a href="https://www.i4tknowledge.org/" target="_blank" rel="noopener" title="I4T Global Knowledge Network"><img alt="I4T Global Knowledge Network" class="partner-logo" src="I4T.png"/></a>
 </div>
 </div>
 
 <div class="partners-block">
-<p class="partners-label partners-label--sm">Global and Regional Partners:</p>
+<p class="partners-label">Proyecto apoyado por:</p>
 <div class="partners-logos">
-<img alt="Global and Regional Partners" class="partner-logo partner-logo--wide" src="Global and regional.png"/>
+<a href="https://www.unesco.org/es" target="_blank" rel="noopener" title="UNESCO"><img alt="UNESCO" class="partner-logo" src="UNESCO.png"/></a>
+<a href="https://european-union.europa.eu/" target="_blank" rel="noopener" title="Financiado por la Unión Europea"><img alt="Financiado por la Unión Europea" class="partner-logo partner-logo--eu" src="EU-funded.svg"/></a>
+</div>
+</div>
+
+<div class="partners-block">
+<p class="partners-label partners-label--sm">Socios Globales y Regionales:</p>
+<div class="global-partners-grid">
+<img alt="Universidad Complutense de Madrid" class="global-partner-logo" src="complutense.png"/>
+<img alt="Red Mundial de Justicia Electoral" class="global-partner-logo" src="red-mundial-justicia-electoral.png"/>
+<img alt="IFED - Tribunal Supremo de Elecciones (Costa Rica)" class="global-partner-logo" src="ifed.png"/>
+<img alt="INED - Instituto de Estudios Democráticos" class="global-partner-logo" src="ined.png"/>
+<img alt="LIDIA IIJ" class="global-partner-logo" src="lidia-iij.png"/>
+<img alt="Universidad Católica Santo Domingo (UCSD)" class="global-partner-logo" src="ucsd.png"/>
 </div>
 </div>
 </div>
