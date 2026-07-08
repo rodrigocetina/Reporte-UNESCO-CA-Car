@@ -210,19 +210,29 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2.5rem;
-  flex-wrap: wrap;
+  gap: 0.8rem;
+  flex-wrap: nowrap;
   background: #fff;
   border: 1px solid var(--border);
   border-radius: 8px;
-  padding: 20px 28px;
+  padding: 16px 20px;
   margin-bottom: 32px;
 }
-.home-logos a { display: inline-flex; align-items: center; }
-.home-logo { height: 50px; width: auto; object-fit: contain; }
+.home-logos a { display: inline-flex; align-items: center; flex-shrink: 0; }
+.home-logo { height: 30px; width: auto; object-fit: contain; }
+.home-logos-caption {
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: 11px;
+  color: #1a1a1a;
+  margin: 0;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
 @media (max-width: 640px) {
-  .home-logos { gap: 1.4rem; padding: 14px 16px; }
-  .home-logo { height: 36px; }
+  .home-logos { gap: 0.4rem; padding: 10px 10px; flex-wrap: wrap; justify-content: center; }
+  .home-logo { height: 20px; }
+  .home-logos-caption { font-size: 8px; }
 }
 
 .section-banner {
@@ -513,10 +523,11 @@ sup.fn-ref {
 </div>
 <div class="content-wrap">
 <div class="home-logos">
-<a href="https://www.unesco.org/en" target="_blank" rel="noopener" title="UNESCO"><img alt="UNESCO" class="home-logo" src="UNESCO.png"/></a>
-<a href="https://www.i4tknowledge.org/" target="_blank" rel="noopener" title="I4T Global Knowledge Network"><img alt="I4T Global Knowledge Network" class="home-logo" src="I4T.png"/></a>
-<a href="https://www.bsm.upf.edu/" target="_blank" rel="noopener" title="UPF Barcelona School of Management"><img alt="UPF Barcelona School of Management" class="home-logo" src="UPF.png"/></a>
-<a href="https://european-union.europa.eu/" target="_blank" rel="noopener" title="Funded by the European Union"><img alt="Funded by the European Union" class="home-logo" src="EU-funded.svg"/></a>
+<a href="https://www.bsm.upf.edu/" target="_blank" rel="noopener" title="UPF Barcelona School of Management"><img alt="UPF Barcelona School of Management" class="home-logo" src="UPF-trimmed.png"/></a>
+<a href="https://www.i4tknowledge.org/" target="_blank" rel="noopener" title="I4T Global Knowledge Network"><img alt="I4T Global Knowledge Network" class="home-logo" src="I4T-trimmed.png"/></a>
+<span class="home-logos-caption">Proyecto apoyado por:</span>
+<a href="https://www.unesco.org/es" target="_blank" rel="noopener" title="UNESCO"><img alt="UNESCO" class="home-logo" src="UNESCO.png"/></a>
+<a href="https://european-union.europa.eu/" target="_blank" rel="noopener" title="Financiado por la Unión Europea"><img alt="Financiado por la Unión Europea" class="home-logo" src="EU-funded.svg"/></a>
 </div>
 <div class="section-banner" style="background: linear-gradient(135deg, #001840 0%, #003875 60%, #005ea6 100%);">
 <div class="section-tag">2026</div>
